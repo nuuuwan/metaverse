@@ -10,3 +10,4 @@
   * Added vax centers
   * Added Popups
   * Pre-Merge
+  * Minor changes

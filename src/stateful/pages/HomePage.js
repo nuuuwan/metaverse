@@ -16,10 +16,15 @@ function renderLayer(layer) {
         <Circle center={position} radius={DEFAULT_CIRLE_RADIUS}>
           <Popup>
             <h3>{layerItem.center}</h3>
+            <h3>{layerItem.center_si}</h3>
+            <h3>{layerItem.center_ta}</h3>
+
             <div>{layerItem.formatted_address}</div>
-            <div>...</div>
-            <div><strong>{`${layerItem.police} `}</strong>Police Area</div>
-            <div><strong>{`${layerItem.district} `}</strong>District</div>
+            <div>{layerItem.formatted_address_si}</div>
+            <div>{layerItem.formatted_address_ta}</div>
+
+            <hr/>
+            <div>{layerItem.police} Police Area, {layerItem.district} District</div>
           </Popup>
         </Circle>
       );
