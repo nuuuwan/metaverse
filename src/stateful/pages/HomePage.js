@@ -1,4 +1,7 @@
+import react, {Component} from 'react';
 import {MapContainer, TileLayer} from 'react-leaflet';
+
+import './HomePage.css';
 
 export default class HomePage extends Component {
   render() {
