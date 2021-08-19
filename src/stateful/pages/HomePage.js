@@ -1,17 +1,40 @@
 import react, {Component} from 'react';
-import {MapContainer, TileLayer} from 'react-leaflet';
+import GeoMap from '../molecules/GeoMap.js';
+import LKVaxCenters from '../../core/custom_data/LKVaxCenters.js';
+import {Marker} from 'react-leaflet';
 
-import './HomePage.css';
+function renderLayer(layer) {
+  return layer.map(
+    function(layerItem) {
+      const position = [
+          parseFloat(layerItem.lat),
+          parseFloat(layerItem.lng),
+      ];
+      return <Marker position={position} />;
+    }
+  )
+}
 
 export default class HomePage extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {customerLayers: []};
+  }
+
+  async componentDidMount() {
+    const lkVaxCenters = await LKVaxCenters.get();
+    this.setState({customerLayers: [lkVaxCenters]});
+  }
+
   render() {
-    const [lat, lng] = [6.9271, 79.8612];
-    const zoom = 16;
+    console.log(this.state);
+    const renderedLayers = this.state.customerLayers.map(renderLayer)
 
     return (
-      <MapContainer center={[lat, lng]} zoom={zoom}>
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      </MapContainer>
+      <GeoMap>
+        {renderedLayers}
+      </GeoMap>
     );
   }
 }
