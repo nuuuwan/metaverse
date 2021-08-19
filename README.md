@@ -12,3 +12,4 @@
   * Pre-Merge
   * Minor changes
   * Added workflows
+  * npm install --save leaflet
