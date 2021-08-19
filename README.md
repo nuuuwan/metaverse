@@ -4,3 +4,4 @@
   * Updated REACT_APP_NAME
   * Basic Map
   * Added MapContainer
+  * Updated README
