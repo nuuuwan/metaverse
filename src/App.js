@@ -1,5 +1,7 @@
 import './App.css';
 
+import HomePage from './stateful/pages/HomePage.js';
+
 function App() {
   return (
     <div className="App">
