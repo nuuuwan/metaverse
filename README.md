@@ -8,3 +8,4 @@
 * [2021-08-19 03:21PM] Implement Points
   * Updated README
   * Added vax centers
+  * Added Popups

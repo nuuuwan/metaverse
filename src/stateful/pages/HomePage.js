@@ -1,7 +1,9 @@
 import react, {Component} from 'react';
 import GeoMap from '../molecules/GeoMap.js';
 import LKVaxCenters from '../../core/custom_data/LKVaxCenters.js';
-import {Marker} from 'react-leaflet';
+import {Circle, Popup} from 'react-leaflet';
+
+const DEFAULT_CIRLE_RADIUS = 200;
 
 function renderLayer(layer) {
   return layer.map(
@@ -10,7 +12,17 @@ function renderLayer(layer) {
           parseFloat(layerItem.lat),
           parseFloat(layerItem.lng),
       ];
-      return <Marker position={position} />;
+      return (
+        <Circle center={position} radius={DEFAULT_CIRLE_RADIUS}>
+          <Popup>
+            <h3>{layerItem.center}</h3>
+            <div>{layerItem.formatted_address}</div>
+            <div>...</div>
+            <div><strong>{`${layerItem.police} `}</strong>Police Area</div>
+            <div><strong>{`${layerItem.district} `}</strong>District</div>
+          </Popup>
+        </Circle>
+      );
     }
   )
 }
