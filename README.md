@@ -1,4 +1,4 @@
-# React App by nuuuwan
+# MetaVerse by nuuuwan
 
-[App Home](https://nuuuwan.github.io/nuwan_org)
-  * Updated README.md
+[App Home](https://nuuuwan.github.io/metaverse)
+  * Updated REACT_APP_NAME
