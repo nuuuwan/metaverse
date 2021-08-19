@@ -13,3 +13,4 @@
   * Minor changes
   * Added workflows
   * npm install --save leaflet
+  * Fixed lint and test errors

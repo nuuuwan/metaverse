@@ -1,4 +1,4 @@
-import react, {Component} from 'react';
+import {Component} from 'react';
 import GeoMap from '../molecules/GeoMap.js';
 import LKVaxCenters from '../../core/custom_data/LKVaxCenters.js';
 import {Circle, Popup} from 'react-leaflet';
@@ -49,9 +49,11 @@ export default class HomePage extends Component {
     const renderedLayers = this.state.customerLayers.map(renderLayer)
 
     return (
-      <GeoMap>
-        {renderedLayers}
-      </GeoMap>
+      <>
+        <GeoMap>
+          {renderedLayers}
+        </GeoMap>
+      </>
     );
   }
 }

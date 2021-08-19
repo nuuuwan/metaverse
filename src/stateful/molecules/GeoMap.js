@@ -1,5 +1,5 @@
-import react, {Component} from 'react';
-import {MapContainer, TileLayer, Marker} from 'react-leaflet';
+import {Component} from 'react';
+import {MapContainer, TileLayer} from 'react-leaflet';
 
 import './GeoMap.css';
 
