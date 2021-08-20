@@ -5,7 +5,7 @@ export default class WWW {
 
     const content = await response.text();
     const lines = content.split('\n');
-    const keys = lines[0].split('\t');
+    const keys = lines[0].split('\t').map(key => key.replace('\r', ''));
     const dataList = lines.slice(1, -1).map(
       function(line) {
         const values = line.split('\t');
