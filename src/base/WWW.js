@@ -1,7 +1,15 @@
 import Cache from './Cache.js';
 
+const JSON_HEADERS = {
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+};
+
 async function jsonNonCache(url) {
-  const response = await fetch(url);
+  
+  const response = await fetch(url, JSON_HEADERS);
   const dataJson = await response.json();
   return dataJson;
 }
@@ -9,7 +17,7 @@ async function jsonNonCache(url) {
 export default class WWW {
   static async json(url) {
     return Cache.get(
-      `WWW.json.v2.${url}`,
+      `WWW.json.v3.${url}`,
       async function() {
         return jsonNonCache(url);
       },
@@ -33,8 +41,6 @@ export default class WWW {
         )
       }
     );
-
-    console.debug(`Read ${dataList.length} rows from ${url}`);
     return dataList;
   }
 }

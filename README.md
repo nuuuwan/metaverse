@@ -18,3 +18,4 @@
   * Fixed NaN bug
   * Added Cache, GeoData
   * Added data + various
+  * Added public/data/ents

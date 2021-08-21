@@ -34,15 +34,13 @@ function isPointInMultiMultiPolygon(point, multiMultiPolygon) {
 
 export default class GeoData {
   static async getGeoForRegion(regionType, regionID) {
-      const url = `https://raw.githubusercontent.com`
-        + `/nuuuwan/metaverse-data/main/geo/`
+      const url = `data/geo/`
         + `${regionType}/${regionID}.json`
       return await WWW.json(url);
   }
 
   static async getRegionTree() {
-      const url = `https://raw.githubusercontent.com`
-        + `/nuuuwan/metaverse-data/main/geo/`
+      const url = `data/geo/`
         + `region_tree.json`
       return await WWW.json(url);
   }

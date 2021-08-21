@@ -74,7 +74,7 @@ export default class HomePage extends Component {
   }
 
   async componentDidMount() {
-    console.debug('HomePage.componentDidMount')
+
     const lkVaxCenters = await LKVaxCenters.get();
     this.setState({
       customerLayers: [lkVaxCenters],
@@ -83,17 +83,17 @@ export default class HomePage extends Component {
 
 
   render() {
-    console.debug('HomePage.render');
+
     const {customerLayers, center, regions} = this.state;
     const renderedLayers = customerLayers.map(renderLayer)
 
     const onMoveEnd = async function(e) {
-      console.debug('onMoveEnd');
+
       const mapCenter = e.target.getCenter();
       const newCenter = roundLatLng([mapCenter.lat, mapCenter.lng]);
 
       const onRegionsUpdate = function(regions) {
-        console.debug('onRegionsUpdate', regions);
+
         this.setState({regions: regions});
       }.bind(this);
       const regions = await GeoData.getRegionsForPoint(
