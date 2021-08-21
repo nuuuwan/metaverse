@@ -1,18 +1,33 @@
 import {Component} from 'react';
-import {MapContainer, TileLayer} from 'react-leaflet';
+import {MapContainer, TileLayer, useMapEvents} from 'react-leaflet';
 
 import './GeoMap.css';
 
-const DEFAULT_CENTER = [6.9271, 79.8612];
 const DEFAULT_ZOOM = 16;
 const URL_FORMAT = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+
+function EventComponent(props) {
+  const map = useMapEvents({
+    click: () => {
+      map.locate()
+    },
+    locationfound: (location) => {
+      console.log('location found:', location)
+    },
+    moveend: (e) => {
+      props.onMoveEnd(e);
+    },
+  });
+  return null;
+}
 
 export default class GeoMap extends Component {
   render() {
     return (
-      <MapContainer center={DEFAULT_CENTER} zoom={DEFAULT_ZOOM}>
-        <TileLayer url={URL_FORMAT} />
+      <MapContainer center={this.props.center} zoom={DEFAULT_ZOOM} >
+        <TileLayer url={URL_FORMAT}/>
         {this.props.children}
+        <EventComponent onMoveEnd={this.props.onMoveEnd}/>
       </MapContainer>
     );
   }

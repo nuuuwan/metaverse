@@ -1,7 +1,7 @@
 import WWW from './WWW.js';
 
 function isPointInPolygon(point, polygon) {
-  const [x, y] = point;
+  const [y, x] = point;
   let nIntersects = 0;
   for (let i in polygon) {
     const j = (i - 1 + polygon.length) % polygon.length;
@@ -52,7 +52,7 @@ export default class GeoData {
     return isPointInMultiMultiPolygon(point, multiPolygon);
   }
 
-  static async getRegionsForPoint(point) {
+  static async getRegionsForPoint(point, onRegionsUpdate) {
     let regionTree = await GeoData.getRegionTree();
     const regionTypes = ['province', 'district', 'dsd', 'gnd'];
 
@@ -61,7 +61,7 @@ export default class GeoData {
     for (let iRegionType in regionTypes) {
       const regionType = regionTypes[iRegionType];
       const regionIDs = Object.keys(regionTree);
-
+      let isFoundRegion = false;
       for (let iRegion in regionIDs) {
         const regionID = regionIDs[iRegion];
         const _isPointInRegion = await GeoData.isPointInRegion(
@@ -72,12 +72,21 @@ export default class GeoData {
         if (_isPointInRegion) {
           regionMap[regionType] = regionID;
           regionTree = regionTree[regionID];
+          isFoundRegion = true;
+          onRegionsUpdate(regionMap);
           break;
         }
       }
+      if (!isFoundRegion) {
+        return regionMap;
+      }
     }
-
     return regionMap;
   }
 
+}
+
+export function roundLatLng(latLng) {
+  const Q = 100;
+  return latLng.map(x => Math.round(parseFloat(x) * Q) / Q);
 }

@@ -2,13 +2,20 @@ import {Component} from 'react';
 import {Circle, Popup} from 'react-leaflet';
 
 import LKVaxCenters from '../../core/custom_data/LKVaxCenters.js';
-import GeoData from '../../base/GeoData.js';
+import GeoData, {roundLatLng} from '../../base/GeoData.js';
 
 import GeoMap from '../molecules/GeoMap.js';
 
-
-
+const DEFAULT_CENTER = [6.9271, 79.8612];
 const DEFAULT_CIRLE_RADIUS = 500;
+const STYLE_DIV_TITLE = {
+  zIndex: 10000,
+  position: 'absolute',
+  top: 12,
+  left: 60,
+  background: 'rgba(224, 224, 224, 0.0)',
+  padding: 12,
+}
 
 function renderLayer(layer) {
   return layer.map(
@@ -59,30 +66,56 @@ export default class HomePage extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {customerLayers: []};
+    this.state = {
+      customerLayers: [],
+      center: DEFAULT_CENTER,
+      regions: undefined,
+    };
   }
 
   async componentDidMount() {
+    console.debug('HomePage.componentDidMount')
     const lkVaxCenters = await LKVaxCenters.get();
-    console.debug(
-      await GeoData.isPointInRegion(
-        [80.6413, 7.2936],
-        'province',
-        'LK-3',
-      ),
-      await GeoData.getRegionsForPoint(
-        [80.6413, 7.2936],
-      ),
-    )
-    this.setState({customerLayers: [lkVaxCenters]});
+    this.setState({
+      customerLayers: [lkVaxCenters],
+    });
   }
 
+
   render() {
-    const renderedLayers = this.state.customerLayers.map(renderLayer)
+    console.debug('HomePage.render');
+    const {customerLayers, center, regions} = this.state;
+    const renderedLayers = customerLayers.map(renderLayer)
+
+    const onMoveEnd = async function(e) {
+      console.debug('onMoveEnd');
+      const mapCenter = e.target.getCenter();
+      const newCenter = roundLatLng([mapCenter.lat, mapCenter.lng]);
+
+      const onRegionsUpdate = function(regions) {
+        console.debug('onRegionsUpdate', regions);
+        this.setState({regions: regions});
+      }.bind(this);
+      const regions = await GeoData.getRegionsForPoint(
+        newCenter,
+        onRegionsUpdate,
+      );
+      this.setState({
+          center: newCenter,
+      });
+    }.bind(this)
+
+    let renderedRegions = 'Searching...';
+    if (regions) {
+      renderedRegions = regions.gnd || regions.dsd || regions.district || regions.provice || 'Searching...';
+    }
 
     return (
       <>
-        <GeoMap>
+        <div style={STYLE_DIV_TITLE}>
+          <h1>{renderedRegions}</h1>
+        </div>
+        <GeoMap center={center} onMoveEnd={onMoveEnd}>
           {renderedLayers}
         </GeoMap>
       </>

@@ -17,3 +17,4 @@
   * Fix fail
   * Fixed NaN bug
   * Added Cache, GeoData
+  * Added data + various
