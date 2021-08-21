@@ -1,0 +1,83 @@
+import WWW from './WWW.js';
+
+function isPointInPolygon(point, polygon) {
+  const [x, y] = point;
+  let nIntersects = 0;
+  for (let i in polygon) {
+    const j = (i - 1 + polygon.length) % polygon.length;
+
+    const [xi, yi] = polygon[i];
+    const  [xj, yj] = polygon[j];
+
+    const intersect = ((yi > y) !== (yj > y))
+        && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+    if (intersect) {
+      nIntersects += 1;
+    }
+
+  }
+  return ((nIntersects % 2) === 1);
+}
+
+function isPointInMultiMultiPolygon(point, multiMultiPolygon) {
+  for (let i in multiMultiPolygon) {
+    const multiPolygon = multiMultiPolygon[i];
+    for (let j in multiPolygon) {
+      const polygon = multiPolygon[j];
+      if (isPointInPolygon(point, polygon)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+export default class GeoData {
+  static async getGeoForRegion(regionType, regionID) {
+      const url = `https://raw.githubusercontent.com`
+        + `/nuuuwan/metaverse-data/main/geo/`
+        + `${regionType}/${regionID}.json`
+      return await WWW.json(url);
+  }
+
+  static async getRegionTree() {
+      const url = `https://raw.githubusercontent.com`
+        + `/nuuuwan/metaverse-data/main/geo/`
+        + `region_tree.json`
+      return await WWW.json(url);
+  }
+
+  static async isPointInRegion(point, regionType, regionID) {
+    const multiPolygon = await GeoData.getGeoForRegion(regionType, regionID);
+    return isPointInMultiMultiPolygon(point, multiPolygon);
+  }
+
+  static async getRegionsForPoint(point) {
+    let regionTree = await GeoData.getRegionTree();
+    const regionTypes = ['province', 'district', 'dsd', 'gnd'];
+
+    let regionMap = {};
+
+    for (let iRegionType in regionTypes) {
+      const regionType = regionTypes[iRegionType];
+      const regionIDs = Object.keys(regionTree);
+
+      for (let iRegion in regionIDs) {
+        const regionID = regionIDs[iRegion];
+        const _isPointInRegion = await GeoData.isPointInRegion(
+            point,
+            regionType,
+            regionID,
+        );
+        if (_isPointInRegion) {
+          regionMap[regionType] = regionID;
+          regionTree = regionTree[regionID];
+          break;
+        }
+      }
+    }
+
+    return regionMap;
+  }
+
+}

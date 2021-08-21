@@ -16,3 +16,4 @@
   * Fixed lint and test errors
   * Fix fail
   * Fixed NaN bug
+  * Added Cache, GeoData

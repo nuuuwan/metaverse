@@ -1,9 +1,14 @@
 import {Component} from 'react';
-import GeoMap from '../molecules/GeoMap.js';
-import LKVaxCenters from '../../core/custom_data/LKVaxCenters.js';
 import {Circle, Popup} from 'react-leaflet';
 
-const DEFAULT_CIRLE_RADIUS = 200;
+import LKVaxCenters from '../../core/custom_data/LKVaxCenters.js';
+import GeoData from '../../base/GeoData.js';
+
+import GeoMap from '../molecules/GeoMap.js';
+
+
+
+const DEFAULT_CIRLE_RADIUS = 500;
 
 function renderLayer(layer) {
   return layer.map(
@@ -59,6 +64,16 @@ export default class HomePage extends Component {
 
   async componentDidMount() {
     const lkVaxCenters = await LKVaxCenters.get();
+    console.debug(
+      await GeoData.isPointInRegion(
+        [80.6413, 7.2936],
+        'province',
+        'LK-3',
+      ),
+      await GeoData.getRegionsForPoint(
+        [80.6413, 7.2936],
+      ),
+    )
     this.setState({customerLayers: [lkVaxCenters]});
   }
 

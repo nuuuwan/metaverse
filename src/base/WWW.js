@@ -1,8 +1,23 @@
+import Cache from './Cache.js';
+
+async function jsonNonCache(url) {
+  const response = await fetch(url);
+  const dataJson = await response.json();
+  return dataJson;
+}
 
 export default class WWW {
-   static async tsv(url) {
-    const response = await fetch(url);
+  static async json(url) {
+    return Cache.get(
+      `WWW.json.v2.${url}`,
+      async function() {
+        return jsonNonCache(url);
+      },
+    );
+  }
 
+  static async tsv(url) {
+    const response = await fetch(url);
     const content = await response.text();
     const lines = content.split('\n');
     const keys = lines[0].split('\t').map(key => key.replace('\r', ''));
