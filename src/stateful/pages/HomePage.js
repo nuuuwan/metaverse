@@ -90,18 +90,15 @@ export default class HomePage extends Component {
   render() {
 
     const {customerLayers, center, regions, allEntIndex} = this.state;
-
     const renderedLayers = customerLayers.map(renderLayer)
 
     const onMoveEnd = async function(e) {
-
       const mapCenter = e.target.getCenter();
       const newCenter = roundLatLng([mapCenter.lat, mapCenter.lng]);
-
       const onRegionsUpdate = function(regions) {
         this.setState({regions: regions});
       }.bind(this);
-      const regions = await GeoData.getRegionsForPoint(
+      await GeoData.getRegionsForPoint(
         newCenter,
         onRegionsUpdate,
       );
