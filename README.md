@@ -19,3 +19,4 @@
   * Added Cache, GeoData
   * Added data + various
   * Added public/data/ents
+  * Added region title

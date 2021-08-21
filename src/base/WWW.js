@@ -3,12 +3,19 @@ import Cache from './Cache.js';
 const JSON_HEADERS = {
   headers: {
     'Content-Type': 'application/json',
-    'Accept': 'application/json'
+    'Accept': 'application/json',
+  },
+};
+
+const TSV_HEADERS = {
+  headers: {
+    // 'Content-Type': 'text/csv',
+    'Accept': 'text/csv',
   },
 };
 
 async function jsonNonCache(url) {
-  
+
   const response = await fetch(url, JSON_HEADERS);
   const dataJson = await response.json();
   return dataJson;
@@ -25,7 +32,7 @@ export default class WWW {
   }
 
   static async tsv(url) {
-    const response = await fetch(url);
+    const response = await fetch(url, TSV_HEADERS);
     const content = await response.text();
     const lines = content.split('\n');
     const keys = lines[0].split('\t').map(key => key.replace('\r', ''));

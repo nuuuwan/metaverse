@@ -3,6 +3,7 @@ import {Circle, Popup} from 'react-leaflet';
 
 import LKVaxCenters from '../../core/custom_data/LKVaxCenters.js';
 import GeoData, {roundLatLng} from '../../base/GeoData.js';
+import Ents from '../../base/Ents.js';
 
 import GeoMap from '../molecules/GeoMap.js';
 
@@ -13,8 +14,9 @@ const STYLE_DIV_TITLE = {
   position: 'absolute',
   top: 12,
   left: 60,
-  background: 'rgba(224, 224, 224, 0.0)',
-  padding: 12,
+  background: 'rgba(256, 256, 256, 0.8)',
+  padding: 6,
+  borderRadius: 6,
 }
 
 function renderLayer(layer) {
@@ -70,13 +72,16 @@ export default class HomePage extends Component {
       customerLayers: [],
       center: DEFAULT_CENTER,
       regions: undefined,
+      entIndex: {},
     };
   }
 
   async componentDidMount() {
-
+    const allEntIndex = await Ents.getAllEntIndex();
     const lkVaxCenters = await LKVaxCenters.get();
+
     this.setState({
+      allEntIndex,
       customerLayers: [lkVaxCenters],
     });
   }
@@ -84,7 +89,8 @@ export default class HomePage extends Component {
 
   render() {
 
-    const {customerLayers, center, regions} = this.state;
+    const {customerLayers, center, regions, allEntIndex} = this.state;
+
     const renderedLayers = customerLayers.map(renderLayer)
 
     const onMoveEnd = async function(e) {
@@ -93,7 +99,6 @@ export default class HomePage extends Component {
       const newCenter = roundLatLng([mapCenter.lat, mapCenter.lng]);
 
       const onRegionsUpdate = function(regions) {
-
         this.setState({regions: regions});
       }.bind(this);
       const regions = await GeoData.getRegionsForPoint(
@@ -107,13 +112,22 @@ export default class HomePage extends Component {
 
     let renderedRegions = 'Searching...';
     if (regions) {
-      renderedRegions = regions.gnd || regions.dsd || regions.district || regions.provice || 'Searching...';
+      const entTypes = ['province', 'district', 'dsd', 'gnd'];
+      renderedRegions = entTypes.map(
+        function(entType) {
+          const regionID = regions[entType];
+          if (regionID) {
+            return allEntIndex[entType][regionID].name;
+          }
+          return '';
+        }
+      ).join('/')
     }
 
     return (
       <>
         <div style={STYLE_DIV_TITLE}>
-          <h1>{renderedRegions}</h1>
+          {renderedRegions}
         </div>
         <GeoMap center={center} onMoveEnd={onMoveEnd}>
           {renderedLayers}
