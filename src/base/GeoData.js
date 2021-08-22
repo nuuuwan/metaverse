@@ -85,6 +85,6 @@ export default class GeoData {
 }
 
 export function roundLatLng(latLng) {
-  const Q = 100;
+  const Q = 1000_000;
   return latLng.map(x => Math.round(parseFloat(x) * Q) / Q);
 }

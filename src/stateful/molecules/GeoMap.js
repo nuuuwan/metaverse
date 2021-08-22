@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import {MapContainer, TileLayer, useMapEvents} from 'react-leaflet';
+import {MapContainer, TileLayer, Marker, useMapEvents} from 'react-leaflet';
 
 import './GeoMap.css';
 
@@ -26,8 +26,10 @@ export default class GeoMap extends Component {
     return (
       <MapContainer center={this.props.center} zoom={DEFAULT_ZOOM} >
         <TileLayer url={URL_FORMAT}/>
-        {this.props.children}
         <EventComponent onMoveEnd={this.props.onMoveEnd}/>
+        {this.props.children}
+        <div className="div-center-marker">
+        </div>
       </MapContainer>
     );
   }
