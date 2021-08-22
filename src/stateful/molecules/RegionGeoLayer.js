@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import GeoData, {roundLatLng} from '../../base/GeoData.js';
+import GeoData from '../../base/GeoData.js';
 import {GeoJSON} from 'react-leaflet';
 
 const STYLE_GEOJSON = {
