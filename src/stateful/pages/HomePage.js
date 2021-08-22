@@ -12,9 +12,9 @@ const DEFAULT_CIRLE_RADIUS = 500;
 const STYLE_DIV_TITLE = {
   zIndex: 10000,
   position: 'absolute',
-  top: 12,
+  top: 24,
   left: 60,
-  background: 'rgba(256, 256, 256, 0.8)',
+  background: 'white',
   padding: 6,
   borderRadius: 6,
 }
