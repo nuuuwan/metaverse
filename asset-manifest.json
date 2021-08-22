@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/metaverse/static/css/main.e4b629a6.chunk.css",
-    "main.js": "/metaverse/static/js/main.26eb3fd6.chunk.js",
-    "main.js.map": "/metaverse/static/js/main.26eb3fd6.chunk.js.map",
+    "main.js": "/metaverse/static/js/main.765c1d7b.chunk.js",
+    "main.js.map": "/metaverse/static/js/main.765c1d7b.chunk.js.map",
     "runtime-main.js": "/metaverse/static/js/runtime-main.6dc4f459.js",
     "runtime-main.js.map": "/metaverse/static/js/runtime-main.6dc4f459.js.map",
     "static/js/2.6783fd91.chunk.js": "/metaverse/static/js/2.6783fd91.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.6dc4f459.js",
     "static/js/2.6783fd91.chunk.js",
     "static/css/main.e4b629a6.chunk.css",
-    "static/js/main.26eb3fd6.chunk.js"
+    "static/js/main.765c1d7b.chunk.js"
   ]
 }
