@@ -1,5 +1,22 @@
 import WWW from './WWW.js';
 
+const DEFAULT_LATLNG = [6.9157, 79.8636];
+
+export function getBrowserLatLng(callback) {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        callback([
+          position.coords.latitude,
+          position.coords.longitude
+        ]);
+      }
+    );
+  } else {
+    callback(DEFAULT_LATLNG);
+  }
+}
+
 function isPointInPolygon(point, polygon) {
   const [y, x] = point;
   let nIntersects = 0;

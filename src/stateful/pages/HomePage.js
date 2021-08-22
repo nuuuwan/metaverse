@@ -6,9 +6,7 @@ import GeoData, {roundLatLng} from '../../base/GeoData.js';
 import Ents from '../../base/Ents.js';
 
 import GeoMap from '../molecules/GeoMap.js';
-import RegionGeoLayer from '../molecules/RegionGeoLayer.js';
 
-const DEFAULT_CENTER = [6.9271, 79.8612];
 const DEFAULT_CIRLE_RADIUS = 500;
 
 const STYLE_DIV_TITLE = {
@@ -17,7 +15,7 @@ const STYLE_DIV_TITLE = {
   top: 24,
   left: 60,
   background: 'white',
-  borderRadius: 12,
+  borderRadius: 6,
 }
 
 const STYLE_DIV_RENDERED_REGIONS = {
@@ -31,12 +29,12 @@ let STYLE_DIV_RENDERED_REGION = {
 
 const STYLE_REGION_TYPE = {
   fontSize: '40%',
-  color: '#ccc',
+  color: 'black',
 }
 
 const STYLE_REGION_NAME = {
   fontSize: '80%',
-  color: '#888',
+  color: 'black',
 }
 
 function renderLayer(layer) {
@@ -84,15 +82,29 @@ function renderLayer(layer) {
   )
 }
 
+function parseLocationStr(locationStr) {
+  const [latStr, lngStr, zoomStr] = locationStr.split(',');
+  const lat = parseFloat(latStr.replace('N', ''));
+  const lng = parseFloat(lngStr.replace('E', ''));
+  const zoom = parseInt(zoomStr.replace('z', ''));
+  return {lat, lng, zoom};
+}
+
 export default class HomePage extends Component {
 
   constructor(props) {
     super(props);
+    const locationStr = this.props.match.params.locationStr;
+    const {lat, lng, zoom} = parseLocationStr(locationStr);
+
     this.state = {
       customerLayers: [],
-      center: DEFAULT_CENTER,
+      center: [lat, lng],
+      zoom: zoom,
       regions: undefined,
       entIndex: {},
+      allEntIndex: undefined,
+      lkVaxCenters: undefined,
     };
   }
 
@@ -100,40 +112,51 @@ export default class HomePage extends Component {
     const allEntIndex = await Ents.getAllEntIndex();
     const lkVaxCenters = await LKVaxCenters.get();
 
+    await GeoData.getRegionsForPoint(
+      this.state.center,
+      this.onRegionsUpdate.bind(this),
+    );
+
     this.setState({
       allEntIndex,
       customerLayers: [lkVaxCenters],
     });
   }
 
+  async onRegionsUpdate(center, regions) {
+    this.setState({
+      center,
+      regions,
+    });
+  }
+
+  async onMoveEnd(e) {
+    const mapCenter = e.target.getCenter();
+    const newZoom = e.target.getZoom();
+    const newCenter = roundLatLng([mapCenter.lat, mapCenter.lng]);
+    const [lat, lng] = newCenter;
+    this.props.history.push(`/${lat}N,${lng}E,${newZoom}z`)
+
+    this.setState({
+      zoom: newZoom,
+    });
+
+    await GeoData.getRegionsForPoint(
+      newCenter,
+      this.onRegionsUpdate.bind(this),
+    );
+  };
 
   render() {
-
-    const {customerLayers, center, regions, allEntIndex} = this.state;
+    const {customerLayers, center, zoom, regions, allEntIndex} = this.state;
+    if (!allEntIndex) {
+      return '...';
+    }
     let renderedLayers = customerLayers.map(renderLayer)
 
-    const onMoveEnd = async function(e) {
-      const mapCenter = e.target.getCenter();
-      const newCenter = roundLatLng([mapCenter.lat, mapCenter.lng]);
-
-      const onRegionsUpdate = function(center, regions) {
-        this.setState({
-          center,
-          regions,
-        });
-      }.bind(this);
-
-      await GeoData.getRegionsForPoint(
-        newCenter,
-        onRegionsUpdate,
-      );
-
-    }.bind(this)
-
     let renderedRegions = '...';
-    let renderedRegionGeoLayer;
     if (regions) {
-      const entTypes = ['gnd', 'dsd', 'district', 'province'];
+      const entTypes = ['province', 'district', 'dsd', 'gnd'];
       const OPACITY_INCR = 0.8
       let opacity = 1.0;
 
@@ -151,24 +174,9 @@ export default class HomePage extends Component {
               </div>
             )
           }
-          return null;
+          return '...';
         }
       );
-
-      for (let iEnt in entTypes) {
-        const entType = entTypes[iEnt];
-        const regionID = regions[entType];
-        if (regionID) {
-          renderedRegionGeoLayer = (
-            <RegionGeoLayer
-              key={`region-geo-layer-${regionID}`}
-              regionType={entType}
-              regionID={regionID}
-            />
-          );
-          break;
-        }
-      }
     }
 
     return (
@@ -178,9 +186,12 @@ export default class HomePage extends Component {
             {renderedRegions}
           </div>
         </div>
-        <GeoMap center={center} onMoveEnd={onMoveEnd}>
+        <GeoMap
+          center={center}
+          zoom={zoom}
+          onMoveEnd={this.onMoveEnd.bind(this)}
+        >
           {renderedLayers}
-          {renderedRegionGeoLayer}
         </GeoMap>
       </>
     );

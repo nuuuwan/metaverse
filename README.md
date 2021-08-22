@@ -32,3 +32,4 @@
   * 
   * Pre-Merge
   * Removed console.debug
+  * Various minor updates
