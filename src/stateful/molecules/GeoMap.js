@@ -11,14 +11,11 @@ import "./GeoMap.css";
 const URL_FORMAT = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
 
 function EventComponent(props) {
-  const map = useMapEvents({
+  useMapEvents({
     moveend: (e) => {
       props.onMoveEnd(e);
     },
   });
-  map.locate({
-      setView: true,
-  })
   return null;
 }
 

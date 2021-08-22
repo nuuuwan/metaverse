@@ -1,6 +1,6 @@
 import WWW from "./WWW.js";
 
-import {REGION_TYPES} from './Ents.js';
+import { REGION_TYPES } from "./Ents.js";
 
 const DEFAULT_LATLNG = [6.9157, 79.8636];
 

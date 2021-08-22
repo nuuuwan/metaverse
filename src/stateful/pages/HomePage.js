@@ -2,12 +2,14 @@ import { Component } from "react";
 import { Circle, Popup } from "react-leaflet";
 
 import LKVaxCenters from "../../core/custom_data/LKVaxCenters.js";
-import GeoData, { roundLatLng } from "../../base/GeoData.js";
-import Ents, {REGION_TYPES} from "../../base/Ents.js";
+import GeoData, { getBrowserLatLng, roundLatLng } from "../../base/GeoData.js";
+import Ents, { REGION_TYPES } from "../../base/Ents.js";
 
 import GeoMap from "../molecules/GeoMap.js";
+import imgGeoLocate from "../../assets/images/geolocate.png";
 
 const DEFAULT_CIRLE_RADIUS = 500;
+const DEFAULT_ZOOM = 16;
 
 const STYLE_DIV_TITLE = {
   zIndex: 10000,
@@ -20,6 +22,7 @@ const STYLE_DIV_TITLE = {
 
 const STYLE_DIV_RENDERED_REGIONS = {
   display: "table-row",
+  padding: 6,
 };
 
 let STYLE_DIV_RENDERED_REGION = {
@@ -35,6 +38,18 @@ const STYLE_REGION_TYPE = {
 const STYLE_REGION_NAME = {
   fontSize: "80%",
   color: "black",
+};
+
+const STYLE_IMAGE_GEOLOCATE = {
+  height: 15,
+  width: 15,
+  border: "none",
+  background: "white",
+  verticalAlign: "middle",
+  padding: 6,
+  paddingTop: 9,
+  display: "table-cell",
+  cursor: "pointer",
 };
 
 function renderLayer(layer) {
@@ -100,6 +115,7 @@ export default class HomePage extends Component {
       allEntIndex: undefined,
       lkVaxCenters: undefined,
     };
+    this.onClickGeoLocate();
   }
 
   async componentDidMount() {
@@ -141,6 +157,15 @@ export default class HomePage extends Component {
     );
   }
 
+  onClickGeoLocate(e) {
+    getBrowserLatLng(
+      function ([lat, lng]) {
+        console.debug([lat, lng]);
+        this.setState({ center: [lat, lng], zoom: DEFAULT_ZOOM });
+      }.bind(this)
+    );
+  }
+
   render() {
     const { customerLayers, center, zoom, regions, allEntIndex } = this.state;
     if (!allEntIndex) {
@@ -174,9 +199,18 @@ export default class HomePage extends Component {
     return (
       <>
         <div style={STYLE_DIV_TITLE}>
-          <div style={STYLE_DIV_RENDERED_REGIONS}>{renderedRegions}</div>
+          <div style={STYLE_DIV_RENDERED_REGIONS}>
+            <img
+              src={imgGeoLocate}
+              alt="geolocate"
+              onClick={this.onClickGeoLocate.bind(this)}
+              style={STYLE_IMAGE_GEOLOCATE}
+            />
+            {renderedRegions}
+          </div>
         </div>
         <GeoMap
+          key={center}
           center={center}
           zoom={zoom}
           onMoveEnd={this.onMoveEnd.bind(this)}
