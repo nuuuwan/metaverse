@@ -3,7 +3,7 @@ import { Circle, Popup } from "react-leaflet";
 
 import LKVaxCenters from "../../core/custom_data/LKVaxCenters.js";
 import GeoData, { roundLatLng } from "../../base/GeoData.js";
-import Ents from "../../base/Ents.js";
+import Ents, {REGION_TYPES} from "../../base/Ents.js";
 
 import GeoMap from "../molecules/GeoMap.js";
 
@@ -150,7 +150,7 @@ export default class HomePage extends Component {
 
     let renderedRegions = "...";
     if (regions) {
-      const entTypes = ["province", "district", "dsd", "gnd"];
+      const entTypes = REGION_TYPES;
       const OPACITY_INCR = 0.8;
       let opacity = 1.0;
 

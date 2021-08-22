@@ -1,5 +1,7 @@
 import WWW from "./WWW.js";
 
+export const REGION_TYPES = ["province", "district", "dsd", "gnd"];
+
 export default class Ents {
   static async getEntsByType(entType) {
     const url = `data/ents/${entType}.tsv`;
@@ -15,7 +17,7 @@ export default class Ents {
   }
 
   static async getAllEntIndex() {
-    const entTypes = ["province", "district", "dsd", "gnd"];
+    const entTypes = REGION_TYPES;
     const entIndexList = await Promise.all(
       entTypes.map(async function (entType) {
         return await Ents.getEntIndexByType(entType);

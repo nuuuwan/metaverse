@@ -2,14 +2,12 @@ import Cache from "./Cache.js";
 
 const JSON_HEADERS = {
   headers: {
-    "Content-Type": "application/json",
     Accept: "application/json",
   },
 };
 
 const TSV_HEADERS = {
   headers: {
-    // 'Content-Type': 'text/csv',
     Accept: "text/csv",
   },
 };

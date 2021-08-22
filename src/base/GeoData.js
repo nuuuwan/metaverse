@@ -1,5 +1,7 @@
 import WWW from "./WWW.js";
 
+import {REGION_TYPES} from './Ents.js';
+
 const DEFAULT_LATLNG = [6.9157, 79.8636];
 
 export function getBrowserLatLng(callback) {
@@ -65,12 +67,11 @@ export default class GeoData {
 
   static async getRegionsForPoint(point, onRegionsUpdate) {
     let regionTree = await GeoData.getRegionTree();
-    const regionTypes = ["province", "district", "dsd", "gnd"];
 
     let regionMap = {};
 
-    for (let iRegionType in regionTypes) {
-      const regionType = regionTypes[iRegionType];
+    for (let iRegionType in REGION_TYPES) {
+      const regionType = REGION_TYPES[iRegionType];
       const regionIDs = Object.keys(regionTree);
       let isFoundRegion = false;
       for (let iRegion in regionIDs) {

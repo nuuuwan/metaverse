@@ -29,9 +29,9 @@ export default class GeoMap extends Component {
       >
         <TileLayer url={URL_FORMAT} />
         <EventComponent onMoveEnd={this.props.onMoveEnd} />
-        {this.props.children}
-        <div className="div-center-marker" />
         <ZoomControl zoom={this.props.zoom} position="bottomright" />
+        <div className="div-center-marker" />
+        {this.props.children}        
       </MapContainer>
     );
   }
