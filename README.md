@@ -31,3 +31,4 @@
   * Region Polygons Done
   * 
   * Pre-Merge
+  * Removed console.debug

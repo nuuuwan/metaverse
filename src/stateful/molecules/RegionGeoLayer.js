@@ -29,7 +29,6 @@ export default class RegionGeoLayer extends Component {
       'type': 'MultiPolygon',
       'coordinates': geoData,
     };
-    console.debug(geoJsonData);
     return <GeoJSON data={geoJsonData} style={STYLE_GEOJSON} />
   }
 

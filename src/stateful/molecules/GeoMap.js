@@ -8,12 +8,6 @@ const URL_FORMAT = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 
 function EventComponent(props) {
   const map = useMapEvents({
-    click: () => {
-      map.locate()
-    },
-    locationfound: (location) => {
-      console.log('location found:', location)
-    },
     moveend: (e) => {
       props.onMoveEnd(e);
     },
