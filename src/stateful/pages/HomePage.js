@@ -95,16 +95,19 @@ export default class HomePage extends Component {
     const onMoveEnd = async function(e) {
       const mapCenter = e.target.getCenter();
       const newCenter = roundLatLng([mapCenter.lat, mapCenter.lng]);
-      const onRegionsUpdate = function(regions) {
-        this.setState({regions: regions});
+
+      const onRegionsUpdate = function(center, regions) {
+        this.setState({
+          center,
+          regions,
+        });
       }.bind(this);
+
       await GeoData.getRegionsForPoint(
         newCenter,
         onRegionsUpdate,
       );
-      this.setState({
-          center: newCenter,
-      });
+
     }.bind(this)
 
     let renderedRegions = 'Searching...';

@@ -71,15 +71,21 @@ export default class GeoData {
           regionMap[regionType] = regionID;
           regionTree = regionTree[regionID];
           isFoundRegion = true;
-          onRegionsUpdate(regionMap);
+          onRegionsUpdate(
+              point,
+              regionMap,
+          );
           break;
         }
       }
       if (!isFoundRegion) {
-        return regionMap;
+        break
       }
     }
-    return regionMap;
+    onRegionsUpdate(
+        point,
+        regionMap,
+    );
   }
 
 }
