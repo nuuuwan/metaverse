@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import {MapContainer, TileLayer, Marker, useMapEvents} from 'react-leaflet';
+import {MapContainer, TileLayer, useMapEvents} from 'react-leaflet';
 
 import './GeoMap.css';
 

@@ -6,6 +6,7 @@ import GeoData, {roundLatLng} from '../../base/GeoData.js';
 import Ents from '../../base/Ents.js';
 
 import GeoMap from '../molecules/GeoMap.js';
+import RegionGeoLayer from '../molecules/RegionGeoLayer.js';
 
 const DEFAULT_CENTER = [6.9271, 79.8612];
 const DEFAULT_CIRLE_RADIUS = 500;
@@ -109,7 +110,7 @@ export default class HomePage extends Component {
   render() {
 
     const {customerLayers, center, regions, allEntIndex} = this.state;
-    const renderedLayers = customerLayers.map(renderLayer)
+    let renderedLayers = customerLayers.map(renderLayer)
 
     const onMoveEnd = async function(e) {
       const mapCenter = e.target.getCenter();
@@ -130,10 +131,12 @@ export default class HomePage extends Component {
     }.bind(this)
 
     let renderedRegions = '...';
+    let renderedRegionGeoLayer;
     if (regions) {
-      const entTypes = ['province', 'district', 'dsd', 'gnd'];
+      const entTypes = ['gnd', 'dsd', 'district', 'province'];
       const OPACITY_INCR = 0.8
       let opacity = 1.0;
+
       renderedRegions = entTypes.map(
         function(entType) {
           const regionID = regions[entType];
@@ -142,7 +145,7 @@ export default class HomePage extends Component {
             let style = Object.assign({}, STYLE_DIV_RENDERED_REGION, {opacity});
             opacity *= OPACITY_INCR;
             return (
-              <div style={style}>
+              <div key={`region-${regionID}` } style={style}>
                 <div style={STYLE_REGION_NAME}>{name}</div>
                 <div style={STYLE_REGION_TYPE}>{entType.toUpperCase()}</div>
               </div>
@@ -151,6 +154,21 @@ export default class HomePage extends Component {
           return null;
         }
       );
+
+      for (let iEnt in entTypes) {
+        const entType = entTypes[iEnt];
+        const regionID = regions[entType];
+        if (regionID) {
+          renderedRegionGeoLayer = (
+            <RegionGeoLayer
+              key={`region-geo-layer-${regionID}`}
+              regionType={entType}
+              regionID={regionID}
+            />
+          );
+          break;
+        }
+      }
     }
 
     return (
@@ -162,6 +180,7 @@ export default class HomePage extends Component {
         </div>
         <GeoMap center={center} onMoveEnd={onMoveEnd}>
           {renderedLayers}
+          {renderedRegionGeoLayer}
         </GeoMap>
       </>
     );
