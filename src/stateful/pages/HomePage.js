@@ -14,10 +14,11 @@ const DEFAULT_ZOOM = 16;
 const STYLE_DIV_TITLE = {
   zIndex: 10000,
   position: "absolute",
-  top: 24,
-  left: 60,
+  bottom: 20,
+  right: 60,
   background: "white",
   borderRadius: 6,
+  padding: 3,
 };
 
 const STYLE_DIV_RENDERED_REGIONS = {
@@ -41,8 +42,8 @@ const STYLE_REGION_NAME = {
 };
 
 const STYLE_IMAGE_GEOLOCATE = {
-  height: 15,
-  width: 15,
+  height: 12,
+  width: 12,
   border: "none",
   background: "white",
   verticalAlign: "middle",
@@ -192,7 +193,7 @@ export default class HomePage extends Component {
             </div>
           );
         }
-        return "...";
+        return "";
       });
     }
 
