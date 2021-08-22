@@ -11,11 +11,14 @@ import "./GeoMap.css";
 const URL_FORMAT = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
 
 function EventComponent(props) {
-  useMapEvents({
+  const map = useMapEvents({
     moveend: (e) => {
       props.onMoveEnd(e);
     },
   });
+  map.locate({
+      setView: true,
+  })
   return null;
 }
 
@@ -31,7 +34,7 @@ export default class GeoMap extends Component {
         <EventComponent onMoveEnd={this.props.onMoveEnd} />
         <ZoomControl zoom={this.props.zoom} position="bottomright" />
         <div className="div-center-marker" />
-        {this.props.children}        
+        {this.props.children}
       </MapContainer>
     );
   }

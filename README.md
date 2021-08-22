@@ -37,3 +37,4 @@
   * Updated README
   * Lint
   * Minor changes
+  * geo
