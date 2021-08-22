@@ -1,14 +1,14 @@
-import {Component} from 'react';
+import { Component } from "react";
 import {
-    MapContainer,
-    TileLayer,
-    ZoomControl,
-    useMapEvents,
-} from 'react-leaflet';
+  MapContainer,
+  TileLayer,
+  ZoomControl,
+  useMapEvents,
+} from "react-leaflet";
 
-import './GeoMap.css';
+import "./GeoMap.css";
 
-const URL_FORMAT = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+const URL_FORMAT = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
 
 function EventComponent(props) {
   useMapEvents({
@@ -27,8 +27,8 @@ export default class GeoMap extends Component {
         zoom={this.props.zoom}
         zoomControl={false}
       >
-        <TileLayer url={URL_FORMAT}/>
-        <EventComponent onMoveEnd={this.props.onMoveEnd}/>
+        <TileLayer url={URL_FORMAT} />
+        <EventComponent onMoveEnd={this.props.onMoveEnd} />
         {this.props.children}
         <div className="div-center-marker" />
         <ZoomControl zoom={this.props.zoom} position="bottomright" />

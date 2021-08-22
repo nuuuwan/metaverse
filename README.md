@@ -35,3 +35,4 @@
   * Various minor updates
 * [2021-08-22 07:58PM] various-2021-08-22
   * Updated README
+  * Lint
