@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/metaverse/static/css/main.8214f354.chunk.css",
-    "main.js": "/metaverse/static/js/main.715732a0.chunk.js",
-    "main.js.map": "/metaverse/static/js/main.715732a0.chunk.js.map",
+    "main.css": "/metaverse/static/css/main.e4b629a6.chunk.css",
+    "main.js": "/metaverse/static/js/main.26eb3fd6.chunk.js",
+    "main.js.map": "/metaverse/static/js/main.26eb3fd6.chunk.js.map",
     "runtime-main.js": "/metaverse/static/js/runtime-main.6dc4f459.js",
     "runtime-main.js.map": "/metaverse/static/js/runtime-main.6dc4f459.js.map",
-    "static/js/2.136b3817.chunk.js": "/metaverse/static/js/2.136b3817.chunk.js",
-    "static/js/2.136b3817.chunk.js.map": "/metaverse/static/js/2.136b3817.chunk.js.map",
+    "static/js/2.6783fd91.chunk.js": "/metaverse/static/js/2.6783fd91.chunk.js",
+    "static/js/2.6783fd91.chunk.js.map": "/metaverse/static/js/2.6783fd91.chunk.js.map",
     "static/js/3.2c7d64cd.chunk.js": "/metaverse/static/js/3.2c7d64cd.chunk.js",
     "static/js/3.2c7d64cd.chunk.js.map": "/metaverse/static/js/3.2c7d64cd.chunk.js.map",
     "index.html": "/metaverse/index.html",
-    "static/css/main.8214f354.chunk.css.map": "/metaverse/static/css/main.8214f354.chunk.css.map",
-    "static/js/2.136b3817.chunk.js.LICENSE.txt": "/metaverse/static/js/2.136b3817.chunk.js.LICENSE.txt"
+    "static/css/main.e4b629a6.chunk.css.map": "/metaverse/static/css/main.e4b629a6.chunk.css.map",
+    "static/js/2.6783fd91.chunk.js.LICENSE.txt": "/metaverse/static/js/2.6783fd91.chunk.js.LICENSE.txt",
+    "static/media/geolocate.f5052489.png": "/metaverse/static/media/geolocate.f5052489.png"
   },
   "entrypoints": [
     "static/js/runtime-main.6dc4f459.js",
-    "static/js/2.136b3817.chunk.js",
-    "static/css/main.8214f354.chunk.css",
-    "static/js/main.715732a0.chunk.js"
+    "static/js/2.6783fd91.chunk.js",
+    "static/css/main.e4b629a6.chunk.css",
+    "static/js/main.26eb3fd6.chunk.js"
   ]
 }
