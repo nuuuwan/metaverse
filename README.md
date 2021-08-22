@@ -26,3 +26,4 @@
   * Center Market Done
   * Fixed wrong location
   * Apple font
+  * Added Region Type

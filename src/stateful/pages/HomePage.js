@@ -9,14 +9,33 @@ import GeoMap from '../molecules/GeoMap.js';
 
 const DEFAULT_CENTER = [6.9271, 79.8612];
 const DEFAULT_CIRLE_RADIUS = 500;
+
 const STYLE_DIV_TITLE = {
   zIndex: 10000,
   position: 'absolute',
   top: 24,
   left: 60,
   background: 'white',
+  borderRadius: 12,
+}
+
+const STYLE_DIV_RENDERED_REGIONS = {
+  display: 'table-row',
+}
+
+const STYLE_DIV_RENDERED_REGION = {
+  display: 'table-cell',
   padding: 6,
-  borderRadius: 6,
+}
+
+const STYLE_REGION_TYPE = {
+  fontSize: 'xx-small',
+  color: '#ccc',
+}
+
+const STYLE_REGION_NAME = {
+  fontSize: 'small',
+  color: '#888',
 }
 
 function renderLayer(layer) {
@@ -110,24 +129,32 @@ export default class HomePage extends Component {
 
     }.bind(this)
 
-    let renderedRegions = 'Searching...';
+    let renderedRegions = '...';
     if (regions) {
       const entTypes = ['province', 'district', 'dsd', 'gnd'];
       renderedRegions = entTypes.map(
         function(entType) {
           const regionID = regions[entType];
           if (regionID) {
-            return allEntIndex[entType][regionID].name;
+            const name = allEntIndex[entType][regionID].name;
+            return (
+              <div style={STYLE_DIV_RENDERED_REGION}>
+                <div style={STYLE_REGION_NAME}>{name}</div>
+                <div style={STYLE_REGION_TYPE}>{entType.toUpperCase()}</div>
+              </div>
+            )
           }
-          return '';
+          return null;
         }
-      ).join('/')
+      );
     }
 
     return (
       <>
         <div style={STYLE_DIV_TITLE}>
-          {renderedRegions}
+          <div style={STYLE_DIV_RENDERED_REGIONS}>
+            {renderedRegions}
+          </div>
         </div>
         <GeoMap center={center} onMoveEnd={onMoveEnd}>
           {renderedLayers}
