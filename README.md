@@ -27,3 +27,4 @@
   * Fixed wrong location
   * Apple font
   * Added Region Type
+  * Added Region Type

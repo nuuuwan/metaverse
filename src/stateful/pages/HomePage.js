@@ -23,18 +23,18 @@ const STYLE_DIV_RENDERED_REGIONS = {
   display: 'table-row',
 }
 
-const STYLE_DIV_RENDERED_REGION = {
+let STYLE_DIV_RENDERED_REGION = {
   display: 'table-cell',
   padding: 6,
 }
 
 const STYLE_REGION_TYPE = {
-  fontSize: 'xx-small',
+  fontSize: '40%',
   color: '#ccc',
 }
 
 const STYLE_REGION_NAME = {
-  fontSize: 'small',
+  fontSize: '80%',
   color: '#888',
 }
 
@@ -132,13 +132,17 @@ export default class HomePage extends Component {
     let renderedRegions = '...';
     if (regions) {
       const entTypes = ['province', 'district', 'dsd', 'gnd'];
+      const OPACITY_INCR = 0.8
+      let opacity = 1.0;
       renderedRegions = entTypes.map(
         function(entType) {
           const regionID = regions[entType];
           if (regionID) {
             const name = allEntIndex[entType][regionID].name;
+            let style = Object.assign({}, STYLE_DIV_RENDERED_REGION, {opacity});
+            opacity *= OPACITY_INCR;
             return (
-              <div style={STYLE_DIV_RENDERED_REGION}>
+              <div style={style}>
                 <div style={STYLE_REGION_NAME}>{name}</div>
                 <div style={STYLE_REGION_TYPE}>{entType.toUpperCase()}</div>
               </div>
