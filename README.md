@@ -48,3 +48,4 @@
   * CustomLayer
   * Layers Select
   * Mobile View
+  * Deploy on Workflow dispatch
