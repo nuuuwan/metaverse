@@ -26,3 +26,4 @@
 * [2021-08-23 05:08PM] Remove location search
   * Updated README
   * Done
+  * Pre-Merge
