@@ -47,3 +47,4 @@
   * LayerView -
   * CustomLayer
   * Layers Select
+  * Mobile View

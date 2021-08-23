@@ -1,9 +1,11 @@
 .div-layer-view {
 	position: absolute;
 	top: 20px;
-	right: 60px;
+	right: 15px;
+	margin-left: 15px;
 	z-index: 10000;
-	min-width: 300px;
+	min-width: calc(min(40%, 300px));
+	max-width: 95%;
 	padding: 12px;
 	border-radius: 6px;
 	background: white;
@@ -27,7 +29,7 @@
 }
 
 .div-common-layer-header {
-	padding-top: 24px;
+	padding-top: 6px;
 	color: lightgray;
 	font-size: 80%;
 }
