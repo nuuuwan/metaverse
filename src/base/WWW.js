@@ -1,5 +1,7 @@
 import Cache from "./Cache.js";
 
+const CACHE_VERSION = 'v20210823';
+
 const JSON_HEADERS = {
   headers: {
     Accept: "application/json",
@@ -24,7 +26,7 @@ export default class WWW {
   }
 
   static async json(url) {
-    return Cache.get(`WWW.json.v3.${url}`, async function () {
+    return Cache.get(`WWW.json.${CACHE_VERSION}.${url}`, async function () {
       return jsonNonCache(url);
     });
   }

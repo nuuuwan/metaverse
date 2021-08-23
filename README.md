@@ -16,3 +16,4 @@
   * Hightlight selected
   * Open popu
   * Smoother flow
+  * Done

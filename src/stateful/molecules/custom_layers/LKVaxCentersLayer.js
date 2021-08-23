@@ -6,7 +6,7 @@ const DEFAULT_CIRLE_RADIUS = 500;
 
 export default class LKVaxCentersLayer extends AbstractLayer {
   static getLabel() {
-    return "🦠 COVID19 Vaccination Centers";
+    return "COVID19 🦠 Vaccination Centers";
   }
 
   static isMatch(text) {
@@ -21,6 +21,7 @@ export default class LKVaxCentersLayer extends AbstractLayer {
       "nuuuwan/covid19/data",
       "covid19.lk_vax_centers.latest.tsv",
     ]);
+    console.debug(url);
     return await WWW.tsv(url);
   }
 
