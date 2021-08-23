@@ -8,50 +8,10 @@ import Ents, { REGION_TYPES } from "../../base/Ents.js";
 import GeoMap from "../molecules/GeoMap.js";
 import imgGeoLocate from "../../assets/images/geolocate.png";
 
+import "./HomePage.css";
+
 const DEFAULT_CIRLE_RADIUS = 500;
 const DEFAULT_ZOOM = 16;
-
-const STYLE_DIV_TITLE = {
-  zIndex: 10000,
-  position: "absolute",
-  bottom: 20,
-  right: 60,
-  background: "white",
-  borderRadius: 6,
-  padding: 3,
-};
-
-const STYLE_DIV_RENDERED_REGIONS = {
-  display: "table-row",
-  padding: 6,
-};
-
-let STYLE_DIV_RENDERED_REGION = {
-  display: "table-cell",
-  padding: 6,
-};
-
-const STYLE_REGION_TYPE = {
-  fontSize: "40%",
-  color: "black",
-};
-
-const STYLE_REGION_NAME = {
-  fontSize: "80%",
-  color: "black",
-};
-
-const STYLE_IMAGE_GEOLOCATE = {
-  height: 12,
-  width: 12,
-  border: "none",
-  background: "white",
-  verticalAlign: "middle",
-  padding: 6,
-  paddingTop: 9,
-  display: "table-cell",
-  cursor: "pointer",
-};
 
 function renderLayer(layer) {
   return layer.map(function (layerItem) {
@@ -176,20 +136,14 @@ export default class HomePage extends Component {
 
     let renderedRegions = "...";
     if (regions) {
-      const entTypes = REGION_TYPES;
-      const OPACITY_INCR = 0.8;
-      let opacity = 1.0;
-
-      renderedRegions = entTypes.map(function (entType) {
+      renderedRegions = REGION_TYPES.map(function (entType) {
         const regionID = regions[entType];
         if (regionID) {
           const name = allEntIndex[entType][regionID].name;
-          let style = Object.assign({}, STYLE_DIV_RENDERED_REGION, { opacity });
-          opacity *= OPACITY_INCR;
           return (
-            <div key={`region-${regionID}`} style={style}>
-              <div style={STYLE_REGION_NAME}>{name}</div>
-              <div style={STYLE_REGION_TYPE}>{entType.toUpperCase()}</div>
+            <div className="div-rendered-region" key={`region-${regionID}`}>
+              <div className="div-region-name">{name}</div>
+              <div className="div-region-type">{entType.toUpperCase()}</div>
             </div>
           );
         }
@@ -199,13 +153,13 @@ export default class HomePage extends Component {
 
     return (
       <>
-        <div style={STYLE_DIV_TITLE}>
-          <div style={STYLE_DIV_RENDERED_REGIONS}>
+        <div className="div-title">
+          <div className="div-rendered-regions">
             <img
+              className="img-geolocate"
               src={imgGeoLocate}
               alt="geolocate"
               onClick={this.onClickGeoLocate.bind(this)}
-              style={STYLE_IMAGE_GEOLOCATE}
             />
             {renderedRegions}
           </div>
