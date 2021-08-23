@@ -45,3 +45,4 @@
   * CSS stylelint
   * Added LayersView
   * LayerView -
+  * CustomLayer

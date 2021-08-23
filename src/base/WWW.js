@@ -19,6 +19,10 @@ async function jsonNonCache(url) {
 }
 
 export default class WWW {
+  static pathJoin(pathFragmentList) {
+    return pathFragmentList.join("/");
+  }
+
   static async json(url) {
     return Cache.get(`WWW.json.v3.${url}`, async function () {
       return jsonNonCache(url);
