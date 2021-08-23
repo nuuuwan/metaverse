@@ -42,3 +42,4 @@
   * Pre-Merge
   * Moved title to bottom
   * HomePage.css
+  * CSS stylelint

@@ -1,40 +1,39 @@
 .div-title {
-  z-index: 10000;
-  position: absolute;
-  bottom: 20px;
-  right: 60px;
-  background: white;
-  border-radius: 6px;
-  padding: 3px;
+	position: absolute;
+	right: 60px;
+	bottom: 20px;
+	z-index: 10000;
+	padding: 3px;
+	border-radius: 6px;
+	background: white;
 }
 
 .div-rendered-regions {
-  display: inline;
-  padding: 6px;
+	display: inline;
+	padding: 6px;
 }
 
 .div-rendered-region {
-  display: inline-block;
-  padding: 6px;
+	display: inline-block;
+	padding: 6px;
 }
 
 .div-region-type {
-  font-size: 40%;
-  color: black;
+	color: black;
+	font-size: 40%;
 }
 
 .div-region-name {
-  font-size: 60%;
-  color: black;
+	color: black;
+	font-size: 60%;
 }
 
 .img-geolocate {
-  display: inline-block;
-  height: 12px;
-  width: 12px;
-  border: none;
-  background: white;
-  padding: 6px;
-  display: table-cell;
-  cursor: pointer;
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	padding: 6px;
+	border: none;
+	background: white;
+	cursor: pointer;
 }
