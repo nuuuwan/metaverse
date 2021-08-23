@@ -1,42 +1,65 @@
 import { Component } from "react";
 import GeoData from "../../base/GeoData.js";
-import Ents, { ENT_TO_NAME } from "../../base/Ents.js";
+import Ents, { ENT_TO_NAME, PARENT_TO_CHILD } from "../../base/Ents.js";
 import { GeoJSON, Popup } from "react-leaflet";
 
 import "./RegionGeo.css";
 
 const STYLE_GEOJSON = {
-  color: "#f00",
-  fillOpacity: 0.1,
+  color: "white",
+  fillColor: "red",
+  fillOpacity: 0.2,
+  weight: 2,
 };
 
 export default class RegionGeo extends Component {
   constructor(props) {
     super(props);
-    this.state = { geoData: undefined };
+    this.state = { geoData: undefined, ent: undefined };
   }
 
   async componentDidMount() {
+    this.isComponentMounted = true;
     const { regionType, regionID } = this.props;
     const geoData = await GeoData.getGeoForRegion(regionType, regionID);
     const ent = await Ents.getEnt(regionType, regionID);
-    this.setState({ geoData, ent });
+
+    if (this.isComponentMounted) {
+      this.setState({ geoData, ent });
+    }
+  }
+
+  componentWillUnmount() {
+    this.isComponentMounted = false;
   }
 
   render() {
-    const { regionType, regionID } = this.props;
     const { geoData, ent } = this.state;
     if (!geoData) {
       return "...";
     }
+
+    const { regionType, regionID, onClick } = this.props;
+
     const geoJsonData = {
       type: "MultiPolygon",
       coordinates: geoData,
     };
 
-    const onMouseOver = function (e) {
-      e.target.openPopup();
-    };
+    let buttonShow = null;
+    const subRegionType = PARENT_TO_CHILD[regionType];
+    if (subRegionType) {
+      const subRegionTypeName = ENT_TO_NAME[subRegionType];
+      const onClickInner = function () {
+        onClick(regionType, regionID);
+      };
+      buttonShow = (
+        <div className="div-show" onClick={onClickInner}>
+          Show
+          <strong>{` ${subRegionTypeName}s`}</strong>
+        </div>
+      );
+    }
 
     return (
       <GeoJSON
@@ -44,7 +67,6 @@ export default class RegionGeo extends Component {
         key={`geojson-${regionID}`}
         data={geoJsonData}
         style={STYLE_GEOJSON}
-        eventHandlers={{ mouseover: onMouseOver }}
       >
         <Popup>
           <h2>
@@ -55,6 +77,7 @@ export default class RegionGeo extends Component {
               {ENT_TO_NAME[regionType]}
             </span>
           </h2>
+          {buttonShow}
           <hr />
           <table>
             <tbody>

@@ -11,3 +11,11 @@
 	padding: 3px;
 	text-align: right;
 }
+
+.div-show {
+	color: lightgray;
+}
+
+.div-show:hover {
+	color: orange;
+}

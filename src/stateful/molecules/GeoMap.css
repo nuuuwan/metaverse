@@ -3,13 +3,3 @@
 	width: 100%;
 	height: 100vh;
 }
-
-.img-geolocate-map {
-	position: absolute;
-	top: calc(50% - 50px);
-	left: calc(50% - 50px);
-	z-index: 10000;
-	width: 100px;
-	height: 100px;
-	opacity: 0.2;
-}

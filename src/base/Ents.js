@@ -1,6 +1,7 @@
 import WWW from "./WWW.js";
 
 export const ENT = {
+  COUNTRY: "country",
   PROVINCE: "province",
   DISTRICT: "district",
   DSD: "dsd",
@@ -14,6 +15,14 @@ export const ENT_TO_NAME = {
   [ENT.DISTRICT]: "District",
   [ENT.DSD]: "Divisional Secretariat Division",
   [ENT.GND]: "Grama Niladhari Division",
+};
+
+export const PARENT_TO_CHILD = {
+  [ENT.COUNTRY]: ENT.PROVINCE,
+  [ENT.PROVINCE]: ENT.DISTRICT,
+  [ENT.DISTRICT]: ENT.DSD,
+  [ENT.DSD]: ENT.GND,
+  [ENT.GND]: undefined,
 };
 
 export default class Ents {
@@ -51,5 +60,18 @@ export default class Ents {
       ent["centroid"] = JSON.parse(ent["centroid"]);
     }
     return ent;
+  }
+
+  static async getParentToChildMap() {
+    const url = `data/ents/parent_to_child_map.json`;
+    return await WWW.json(url);
+  }
+
+  static async getChildIDs(parentID) {
+    const parentToChildMap = await Ents.getParentToChildMap();
+    if (parentToChildMap[parentID]) {
+      return parentToChildMap[parentID];
+    }
+    return [];
   }
 }

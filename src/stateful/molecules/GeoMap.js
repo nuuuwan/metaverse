@@ -5,7 +5,6 @@ import {
   ZoomControl,
   useMapEvents,
 } from "react-leaflet";
-import imgGeoLocate from "../../assets/images/geolocate.png";
 
 import "./GeoMap.css";
 
@@ -32,7 +31,6 @@ export default class GeoMap extends Component {
         <EventComponent onMoveEnd={this.props.onMoveEnd} />
         <ZoomControl zoom={this.props.zoom} position="bottomright" />
         {this.props.children}
-        <img className="img-geolocate-map" src={imgGeoLocate} alt="geolocate" />
       </MapContainer>
     );
   }

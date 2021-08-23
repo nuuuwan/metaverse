@@ -1,7 +1,7 @@
 import { Component } from "react";
 
-import GeoData, { getBrowserLatLng, roundLatLng } from "../../base/GeoData.js";
-import Ents, { REGION_TYPES } from "../../base/Ents.js";
+import { getBrowserLatLng, roundLatLng } from "../../base/GeoData.js";
+import Ents from "../../base/Ents.js";
 
 import { CUSTOM_LAYERS } from "../molecules/custom_layers/CustomLayers.js";
 import LayerMenuView from "../molecules/LayerMenuView.js";
@@ -10,7 +10,7 @@ import imgGeoLocate from "../../assets/images/geolocate.png";
 
 import "./HomePage.css";
 
-const DEFAULT_ZOOM = 14;
+const DEFAULT_ZOOM = 15;
 
 function parseLocationStr(locationStr) {
   const [latStr, lngStr, zoomStr] = locationStr.split(",");
@@ -31,31 +31,17 @@ export default class HomePage extends Component {
       center: [lat, lng],
       selectedCenter: [lat, lng],
       zoom: zoom,
-      regions: undefined,
       entIndex: {},
       allEntIndex: undefined,
     };
-    this.onClickGeoLocate();
   }
 
   async componentDidMount() {
     const allEntIndex = await Ents.getAllEntIndex();
 
-    await GeoData.getRegionsForPoint(
-      this.state.center,
-      this.onRegionsUpdate.bind(this)
-    );
-
     this.setState({
       allEntIndex,
       selectedLayerClasses: [CUSTOM_LAYERS[0]],
-    });
-  }
-
-  async onRegionsUpdate(center, regions) {
-    this.setState({
-      center,
-      regions,
     });
   }
 
@@ -65,24 +51,24 @@ export default class HomePage extends Component {
     const newCenter = roundLatLng([mapCenter.lat, mapCenter.lng]);
     const [lat, lng] = newCenter;
 
-    this.props.history.push(`/${lat}N,${lng}E,${newZoom}z`);
-
-    const regions = await GeoData.getRegionsForPoint(newCenter);
-
-    this.setState({
-      zoom: newZoom,
-      center: newCenter,
-      regions: regions,
-    });
+    this.setState(
+      {
+        zoom: newZoom,
+        center: newCenter,
+      },
+      function () {
+        this.props.history.push(`/${lat}N,${lng}E,${newZoom}z`);
+      }.bind(this)
+    );
   }
 
   onClickGeoLocate(e) {
     getBrowserLatLng(
       function (latLng) {
         this.setState({
-            center: latLng,
-            selectedCenter: latLng,
-            zoom: DEFAULT_ZOOM,
+          center: latLng,
+          selectedCenter: latLng,
+          zoom: DEFAULT_ZOOM,
         });
       }.bind(this)
     );
@@ -95,41 +81,22 @@ export default class HomePage extends Component {
   }
 
   render() {
-    const { selectedLayerClasses, center, selectedCenter, zoom, regions, allEntIndex } =
+    const { selectedLayerClasses, center, selectedCenter, zoom, allEntIndex } =
       this.state;
 
     if (!allEntIndex) {
       return "...";
     }
-    let renderedRegions = "...";
-    if (regions) {
-      renderedRegions = REGION_TYPES.map(function (entType) {
-        const regionID = regions[entType];
-        if (regionID) {
-          const name = allEntIndex[entType][regionID].name;
-          return (
-            <div className="div-rendered-region" key={`region-${regionID}`}>
-              <div className="div-region-name">{name}</div>
-              <div className="div-region-type">{entType.toUpperCase()}</div>
-            </div>
-          );
-        }
-        return "";
-      });
-    }
 
     return (
       <>
         <div className="div-title">
-          <div className="div-rendered-regions">
-            <img
-              className="img-geolocate"
-              src={imgGeoLocate}
-              alt="geolocate"
-              onClick={this.onClickGeoLocate.bind(this)}
-            />
-            {renderedRegions}
-          </div>
+          <img
+            className="img-geolocate"
+            src={imgGeoLocate}
+            alt="geolocate"
+            onClick={this.onClickGeoLocate.bind(this)}
+          />
         </div>
         <LayerMenuView
           onSelectLayer={this.onSelectLayer.bind(this)}
@@ -148,7 +115,6 @@ export default class HomePage extends Component {
             return (
               <CustomLayerClass
                 key={`custom-layer-class-${iCustomLayerClass}`}
-                regions={regions}
                 center={center}
               />
             );

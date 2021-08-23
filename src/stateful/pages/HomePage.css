@@ -30,11 +30,9 @@
 }
 
 .img-geolocate {
-	display: inline-block;
 	width: 12px;
 	height: 12px;
-	padding: 6px;
-	border: none;
+	margin: 6px;
 	background: white;
 	cursor: pointer;
 }
