@@ -1,9 +1,9 @@
 import { Component } from "react";
 import { LAYERS } from "../../constants/Layers.js";
 
-import "./LayerView.css";
+import "./LayerMenuView.css";
 
-export default class LayerView extends Component {
+export default class LayerMenuView extends Component {
   constructor(props) {
     super(props);
     this.state = { matchingLayers: [] };

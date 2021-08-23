@@ -44,3 +44,4 @@
   * HomePage.css
   * CSS stylelint
   * Added LayersView
+  * LayerView -

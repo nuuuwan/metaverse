@@ -1,1 +1,3 @@
-export const LAYERS = ["COVID19 Vaccination Centers"];
+export const LAYERS = [
+  "COVID19 Vaccination Centers",
+];

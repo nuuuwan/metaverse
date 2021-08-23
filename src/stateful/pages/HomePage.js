@@ -5,7 +5,7 @@ import LKVaxCenters from "../../core/custom_data/LKVaxCenters.js";
 import GeoData, { getBrowserLatLng, roundLatLng } from "../../base/GeoData.js";
 import Ents, { REGION_TYPES } from "../../base/Ents.js";
 
-import LayerView from "../molecules/LayerView.js";
+import LayerMenuView from "../molecules/LayerMenuView.js";
 import GeoMap from "../molecules/GeoMap.js";
 import imgGeoLocate from "../../assets/images/geolocate.png";
 
@@ -165,7 +165,7 @@ export default class HomePage extends Component {
             {renderedRegions}
           </div>
         </div>
-        <LayerView />
+        <LayerMenuView />
         <GeoMap
           key={center}
           center={center}
