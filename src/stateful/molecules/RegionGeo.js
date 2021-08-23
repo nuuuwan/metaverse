@@ -24,7 +24,7 @@ export default class RegionGeo extends Component {
   }
 
   render() {
-    const { regionType } = this.props;
+    const { regionType, regionID } = this.props;
     const { geoData, ent } = this.state;
     if (!geoData) {
       return "...";
@@ -41,6 +41,7 @@ export default class RegionGeo extends Component {
     return (
       <GeoJSON
         className="geojson"
+        key={`geojson-${regionID}`}
         data={geoJsonData}
         style={STYLE_GEOJSON}
         eventHandlers={{ mouseover: onMouseOver }}

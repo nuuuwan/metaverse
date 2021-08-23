@@ -2,22 +2,25 @@ import AbstractLayer from "../AbstractLayer.js";
 import RegionGeo from "../RegionGeo.js";
 
 class AdminRegionLayer extends AbstractLayer {
-  async getDataList() {
-    const regionType = this.getRegionType();
-    const { regions } = this.props;
-    if (!regions || !regions[regionType]) {
-      return [];
-    }
-    const regionID = regions[regionType];
-    return [{ regionType, regionID }];
-  }
-
   renderDataList() {
-    const { dataList } = this.state;
+    const { center, regions } = this.props;
+
+    const regionType = this.getRegionType();
+    let dataList = [];
+    if (regions) {
+      const regionID = regions[regionType];
+      if (regionID) {
+        dataList = [{ regionType, regionID }];
+      }
+    }
 
     return dataList.map(function ({ regionType, regionID }, iData) {
       return (
-        <RegionGeo regionType={regionType} regionID={regionID}></RegionGeo>
+        <RegionGeo
+          key={`region-geo-${regionID}`}
+          regionType={regionType}
+          regionID={regionID}
+        />
       );
     });
   }

@@ -92,6 +92,7 @@ export default class HomePage extends Component {
   render() {
     const { selectedLayerClasses, center, zoom, regions, allEntIndex } =
       this.state;
+
     if (!allEntIndex) {
       return "...";
     }
@@ -130,6 +131,7 @@ export default class HomePage extends Component {
           selectedLayerClasses={selectedLayerClasses}
         />
         <GeoMap
+          key={`geomap-${center}`}
           center={center}
           zoom={zoom}
           onMoveEnd={this.onMoveEnd.bind(this)}
@@ -140,8 +142,9 @@ export default class HomePage extends Component {
           ) {
             return (
               <CustomLayerClass
-                key={`custom-layer-class-${iCustomLayerClass}-${center}`}
+                key={`custom-layer-class-${iCustomLayerClass}`}
                 regions={regions}
+                center={center}
               />
             );
           })}

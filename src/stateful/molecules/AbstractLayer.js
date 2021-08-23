@@ -14,6 +14,10 @@ export default class AbstractLayer extends Component {
 
   async componentDidMount() {
     this.isComponentMounted = true;
+    await this.getDataListAndUpdateState();
+  }
+
+  async getDataListAndUpdateState() {
     const dataList = await this.getDataList();
     if (this.isComponentMounted) {
       this.setState({ dataList });
