@@ -14,3 +14,4 @@
 * [2021-08-23 01:12PM] Fix HomePage navigation
   * Updated README
   * Hightlight selected
+  * Open popu

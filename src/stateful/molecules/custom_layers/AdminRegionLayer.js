@@ -1,26 +1,17 @@
 import AbstractLayer from "../AbstractLayer.js";
 import RegionGeo from "../RegionGeo.js";
 
-export default class AdminRegionLayer extends AbstractLayer {
-  static getLabel() {
-    return "Administrative Regions";
-  }
+class AdminRegionLayer extends AbstractLayer {
 
-  static isMatch(text) {
-    return AdminRegionLayer.getLabel()
-      .toLowerCase()
-      .includes(text.toLowerCase());
-  }
 
   async getDataList() {
+    const regionType = this.getRegionType();
     const { regions } = this.props;
-    if (!regions) {
+    if (!regions || !regions[regionType]) {
       return [];
     }
-    return Object.entries(regions).map(([regionType, regionID]) => ({
-      regionType,
-      regionID,
-    }));
+    const regionID = regions[regionType];
+    return [{ regionType, regionID }];
   }
 
   renderDataList() {
@@ -29,5 +20,37 @@ export default class AdminRegionLayer extends AbstractLayer {
     return dataList.map(function ({ regionType, regionID }, iData) {
       return <RegionGeo regionType={regionType} regionID={regionID} />;
     });
+  }
+}
+
+export class GNDRegionLayer extends AdminRegionLayer {
+  static getLabel() {
+    return "Grama Niladhari Divisions";
+  }
+
+  static isMatch(text) {
+    return GNDRegionLayer.getLabel()
+      .toLowerCase()
+      .includes(text.toLowerCase());
+  }
+
+  getRegionType() {
+    return "gnd";
+  }
+}
+
+export class DSDRegionLayer extends AdminRegionLayer {
+  static getLabel() {
+    return "Divisional Secretariat Divisions";
+  }
+
+  static isMatch(text) {
+    return DSDRegionLayer.getLabel()
+      .toLowerCase()
+      .includes(text.toLowerCase());
+  }
+
+  getRegionType() {
+    return "dsd";
   }
 }

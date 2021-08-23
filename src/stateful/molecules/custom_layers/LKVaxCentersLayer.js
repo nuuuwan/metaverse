@@ -45,7 +45,9 @@ export default class LKVaxCentersLayer extends AbstractLayer {
           pathOptions={{ color: color }}
         >
           <Popup>
-            <div className="div-layer-title">{LKVaxCentersLayer.getLabel()}</div>
+            <div className="div-layer-title">
+              {LKVaxCentersLayer.getLabel()}
+            </div>
             <h3>{data.center}</h3>
             <h3>{data.center_si}</h3>
             <h3>{data.center_ta}</h3>

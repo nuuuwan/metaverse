@@ -6,10 +6,11 @@ import { GeoJSON, Popup } from "react-leaflet";
 import "./RegionGeo.css";
 
 const STYLE_GEOJSON = {
-  fillColor: "black",
+  color: "#f00",
   fillOpacity: 0.1,
-  color: "#fff",
+  color: "#f00",
 };
+
 
 export default class RegionGeo extends Component {
   constructor(props) {
@@ -34,8 +35,13 @@ export default class RegionGeo extends Component {
       type: "MultiPolygon",
       coordinates: geoData,
     };
+
+    const onLoad = function(e) {
+      e.target.openPopup();
+    }
+
     return (
-      <GeoJSON className="geojson" data={geoJsonData} style={STYLE_GEOJSON}>
+      <GeoJSON className="geojson" data={geoJsonData} style={STYLE_GEOJSON} eventHandlers={{mouseover      : onLoad}}>
         <Popup>
           <div>
             <span className="div-region-name-geojson">{ent.name}</span>
@@ -44,14 +50,16 @@ export default class RegionGeo extends Component {
             </span>
           </div>
           <table>
-            <tr>
-              <th>Population</th>
-              <td>{ent.population.toLocaleString('en-US')}</td>
-            </tr>
-            <tr>
-              <th>Area</th>
-              <td>{ent.area.toLocaleString()}</td>
-            </tr>
+            <tbody>
+              <tr>
+                <th>Population</th>
+                <td>{ent.population.toLocaleString("en-US")}</td>
+              </tr>
+              <tr>
+                <th>Area</th>
+                <td>{ent.area.toLocaleString()}</td>
+              </tr>
+            </tbody>
           </table>
         </Popup>
       </GeoJSON>

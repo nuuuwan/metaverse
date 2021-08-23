@@ -33,7 +33,6 @@ export default class HomePage extends Component {
       regions: undefined,
       entIndex: {},
       allEntIndex: undefined,
-      lkVaxCenters: undefined,
     };
     this.onClickGeoLocate();
   }
