@@ -29,8 +29,13 @@ export default class LayerMenuView extends Component {
       const onClick = function (e) {
         onSelectLayer(LayerClass);
       };
+
+      let className = "div-layer";
+      if (selectedLayerClasses.includes(LayerClass)) {
+        className += " div-layer-selected";
+      }
       return (
-        <div className="div-layer" key={`li-${label}`} onClick={onClick}>
+        <div className={className} key={`li-${label}`} onClick={onClick}>
           {label}
         </div>
       );

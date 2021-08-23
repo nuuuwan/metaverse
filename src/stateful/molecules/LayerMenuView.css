@@ -39,6 +39,10 @@
 	cursor: pointer;
 }
 
+.div-layer-selected {
+	color: orange;
+}
+
 .div-layer:hover {
 	color: orange;
 }
