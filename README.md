@@ -43,3 +43,4 @@
   * Moved title to bottom
   * HomePage.css
   * CSS stylelint
+  * Added LayersView

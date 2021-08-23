@@ -1,0 +1,25 @@
+.div-layer-view {
+	position: absolute;
+	top: 20px;
+	right: 60px;
+	z-index: 10000;
+	padding: 3px;
+	border-radius: 6px;
+	background: white;
+	font-size: 80%;
+}
+
+.div-layer-menu {
+	margin: 3px;
+	padding: 3px;
+}
+
+.input-text-layers {
+	margin: 3px;
+	padding: 3px;
+	border: none;
+	border-radius: 6px;
+	background: #f8f8f8;
+	color: gray;
+	outline: none;
+}
