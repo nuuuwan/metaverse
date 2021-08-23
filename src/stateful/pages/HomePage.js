@@ -10,7 +10,7 @@ import imgGeoLocate from "../../assets/images/geolocate.png";
 
 import "./HomePage.css";
 
-const DEFAULT_ZOOM = 16;
+const DEFAULT_ZOOM = 14;
 
 function parseLocationStr(locationStr) {
   const [latStr, lngStr, zoomStr] = locationStr.split(",");

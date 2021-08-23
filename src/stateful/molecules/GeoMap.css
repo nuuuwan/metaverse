@@ -4,14 +4,12 @@
 	height: 100vh;
 }
 
-.div-center-marker {
+.img-geolocate-map {
 	position: absolute;
 	top: calc(50% - 50px);
 	left: calc(50% - 50px);
 	z-index: 10000;
-	width: 50px;
-	height: 50px;
-	border-radius: 40px;
-	background-color: red;
-	opacity: 0.25;
+	width: 100px;
+	height: 100px;
+	opacity: 0.2;
 }

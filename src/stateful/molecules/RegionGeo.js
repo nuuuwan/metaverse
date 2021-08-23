@@ -1,6 +1,6 @@
 import { Component } from "react";
 import GeoData from "../../base/GeoData.js";
-import Ents from "../../base/Ents.js";
+import Ents, { ENT_TO_NAME } from "../../base/Ents.js";
 import { GeoJSON, Popup } from "react-leaflet";
 
 import "./RegionGeo.css";
@@ -46,21 +46,36 @@ export default class RegionGeo extends Component {
         eventHandlers={{ mouseover: onMouseOver }}
       >
         <Popup>
-          <div>
+          <h2>
             <span className="div-region-name-geojson">{ent.name}</span>
+          </h2>
+          <h2>
             <span className="div-region-type-geojson">
-              {regionType.toUpperCase()}
+              {ENT_TO_NAME[regionType]}
             </span>
-          </div>
+          </h2>
+          <hr />
           <table>
             <tbody>
               <tr>
                 <th>Population</th>
-                <td>{ent.population.toLocaleString("en-US")}</td>
+                <td className="td-value">
+                  {parseInt(ent.population).toLocaleString()}
+                </td>
               </tr>
               <tr>
                 <th>Area</th>
-                <td>{ent.area.toLocaleString()}</td>
+                <td className="td-value">
+                  {parseFloat(ent.area).toLocaleString()}
+                  {" km²"}
+                </td>
+              </tr>
+              <tr>
+                <th>Altitude (Centroid)</th>
+                <td className="td-value">
+                  {parseFloat(ent.centroid_altitude).toLocaleString()}
+                  {" m"}
+                </td>
               </tr>
             </tbody>
           </table>

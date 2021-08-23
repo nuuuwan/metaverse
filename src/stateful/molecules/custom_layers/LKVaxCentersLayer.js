@@ -2,7 +2,7 @@ import WWW from "../../../base/WWW.js";
 import { Circle, Popup } from "react-leaflet";
 import AbstractLayer from "../AbstractLayer.js";
 
-const DEFAULT_CIRLE_RADIUS = 500;
+const DEFAULT_CIRLE_RADIUS = 1000;
 
 export default class LKVaxCentersLayer extends AbstractLayer {
   static getLabel() {
@@ -21,7 +21,6 @@ export default class LKVaxCentersLayer extends AbstractLayer {
       "nuuuwan/covid19/data",
       "covid19.lk_vax_centers.latest.tsv",
     ]);
-    console.debug(url);
     return await WWW.tsv(url);
   }
 
@@ -65,10 +64,11 @@ export default class LKVaxCentersLayer extends AbstractLayer {
             {renderedDoseInfo}
             <hr />
             <div>
-              <strong>{data.police}</strong> {'Police Area, '} <strong>{data.district}</strong> District
+              <strong>{data.police}</strong> {"Police Area, "}{" "}
+              <strong>{data.district}</strong> District
             </div>
             <div>{data.tags}</div>
-            <div>{data.fuzzy_key}</div>
+            <div style={{ fontSize: "70%" }}>{data.fuzzy_key}</div>
           </Popup>
         </Circle>
       );

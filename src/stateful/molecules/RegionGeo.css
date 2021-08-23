@@ -1,13 +1,13 @@
 .div-region-name-geojson {
 	padding-right: 3px;
 	font-weight: 800;
-	font-size: 100%;
 }
 
 .div-region-type-geojson {
-	font-size: 90%;
+	font-weight: 400;
 }
 
-td {
+.td-value {
+	padding: 3px;
 	text-align: right;
 }

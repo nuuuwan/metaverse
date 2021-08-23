@@ -1,6 +1,20 @@
 import WWW from "./WWW.js";
 
-export const REGION_TYPES = ["province", "district", "dsd", "gnd"];
+export const ENT = {
+  PROVINCE: "province",
+  DISTRICT: "district",
+  DSD: "dsd",
+  GND: "gnd",
+};
+
+export const REGION_TYPES = Object.values(ENT);
+
+export const ENT_TO_NAME = {
+  [ENT.PROVINCE]: "Province",
+  [ENT.DISTRICT]: "District",
+  [ENT.DSD]: "Divisional Secretariat Division",
+  [ENT.GND]: "Grama Niladhari Division",
+};
 
 export default class Ents {
   static async getEntsByType(entType) {
