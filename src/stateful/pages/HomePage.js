@@ -29,6 +29,7 @@ export default class HomePage extends Component {
     this.state = {
       selectedLayerClasses: [],
       center: [lat, lng],
+      selectedCenter: [lat, lng],
       zoom: zoom,
       regions: undefined,
       entIndex: {},
@@ -77,8 +78,12 @@ export default class HomePage extends Component {
 
   onClickGeoLocate(e) {
     getBrowserLatLng(
-      function ([lat, lng]) {
-        this.setState({ center: [lat, lng], zoom: DEFAULT_ZOOM });
+      function (latLng) {
+        this.setState({
+            center: latLng,
+            selectedCenter: latLng,
+            zoom: DEFAULT_ZOOM,
+        });
       }.bind(this)
     );
   }
@@ -90,7 +95,7 @@ export default class HomePage extends Component {
   }
 
   render() {
-    const { selectedLayerClasses, center, zoom, regions, allEntIndex } =
+    const { selectedLayerClasses, center, selectedCenter, zoom, regions, allEntIndex } =
       this.state;
 
     if (!allEntIndex) {
@@ -131,7 +136,7 @@ export default class HomePage extends Component {
           selectedLayerClasses={selectedLayerClasses}
         />
         <GeoMap
-          key={`geomap-${center}`}
+          key={`geomap-${selectedCenter}`}
           center={center}
           zoom={zoom}
           onMoveEnd={this.onMoveEnd.bind(this)}
