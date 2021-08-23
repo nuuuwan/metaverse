@@ -33,8 +33,8 @@ export default class Ents {
   static async getEnt(entType, entID) {
     const entIndex = await Ents.getEntIndexByType(entType);
     let ent = entIndex[entID];
-    if (ent['centroid']) {
-      ent['centroid'] = JSON.parse(ent['centroid']);
+    if (ent["centroid"]) {
+      ent["centroid"] = JSON.parse(ent["centroid"]);
     }
     return ent;
   }

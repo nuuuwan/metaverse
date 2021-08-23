@@ -65,7 +65,7 @@ export default class GeoData {
     return isPointInMultiMultiPolygon(point, multiPolygon);
   }
 
-  static async getRegionsForPoint(point, onRegionsUpdate) {
+  static async getRegionsForPoint(point) {
     let regionTree = await GeoData.getRegionTree();
 
     let regionMap = {};
@@ -85,15 +85,13 @@ export default class GeoData {
           regionMap[regionType] = regionID;
           regionTree = regionTree[regionID];
           isFoundRegion = true;
-          onRegionsUpdate(point, regionMap);
-          break;
         }
       }
       if (!isFoundRegion) {
         break;
       }
     }
-    onRegionsUpdate(point, regionMap);
+    return regionMap;
   }
 }
 

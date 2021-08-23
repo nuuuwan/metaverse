@@ -1,12 +1,5 @@
-import WWW from "../../../base/WWW.js";
-import { Circle, Popup } from "react-leaflet";
-
-import GeoData from '../../../base/GeoData.js';
-
 import AbstractLayer from "../AbstractLayer.js";
 import RegionGeo from "../RegionGeo.js";
-
-const DEFAULT_CIRLE_RADIUS = 500;
 
 export default class AdminRegionLayer extends AbstractLayer {
   static getLabel() {
@@ -20,20 +13,21 @@ export default class AdminRegionLayer extends AbstractLayer {
   }
 
   async getDataList() {
-    const {regions} = this.props;
-    return Object.entries(regions).map(
-      ([regionType, regionID]) => ({regionType, regionID}),
-    );
+    const { regions } = this.props;
+    if (!regions) {
+      return [];
+    }
+    return Object.entries(regions).map(([regionType, regionID]) => ({
+      regionType,
+      regionID,
+    }));
   }
 
   renderDataList() {
     const { dataList } = this.state;
 
-    return dataList.map(function ({regionType, regionID}, iData) {
-
-      return (
-        <RegionGeo regionType={regionType} regionID={regionID} />
-      );
+    return dataList.map(function ({ regionType, regionID }, iData) {
+      return <RegionGeo regionType={regionType} regionID={regionID} />;
     });
   }
 }

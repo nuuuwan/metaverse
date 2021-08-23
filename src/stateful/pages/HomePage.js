@@ -3,7 +3,7 @@ import { Component } from "react";
 import GeoData, { getBrowserLatLng, roundLatLng } from "../../base/GeoData.js";
 import Ents, { REGION_TYPES } from "../../base/Ents.js";
 
-import LKVaxCentersLayer from "../molecules/custom_layers/LKVaxCentersLayer.js";
+import {CUSTOM_LAYERS} from "../molecules/custom_layers/CustomLayers.js";
 import LayerMenuView from "../molecules/LayerMenuView.js";
 import GeoMap from "../molecules/GeoMap.js";
 import imgGeoLocate from "../../assets/images/geolocate.png";
@@ -48,7 +48,7 @@ export default class HomePage extends Component {
 
     this.setState({
       allEntIndex,
-      selectedLayerClasses: [LKVaxCentersLayer],
+      selectedLayerClasses: [CUSTOM_LAYERS[0]],
     });
   }
 
@@ -64,16 +64,16 @@ export default class HomePage extends Component {
     const newZoom = e.target.getZoom();
     const newCenter = roundLatLng([mapCenter.lat, mapCenter.lng]);
     const [lat, lng] = newCenter;
+
     this.props.history.push(`/${lat}N,${lng}E,${newZoom}z`);
+
+    const regions = await GeoData.getRegionsForPoint(newCenter);
 
     this.setState({
       zoom: newZoom,
+      center: newCenter,
+      regions: regions,
     });
-
-    await GeoData.getRegionsForPoint(
-      newCenter,
-      this.onRegionsUpdate.bind(this)
-    );
   }
 
   onClickGeoLocate(e) {
@@ -85,7 +85,6 @@ export default class HomePage extends Component {
   }
 
   onSelectLayer(SelectedLayerClass) {
-    console.debug(SelectedLayerClass);
     this.setState({
       selectedLayerClasses: [SelectedLayerClass],
     });

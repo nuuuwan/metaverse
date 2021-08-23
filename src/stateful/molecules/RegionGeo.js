@@ -3,7 +3,7 @@ import GeoData from "../../base/GeoData.js";
 import { GeoJSON } from "react-leaflet";
 
 const STYLE_GEOJSON = {
-  fillColor: "#f00",
+  fillColor: "black",
   fillOpacity: 0.1,
   color: "#fff",
 };
