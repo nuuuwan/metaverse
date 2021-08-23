@@ -1,5 +1,8 @@
 import { Component } from "react";
-import { CUSTOM_LAYERS } from "./custom_layers/CustomLayers.js";
+import {
+  CUSTOM_LAYERS,
+  POPULAR_CUSTOM_LAYERS,
+} from "./custom_layers/CustomLayers.js";
 
 import "./LayerMenuView.css";
 
@@ -19,20 +22,36 @@ export default class LayerMenuView extends Component {
   }
   render() {
     const { matchingLayerClasses } = this.state;
+    const { onSelectLayer, selectedLayerClasses } = this.props;
+
+    const renderLayer = function (LayerClass) {
+      const label = LayerClass.getLabel();
+      const onClick = function (e) {
+        onSelectLayer(LayerClass);
+      };
+      return (
+        <div className="div-layer" key={`li-${label}`} onClick={onClick}>
+          {label}
+        </div>
+      );
+    };
+
+    const title = selectedLayerClasses.map((LayerClass) =>
+      LayerClass.getLabel()
+    );
+
     return (
       <div className="div-layer-view">
+        <h1>{title}</h1>
         <input
           className="input-text-layers"
           type="text"
           placeholder="Search Layers"
           onChange={this.onInputTextLayersChange.bind(this)}
         />
-        <ul>
-          {matchingLayerClasses.map(function (LayerClass) {
-            const label = LayerClass.getLabel();
-            return <li key={`li-${label}`}>{label}</li>;
-          })}
-        </ul>
+        {matchingLayerClasses.map(renderLayer)}
+        <div className="div-common-layer-header">Commonly Used Layers</div>
+        {POPULAR_CUSTOM_LAYERS.map(renderLayer)}
       </div>
     );
   }

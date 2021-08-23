@@ -3,7 +3,8 @@
 	top: 20px;
 	right: 60px;
 	z-index: 10000;
-	padding: 3px;
+	min-width: 300px;
+	padding: 12px;
 	border-radius: 6px;
 	background: white;
 	font-size: 80%;
@@ -15,6 +16,7 @@
 }
 
 .input-text-layers {
+	width: 90%;
 	margin: 3px;
 	padding: 3px;
 	border: none;
@@ -22,4 +24,19 @@
 	background: #f8f8f8;
 	color: gray;
 	outline: none;
+}
+
+.div-common-layer-header {
+	padding-top: 24px;
+	color: lightgray;
+	font-size: 80%;
+}
+
+.div-layer {
+	padding: 3px;
+	cursor: pointer;
+}
+
+.div-layer:hover {
+	color: orange;
 }

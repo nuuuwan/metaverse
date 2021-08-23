@@ -27,7 +27,7 @@ export default class HomePage extends Component {
     const { lat, lng, zoom } = parseLocationStr(locationStr);
 
     this.state = {
-      customLayerClasses: [],
+      selectedLayerClasses: [],
       center: [lat, lng],
       zoom: zoom,
       regions: undefined,
@@ -48,7 +48,7 @@ export default class HomePage extends Component {
 
     this.setState({
       allEntIndex,
-      customLayerClasses: [LKVaxCentersLayer],
+      selectedLayerClasses: [LKVaxCentersLayer],
     });
   }
 
@@ -84,8 +84,15 @@ export default class HomePage extends Component {
     );
   }
 
+  onSelectLayer(SelectedLayerClass) {
+    console.debug(SelectedLayerClass);
+    this.setState({
+      selectedLayerClasses: [SelectedLayerClass],
+    });
+  }
+
   render() {
-    const { customLayerClasses, center, zoom, regions, allEntIndex } =
+    const { selectedLayerClasses, center, zoom, regions, allEntIndex } =
       this.state;
     if (!allEntIndex) {
       return "...";
@@ -120,14 +127,17 @@ export default class HomePage extends Component {
             {renderedRegions}
           </div>
         </div>
-        <LayerMenuView />
+        <LayerMenuView
+          onSelectLayer={this.onSelectLayer.bind(this)}
+          selectedLayerClasses={selectedLayerClasses}
+        />
         <GeoMap
           key={center}
           center={center}
           zoom={zoom}
           onMoveEnd={this.onMoveEnd.bind(this)}
         >
-          {customLayerClasses.map(function (
+          {selectedLayerClasses.map(function (
             CustomLayerClass,
             iCustomLayerClass
           ) {

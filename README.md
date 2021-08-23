@@ -46,3 +46,4 @@
   * Added LayersView
   * LayerView -
   * CustomLayer
+  * Layers Select
