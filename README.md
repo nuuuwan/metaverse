@@ -20,3 +20,5 @@
   * Done
   * Pre-Merge
   * 
+* [2021-08-23 05:05PM] Make Browser Geo Selection Smooth
+  * Updated README
