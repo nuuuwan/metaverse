@@ -130,7 +130,6 @@ export default class HomePage extends Component {
           selectedLayerClasses={selectedLayerClasses}
         />
         <GeoMap
-          key={center}
           center={center}
           zoom={zoom}
           onMoveEnd={this.onMoveEnd.bind(this)}
@@ -141,7 +140,7 @@ export default class HomePage extends Component {
           ) {
             return (
               <CustomLayerClass
-                key={`custom-layer-class-${iCustomLayerClass}`}
+                key={`custom-layer-class-${iCustomLayerClass}-${center}`}
                 regions={regions}
               />
             );

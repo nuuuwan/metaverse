@@ -2,8 +2,6 @@ import AbstractLayer from "../AbstractLayer.js";
 import RegionGeo from "../RegionGeo.js";
 
 class AdminRegionLayer extends AbstractLayer {
-
-
   async getDataList() {
     const regionType = this.getRegionType();
     const { regions } = this.props;
@@ -18,7 +16,9 @@ class AdminRegionLayer extends AbstractLayer {
     const { dataList } = this.state;
 
     return dataList.map(function ({ regionType, regionID }, iData) {
-      return <RegionGeo regionType={regionType} regionID={regionID} />;
+      return (
+        <RegionGeo regionType={regionType} regionID={regionID}></RegionGeo>
+      );
     });
   }
 }
@@ -29,9 +29,7 @@ export class GNDRegionLayer extends AdminRegionLayer {
   }
 
   static isMatch(text) {
-    return GNDRegionLayer.getLabel()
-      .toLowerCase()
-      .includes(text.toLowerCase());
+    return GNDRegionLayer.getLabel().toLowerCase().includes(text.toLowerCase());
   }
 
   getRegionType() {
@@ -45,9 +43,7 @@ export class DSDRegionLayer extends AdminRegionLayer {
   }
 
   static isMatch(text) {
-    return DSDRegionLayer.getLabel()
-      .toLowerCase()
-      .includes(text.toLowerCase());
+    return DSDRegionLayer.getLabel().toLowerCase().includes(text.toLowerCase());
   }
 
   getRegionType() {

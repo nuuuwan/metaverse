@@ -37,31 +37,37 @@ export default class LKVaxCentersLayer extends AbstractLayer {
       if (data.tags) {
         color = "red";
       }
+
+      let renderedDoseInfo = [];
+      if (data.dose1) {
+        renderedDoseInfo.push("💉 1st Dose");
+      }
+      if (data.dose2) {
+        renderedDoseInfo.push("💉 2nd Dose");
+      }
+
+      const onMouseOver = function (e) {
+        e.target.openPopup();
+      };
+
       return (
         <Circle
           key={`layer-data-${iData}`}
           center={position}
           radius={DEFAULT_CIRLE_RADIUS}
           pathOptions={{ color: color }}
+          eventHandlers={{ mouseover: onMouseOver }}
         >
           <Popup>
-            <div className="div-layer-title">
-              {LKVaxCentersLayer.getLabel()}
-            </div>
             <h3>{data.center}</h3>
-            <h3>{data.center_si}</h3>
-            <h3>{data.center_ta}</h3>
-
             <address>{data.formatted_address}</address>
-            <address>{data.formatted_address_si}</address>
-            <address>{data.formatted_address_ta}</address>
-
+            {renderedDoseInfo}
             <hr />
             <div>
-              {data.police} Police Area,
-              {data.district} District
+              <strong>{data.police}</strong> {'Police Area, '} <strong>{data.district}</strong> District
             </div>
             <div>{data.tags}</div>
+            <div>{data.fuzzy_key}</div>
           </Popup>
         </Circle>
       );

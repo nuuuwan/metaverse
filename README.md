@@ -15,3 +15,4 @@
   * Updated README
   * Hightlight selected
   * Open popu
+  * Smoother flow

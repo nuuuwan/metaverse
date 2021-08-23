@@ -8,9 +8,7 @@ import "./RegionGeo.css";
 const STYLE_GEOJSON = {
   color: "#f00",
   fillOpacity: 0.1,
-  color: "#f00",
 };
-
 
 export default class RegionGeo extends Component {
   constructor(props) {
@@ -26,7 +24,7 @@ export default class RegionGeo extends Component {
   }
 
   render() {
-    const { regionType, regionID } = this.props;
+    const { regionType } = this.props;
     const { geoData, ent } = this.state;
     if (!geoData) {
       return "...";
@@ -36,12 +34,17 @@ export default class RegionGeo extends Component {
       coordinates: geoData,
     };
 
-    const onLoad = function(e) {
+    const onMouseOver = function (e) {
       e.target.openPopup();
-    }
+    };
 
     return (
-      <GeoJSON className="geojson" data={geoJsonData} style={STYLE_GEOJSON} eventHandlers={{mouseover      : onLoad}}>
+      <GeoJSON
+        className="geojson"
+        data={geoJsonData}
+        style={STYLE_GEOJSON}
+        eventHandlers={{ mouseover: onMouseOver }}
+      >
         <Popup>
           <div>
             <span className="div-region-name-geojson">{ent.name}</span>
