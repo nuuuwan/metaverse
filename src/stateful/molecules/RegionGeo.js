@@ -5,10 +5,10 @@ import { GeoJSON } from "react-leaflet";
 const STYLE_GEOJSON = {
   fillColor: "#f00",
   fillOpacity: 0.1,
-  color: "#f00",
+  color: "#fff",
 };
 
-export default class RegionGeoLayer extends Component {
+export default class RegionGeo extends Component {
   constructor(props) {
     super(props);
     this.state = { geoData: undefined };

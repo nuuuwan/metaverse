@@ -144,6 +144,7 @@ export default class HomePage extends Component {
             return (
               <CustomLayerClass
                 key={`custom-layer-class-${iCustomLayerClass}`}
+                regions={regions}
               />
             );
           })}

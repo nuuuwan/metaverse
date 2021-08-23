@@ -1,6 +1,10 @@
 import WWW from "../../../base/WWW.js";
 import { Circle, Popup } from "react-leaflet";
+
+import GeoData from '../../../base/GeoData.js';
+
 import AbstractLayer from "../AbstractLayer.js";
+import RegionGeo from "../RegionGeo.js";
 
 const DEFAULT_CIRLE_RADIUS = 500;
 
@@ -16,53 +20,19 @@ export default class AdminRegionLayer extends AbstractLayer {
   }
 
   async getDataList() {
-    const url = WWW.pathJoin([
-      "https://raw.githubusercontent.com",
-      "nuuuwan/covid19/data",
-      "covid19.lk_vax_centers.latest.tsv",
-    ]);
-    return await WWW.tsv(url);
+    const {regions} = this.props;
+    return Object.entries(regions).map(
+      ([regionType, regionID]) => ({regionType, regionID}),
+    );
   }
 
   renderDataList() {
     const { dataList } = this.state;
 
-    return dataList.map(function (data, iData) {
-      if (!data.lat) {
-        return null;
-      }
-      const position = [parseFloat(data.lat), parseFloat(data.lng)];
+    return dataList.map(function ({regionType, regionID}, iData) {
 
-      let color = "green";
-      if (data.tags) {
-        color = "red";
-      }
       return (
-        <Circle
-          key={`layer-data-${iData}`}
-          center={position}
-          radius={DEFAULT_CIRLE_RADIUS}
-          pathOptions={{ color: color }}
-        >
-          <Popup>
-            <h3>{data.center}</h3>
-            <h3>{data.center_si}</h3>
-            <h3>{data.center_ta}</h3>
-
-            <ul>
-              <li>{data.formatted_address}</li>
-              <li>{data.formatted_address_si}</li>
-              <li>{data.formatted_address_ta}</li>
-            </ul>
-
-            <hr />
-            <div>
-              {data.police} Police Area,
-              {data.district} District
-            </div>
-            <div>{data.tags}</div>
-          </Popup>
-        </Circle>
+        <RegionGeo regionType={regionType} regionID={regionID} />
       );
     });
   }
