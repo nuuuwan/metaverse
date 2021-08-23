@@ -47,19 +47,19 @@ export default class HomePage extends Component {
 
   async onMoveEnd(e) {
     const mapCenter = e.target.getCenter();
+    console.debug("onMoveEnd", mapCenter);
+
     const newZoom = e.target.getZoom();
     const newCenter = roundLatLng([mapCenter.lat, mapCenter.lng]);
     const [lat, lng] = newCenter;
 
-    this.setState(
-      {
-        zoom: newZoom,
-        center: newCenter,
-      },
-      function () {
-        this.props.history.push(`/${lat}N,${lng}E,${newZoom}z`);
-      }.bind(this)
-    );
+    const newUrl = `/metaverse/${lat}N,${lng}E,${newZoom}z`;
+    window.history.pushState({}, null, newUrl);
+
+    this.setState({
+      zoom: newZoom,
+      center: newCenter,
+    });
   }
 
   onClickGeoLocate(e) {

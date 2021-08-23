@@ -27,3 +27,4 @@
   * Updated README
   * Done
   * Pre-Merge
+  * Bugs
