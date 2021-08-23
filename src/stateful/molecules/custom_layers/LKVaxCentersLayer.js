@@ -6,7 +6,7 @@ const DEFAULT_CIRLE_RADIUS = 500;
 
 export default class LKVaxCentersLayer extends AbstractLayer {
   static getLabel() {
-    return "COVID19 Vaccination Centers";
+    return "🦠 COVID19 Vaccination Centers";
   }
 
   static isMatch(text) {
@@ -45,15 +45,14 @@ export default class LKVaxCentersLayer extends AbstractLayer {
           pathOptions={{ color: color }}
         >
           <Popup>
+            <div className="div-layer-title">{LKVaxCentersLayer.getLabel()}</div>
             <h3>{data.center}</h3>
             <h3>{data.center_si}</h3>
             <h3>{data.center_ta}</h3>
 
-            <ul>
-              <li>{data.formatted_address}</li>
-              <li>{data.formatted_address_si}</li>
-              <li>{data.formatted_address_ta}</li>
-            </ul>
+            <address>{data.formatted_address}</address>
+            <address>{data.formatted_address_si}</address>
+            <address>{data.formatted_address_ta}</address>
 
             <hr />
             <div>

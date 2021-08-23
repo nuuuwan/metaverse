@@ -3,7 +3,7 @@ import { Component } from "react";
 import GeoData, { getBrowserLatLng, roundLatLng } from "../../base/GeoData.js";
 import Ents, { REGION_TYPES } from "../../base/Ents.js";
 
-import {CUSTOM_LAYERS} from "../molecules/custom_layers/CustomLayers.js";
+import { CUSTOM_LAYERS } from "../molecules/custom_layers/CustomLayers.js";
 import LayerMenuView from "../molecules/LayerMenuView.js";
 import GeoMap from "../molecules/GeoMap.js";
 import imgGeoLocate from "../../assets/images/geolocate.png";

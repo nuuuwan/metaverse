@@ -1,4 +1,7 @@
 import { Component } from "react";
+
+import './AbstractLayer.css';
+
 export default class AbstractLayer extends Component {
   constructor(props) {
     super(props);

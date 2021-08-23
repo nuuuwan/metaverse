@@ -1,6 +1,9 @@
 import { Component } from "react";
 import GeoData from "../../base/GeoData.js";
-import { GeoJSON } from "react-leaflet";
+import Ents from "../../base/Ents.js";
+import { GeoJSON, Popup } from "react-leaflet";
+
+import "./RegionGeo.css";
 
 const STYLE_GEOJSON = {
   fillColor: "black",
@@ -17,11 +20,13 @@ export default class RegionGeo extends Component {
   async componentDidMount() {
     const { regionType, regionID } = this.props;
     const geoData = await GeoData.getGeoForRegion(regionType, regionID);
-    this.setState({ geoData });
+    const ent = await Ents.getEnt(regionType, regionID);
+    this.setState({ geoData, ent });
   }
 
   render() {
-    const { geoData } = this.state;
+    const { regionType, regionID } = this.props;
+    const { geoData, ent } = this.state;
     if (!geoData) {
       return "...";
     }
@@ -29,6 +34,27 @@ export default class RegionGeo extends Component {
       type: "MultiPolygon",
       coordinates: geoData,
     };
-    return <GeoJSON data={geoJsonData} style={STYLE_GEOJSON} />;
+    return (
+      <GeoJSON className="geojson" data={geoJsonData} style={STYLE_GEOJSON}>
+        <Popup>
+          <div>
+            <span className="div-region-name-geojson">{ent.name}</span>
+            <span className="div-region-type-geojson">
+              {regionType.toUpperCase()}
+            </span>
+          </div>
+          <table>
+            <tr>
+              <th>Population</th>
+              <td>{ent.population.toLocaleString('en-US')}</td>
+            </tr>
+            <tr>
+              <th>Area</th>
+              <td>{ent.area.toLocaleString()}</td>
+            </tr>
+          </table>
+        </Popup>
+      </GeoJSON>
+    );
   }
 }
