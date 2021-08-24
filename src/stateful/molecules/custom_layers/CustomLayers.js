@@ -4,7 +4,7 @@ import { CensusLayerFactory } from "./CensusLayer.js";
 
 const censusLayerClasses = CensusLayerFactory.getAll();
 
-export const CUSTOM_LAYERS = [].concat(censusLayerClasses, [
+export const CUSTOM_LAYERS = [].concat([censusLayerClasses[5]], censusLayerClasses, [
   LKVaxCentersLayer,
   AdminRegionLayer,
 ]);
