@@ -47,7 +47,6 @@ export default class HomePage extends Component {
 
   async onMoveEnd(e) {
     const mapCenter = e.target.getCenter();
-    console.debug("onMoveEnd", mapCenter);
 
     const newZoom = e.target.getZoom();
     const newCenter = roundLatLng([mapCenter.lat, mapCenter.lng]);

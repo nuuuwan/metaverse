@@ -1,4 +1,5 @@
 import Ents, { ENT, PARENT_TO_CHILD } from "../../../base/Ents.js";
+import Census from "../../../base/Census.js";
 import AbstractLayer from "../AbstractLayer.js";
 import RegionGeo from "../RegionGeo.js";
 
@@ -13,7 +14,7 @@ export default class CensusLayer extends AbstractLayer {
   }
 
   static getLabel() {
-    return "Administrative Regions";
+    return "2012 Census";
   }
 
   static isMatch(text) {
@@ -21,13 +22,26 @@ export default class CensusLayer extends AbstractLayer {
   }
 
   async getDataList() {
-    const { rootRegionID, rootRegionType } = this.state;
+    const { rootRegionID, rootRegionType , tableName} = this.state;
     const childRegionType = PARENT_TO_CHILD[rootRegionType];
     const childIDs = await Ents.getChildIDs(rootRegionID);
-    const dataList = childIDs.map((childID) => ({
-      regionType: childRegionType,
-      regionID: childID,
-    }));
+
+    const tableIndex = await Census.getTableIndex(tableName);
+    console.debug(tableIndex);
+
+    const dataList = childIDs.map(
+      function(childID) {
+        const tableRow = tableIndex[childID];
+        const color = Census.getTableRowColor(tableRow);
+        return {
+          regionID: childID,
+          regionType: childRegionType,
+          censusData: tableRow,
+          color: color,
+        }
+      }
+    )
+    console.debug(dataList);
     return dataList;
   }
 
@@ -47,13 +61,14 @@ export default class CensusLayer extends AbstractLayer {
   renderDataList() {
     const { dataList } = this.state;
     return dataList.map(
-      function ({ regionType, regionID }) {
+      function ({ regionType, regionID, color }) {
         return (
           <RegionGeo
             key={`region-geo-${regionID}`}
             regionType={regionType}
             regionID={regionID}
             onClick={this.onClick.bind(this)}
+            color={color}
           />
         );
       }.bind(this)

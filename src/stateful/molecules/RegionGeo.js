@@ -8,7 +8,7 @@ import "./RegionGeo.css";
 const STYLE_GEOJSON = {
   color: "white",
   fillColor: "red",
-  fillOpacity: 0.2,
+  fillOpacity: 0.9,
   weight: 2,
 };
 
@@ -61,12 +61,17 @@ export default class RegionGeo extends Component {
       );
     }
 
+    let style = STYLE_GEOJSON;
+    if (this.props.color) {
+      style.fillColor = this.props.color;
+    }
+
     return (
       <GeoJSON
         className="geojson"
         key={`geojson-${regionID}`}
         data={geoJsonData}
-        style={STYLE_GEOJSON}
+        style={style}
       >
         <Popup>
           <h2>
