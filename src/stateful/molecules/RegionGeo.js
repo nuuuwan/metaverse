@@ -1,7 +1,7 @@
 import { Component, createRef } from "react";
 import GeoData from "../../base/GeoData.js";
 import Ents, { ENT_TO_NAME, PARENT_TO_CHILD } from "../../base/Ents.js";
-import { GeoJSON, Popup, useMapEvents } from "react-leaflet";
+import { GeoJSON, Popup } from "react-leaflet";
 
 import "./RegionGeo.css";
 
@@ -21,9 +21,9 @@ export default class RegionGeo extends Component {
 
   async componentDidMount() {
     this.isComponentMounted = true;
-    const { regionType, regionID } = this.props;
-    const geoData = await GeoData.getGeoForRegion(regionType, regionID);
-    const ent = await Ents.getEnt(regionType, regionID);
+    const { regionID } = this.props;
+    const geoData = await GeoData.getGeoForRegion(regionID);
+    const ent = await Ents.getEnt(regionID);
 
     if (this.isComponentMounted) {
       this.setState({ geoData, ent });

@@ -1,4 +1,5 @@
 import WWW from "./WWW.js";
+import Ents from "./Ents.js";
 
 import { REGION_TYPES } from "./Ents.js";
 
@@ -50,7 +51,8 @@ function isPointInMultiMultiPolygon(point, multiMultiPolygon) {
 }
 
 export default class GeoData {
-  static async getGeoForRegion(regionType, regionID) {
+  static async getGeoForRegion(regionID) {
+    const regionType = Ents.getEntityType(regionID);
     const url = `data/geo/${regionType}/${regionID}.json`;
     return await WWW.json(url);
   }
@@ -60,8 +62,8 @@ export default class GeoData {
     return await WWW.json(url);
   }
 
-  static async isPointInRegion(point, regionType, regionID) {
-    const multiPolygon = await GeoData.getGeoForRegion(regionType, regionID);
+  static async isPointInRegion(point, regionID) {
+    const multiPolygon = await GeoData.getGeoForRegion(regionID);
     return isPointInMultiMultiPolygon(point, multiPolygon);
   }
 
@@ -78,7 +80,6 @@ export default class GeoData {
         const regionID = regionIDs[iRegion];
         const _isPointInRegion = await GeoData.isPointInRegion(
           point,
-          regionType,
           regionID
         );
         if (_isPointInRegion) {

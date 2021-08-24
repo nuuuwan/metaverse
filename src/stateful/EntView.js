@@ -1,3 +1,5 @@
+import Ents from '../../base/Ents.js';
+
 export default class EntView {
   constructor(props) {
     super(props);
@@ -6,6 +8,16 @@ export default class EntView {
 
   async componentDidMount() {
     const {entID} = this.props;
-    const ent = await Ents.getEnt();
+    const ent = await Ents.getEnt(entID);
+    this.setState({ent});
+  }
+
+  render() {
+    const {entID} = this.props;
+    const {ent} = this.state;
+    if (!ent) {
+      return entID;
+    }
+    return ent.name;
   }
 }

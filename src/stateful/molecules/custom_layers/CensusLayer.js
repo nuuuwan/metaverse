@@ -1,4 +1,4 @@
-import Ents, { ENT, PARENT_TO_CHILD } from "../../../base/Ents.js";
+import Ents from "../../../base/Ents.js";
 import StringX from "../../../base/StringX.js";
 import Census, { TABLE_NAMES } from "../../../base/Census.js";
 import AbstractLayer from "../AbstractLayer.js";
@@ -18,12 +18,11 @@ export default class CensusLayer extends AbstractLayer {
   }
 
   async getDataList() {
-    const { childRegionType, parentRegionID, parentRegionType } = this.props;
+    const { childRegionType, parentRegionID } = this.props;
     const tableName = this.constructor.getTableName();
     const childIDs = await Ents.getChildIDs(parentRegionID, childRegionType);
 
     const tableIndex = await Census.getTableIndex(tableName);
-    const metaData = await Census.getMetaData();
 
     const dataList = childIDs.map(function (childID) {
       const tableRow = tableIndex[childID];

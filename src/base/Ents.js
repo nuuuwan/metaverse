@@ -6,6 +6,7 @@ export const ENT = {
   DISTRICT: "district",
   DSD: "dsd",
   GND: "gnd",
+  UNKNOWN: "unknown-entity",
 };
 
 export const REGION_TYPES = Object.values(ENT);
@@ -26,6 +27,27 @@ export const PARENT_TO_CHILD = {
 };
 
 export default class Ents {
+  static getEntityType(entID) {
+    if (entID.substring(0, 2) === 'LK') {
+      const entIDLength = entID.length;
+      switch(entIDLength) {
+        case 2:
+          return ENT.COUNTRY;
+        case 4:
+          return ENT.PROVINCE;
+        case 5:
+          return ENT.DISTRICT;
+        case 7:
+          return ENT.DSD;
+        case 10:
+          return ENT.GND;
+        default:
+
+          return ENT.UNKNOWN
+      }
+    }
+    return ENT.UNKNOWN;
+  }
   static getRegionName(regionType) {
     return ENT_TO_NAME[regionType];
   }
@@ -56,7 +78,8 @@ export default class Ents {
     }, {});
   }
 
-  static async getEnt(entType, entID) {
+  static async getEnt(entID) {
+    const entType = Ents.getEntityType(entID);
     const entIndex = await Ents.getEntIndexByType(entType);
     let ent = entIndex[entID];
     if (ent["centroid"]) {
