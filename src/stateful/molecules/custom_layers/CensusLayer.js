@@ -5,7 +5,11 @@ import RegionGeo from "../RegionGeo.js";
 export default class CensusLayer extends AbstractLayer {
   constructor(props) {
     super(props);
-    this.state = { rootRegionID: "LK", rootRegionType: ENT.COUNTRY };
+    this.state = {
+      rootRegionID: "LK",
+      rootRegionType: ENT.COUNTRY,
+      tableName: 'religious_affiliation_of_population',
+   };
   }
 
   static getLabel() {
