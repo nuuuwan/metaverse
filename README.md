@@ -44,3 +44,4 @@
   * Pre-Merge
   * 
   * Lint
+  * Moved RegionTypePicker
