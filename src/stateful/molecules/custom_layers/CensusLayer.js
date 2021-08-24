@@ -1,5 +1,6 @@
 import Ents, { ENT, PARENT_TO_CHILD } from "../../../base/Ents.js";
-import Census from "../../../base/Census.js";
+import StringX from "../../../base/StringX.js";
+import Census, { TABLE_NAMES } from "../../../base/Census.js";
 import AbstractLayer from "../AbstractLayer.js";
 import RegionGeo from "../RegionGeo.js";
 
@@ -9,39 +10,40 @@ export default class CensusLayer extends AbstractLayer {
     this.state = {
       rootRegionID: "LK",
       rootRegionType: ENT.COUNTRY,
-      tableName: 'religious_affiliation_of_population',
-   };
+    };
+  }
+
+  static getTableName() {
+    return "";
   }
 
   static getLabel() {
-    return "2012 Census";
+    return "";
   }
 
   static isMatch(text) {
-    return CensusLayer.getLabel().toLowerCase().includes(text.toLowerCase());
+    return false;
   }
 
   async getDataList() {
-    const { rootRegionID, rootRegionType , tableName} = this.state;
+    const tableName = this.constructor.getTableName();
+    const { rootRegionID, rootRegionType } = this.state;
     const childRegionType = PARENT_TO_CHILD[rootRegionType];
     const childIDs = await Ents.getChildIDs(rootRegionID);
 
     const tableIndex = await Census.getTableIndex(tableName);
-    console.debug(tableIndex);
+    const metaData = await Census.getMetaData();
 
-    const dataList = childIDs.map(
-      function(childID) {
-        const tableRow = tableIndex[childID];
-        const color = Census.getTableRowColor(tableRow);
-        return {
-          regionID: childID,
-          regionType: childRegionType,
-          censusData: tableRow,
-          color: color,
-        }
-      }
-    )
-    console.debug(dataList);
+    const dataList = childIDs.map(function (childID) {
+      const tableRow = tableIndex[childID];
+      const color = Census.getTableRowColor(tableRow);
+      return {
+        regionID: childID,
+        regionType: childRegionType,
+        censusData: tableRow,
+        color: color,
+      };
+    });
     return dataList;
   }
 
@@ -73,5 +75,35 @@ export default class CensusLayer extends AbstractLayer {
         );
       }.bind(this)
     );
+  }
+}
+
+export class CensusLayerFactory {
+  static build(tableName) {
+    const CensusClass = class extends CensusLayer {
+      static getTableName() {
+        return tableName;
+      }
+
+      static getLabel() {
+        return StringX.toTitleCase(
+          tableName
+            .replaceAll("_of_population", "")
+            .replaceAll("_of_household", "")
+            .replaceAll("_by_household", "")
+            .replaceAll("_in_housing_unit", "")
+            .replaceAll("_", " ")
+        );
+      }
+
+      static isMatch(text) {
+        return this.getLabel().toLowerCase().includes(text.toLowerCase());
+      }
+    };
+    return CensusClass;
+  }
+
+  static getAll() {
+    return TABLE_NAMES.map((tableName) => CensusLayerFactory.build(tableName));
   }
 }

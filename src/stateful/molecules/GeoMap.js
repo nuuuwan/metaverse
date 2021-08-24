@@ -6,12 +6,16 @@ import {
   useMapEvents,
 } from "react-leaflet";
 
+import {
+  useLeafletMap,
+} from "react-leaflet";
+
 import "./GeoMap.css";
 
 const URL_FORMAT = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
 
 function EventComponent(props) {
-  useMapEvents({
+  const map = useMapEvents({
     moveend: (e) => {
       props.onMoveEnd(e);
     },
@@ -23,9 +27,9 @@ export default class GeoMap extends Component {
   render() {
     return (
       <MapContainer
-        center={this.props.center}
-        zoom={this.props.zoom}
+        bounds={[[5.9, 79.5], [9.9, 81.9]]}
         zoomControl={false}
+        ref={this.mapRef}
       >
         <TileLayer url={URL_FORMAT} />
         <EventComponent onMoveEnd={this.props.onMoveEnd} />

@@ -35,3 +35,4 @@
   * CensusLayer stub
   * CensusLayer stub
   * Basic Census Table
+  * Updated to whole country zoom

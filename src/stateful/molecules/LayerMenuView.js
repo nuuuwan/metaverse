@@ -6,6 +6,8 @@ import {
 
 import "./LayerMenuView.css";
 
+const MIN_SEARCH_TEXT_LENGTH = 1;
+
 export default class LayerMenuView extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +15,7 @@ export default class LayerMenuView extends Component {
   }
   onInputTextLayersChange(e) {
     const searchText = e.target.value.toLowerCase();
-    if (searchText.length > 5) {
+    if (searchText.length > MIN_SEARCH_TEXT_LENGTH) {
       const matchingLayerClasses = CUSTOM_LAYERS.filter((LayerClass) =>
         LayerClass.isMatch(searchText)
       );
