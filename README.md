@@ -43,3 +43,4 @@
   * Updated README
   * Pre-Merge
   * 
+  * Lint

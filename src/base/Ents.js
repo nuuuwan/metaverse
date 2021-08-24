@@ -28,9 +28,9 @@ export const PARENT_TO_CHILD = {
 
 export default class Ents {
   static getEntityType(entID) {
-    if (entID.substring(0, 2) === 'LK') {
+    if (entID.substring(0, 2) === "LK") {
       const entIDLength = entID.length;
-      switch(entIDLength) {
+      switch (entIDLength) {
         case 2:
           return ENT.COUNTRY;
         case 4:
@@ -42,8 +42,7 @@ export default class Ents {
         case 10:
           return ENT.GND;
         default:
-
-          return ENT.UNKNOWN
+          return ENT.UNKNOWN;
       }
     }
     return ENT.UNKNOWN;
@@ -99,5 +98,4 @@ export default class Ents {
       .map((ent) => ent.id)
       .filter((entID) => entID.includes(parentID));
   }
-
 }

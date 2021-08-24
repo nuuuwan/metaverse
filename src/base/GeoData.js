@@ -78,10 +78,7 @@ export default class GeoData {
       let isFoundRegion = false;
       for (let iRegion in regionIDs) {
         const regionID = regionIDs[iRegion];
-        const _isPointInRegion = await GeoData.isPointInRegion(
-          point,
-          regionID
-        );
+        const _isPointInRegion = await GeoData.isPointInRegion(point, regionID);
         if (_isPointInRegion) {
           regionMap[regionType] = regionID;
           regionTree = regionTree[regionID];
