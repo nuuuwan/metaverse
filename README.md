@@ -39,3 +39,5 @@
   * Show particular subregion
   * Done
   * Pre-Merge
+* [2021-08-24 05:04PM] Remove EntType for Ent Calls
+  * Updated README
