@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-import Ents, {ENT} from '../../base/Ents.js';
+import Ents, { ENT } from "../../base/Ents.js";
 import {
   CUSTOM_LAYERS,
   POPULAR_CUSTOM_LAYERS,
@@ -26,7 +26,13 @@ export default class LayerMenuView extends Component {
   }
   render() {
     const { matchingLayerClasses } = this.state;
-    const { onSelectLayer, onSelectRegionType, selectedLayerClasses, childRegionType } = this.props;
+    const {
+      onSelectLayer,
+      onSelectRegionType,
+      selectedLayerClasses,
+      childRegionType,
+      parentRegionID,
+    } = this.props;
 
     const renderLayer = function (LayerClass) {
       const label = LayerClass.getLabel();
@@ -52,7 +58,11 @@ export default class LayerMenuView extends Component {
     return (
       <div className="div-layer-view">
         <h1>{title}</h1>
-        <RegionTypePicker onSelectRegionType={onSelectRegionType} selectedRegionType={childRegionType}/>
+        <div>{parentRegionID}</div>
+        <RegionTypePicker
+          onSelectRegionType={onSelectRegionType}
+          selectedRegionType={childRegionType}
+        />
         <input
           className="input-text-layers"
           type="text"
@@ -61,9 +71,7 @@ export default class LayerMenuView extends Component {
         />
 
         {matchingLayerClasses.map(renderLayer)}
-        <div className="div-common-layer-header">
-          Commonly Used Layers
-        </div>
+        <div className="div-common-layer-header">Commonly Used Layers</div>
         {POPULAR_CUSTOM_LAYERS.map(renderLayer)}
       </div>
     );
@@ -72,33 +80,35 @@ export default class LayerMenuView extends Component {
 
 class RegionTypePicker extends Component {
   render() {
-    const {selectedRegionType, onSelectRegionType} = this.props;
+    const { selectedRegionType, onSelectRegionType } = this.props;
     const regionTypes = [ENT.PROVINCE, ENT.DISTRICT, ENT.DSD];
 
-    const renderedItems = regionTypes.map(
-      function(regionType) {
-        const regionName = Ents.getRegionName(regionType);
-        const onClick = function(e) {
-          onSelectRegionType(regionType);
-        };
+    const renderedItems = regionTypes.map(function (regionType) {
+      const regionName = Ents.getRegionName(regionType);
+      const onClick = function (e) {
+        onSelectRegionType(regionType);
+      };
 
-        const className = 'span-region-type-picker-item' + ((regionType === selectedRegionType) ? ' span-region-type-picker-item-selected': '');
-        return (
-          <span
-            key={`region-type-picker-item-${regionType}`}
-            className={className}
-            onClick={onClick}
-          >
-            {`${regionName}`}
-          </span>
-        )
-      },
-    );
+      const className =
+        "span-region-type-picker-item" +
+        (regionType === selectedRegionType
+          ? " span-region-type-picker-item-selected"
+          : "");
+      return (
+        <span
+          key={`region-type-picker-item-${regionType}`}
+          className={className}
+          onClick={onClick}
+        >
+          {`${regionName}`}
+        </span>
+      );
+    });
     return (
       <div className="div-region-type-picker">
         <span className="div-region-type-picker-desc"> By</span>
         {renderedItems}
       </div>
-    )
+    );
   }
 }

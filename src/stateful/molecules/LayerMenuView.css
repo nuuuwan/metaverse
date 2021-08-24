@@ -55,9 +55,10 @@
 .div-region-type-picker-desc {
 	margin-bottom: 12px;
 }
+
 .span-region-type-picker-item {
-	padding: 3px;
 	margin: 3px;
+	padding: 3px;
 	border-radius: 3px;
 	background: #eee;
 	color: #ddd;

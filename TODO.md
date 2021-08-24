@@ -9,6 +9,7 @@
 * RegionData with Custom Popup
 * Legend for Colors
 * Add Layer to URL
+* Ent Widget
 
 ## FEATURES
 

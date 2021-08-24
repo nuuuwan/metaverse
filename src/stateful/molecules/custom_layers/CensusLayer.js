@@ -5,14 +5,6 @@ import AbstractLayer from "../AbstractLayer.js";
 import RegionGeo from "../RegionGeo.js";
 
 export default class CensusLayer extends AbstractLayer {
-  constructor(props) {
-    super(props);
-    this.state = {
-      rootRegionID: "LK",
-      rootRegionType: ENT.COUNTRY,
-    };
-  }
-
   static getTableName() {
     return "";
   }
@@ -26,10 +18,9 @@ export default class CensusLayer extends AbstractLayer {
   }
 
   async getDataList() {
-    const { childRegionType } = this.props;
+    const { childRegionType, parentRegionID, parentRegionType } = this.props;
     const tableName = this.constructor.getTableName();
-    const { rootRegionID, rootRegionType } = this.state;
-        const childIDs = await Ents.getChildIDs(rootRegionID, childRegionType);
+    const childIDs = await Ents.getChildIDs(parentRegionID, childRegionType);
 
     const tableIndex = await Census.getTableIndex(tableName);
     const metaData = await Census.getMetaData();
@@ -50,8 +41,8 @@ export default class CensusLayer extends AbstractLayer {
   onClick(regionType, regionID) {
     this.setState(
       {
-        rootRegionID: regionID,
-        rootRegionType: regionType,
+        parentRegionID: regionID,
+        parentRegionType: regionType,
       },
       async function () {
         const dataList = await this.getDataList();

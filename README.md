@@ -37,3 +37,4 @@
   * Basic Census Table
   * Updated to whole country zoom
   * Show particular subregion
+  * Done
