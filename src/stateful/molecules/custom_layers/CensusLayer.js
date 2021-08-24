@@ -26,10 +26,10 @@ export default class CensusLayer extends AbstractLayer {
   }
 
   async getDataList() {
+    const { childRegionType } = this.props;
     const tableName = this.constructor.getTableName();
     const { rootRegionID, rootRegionType } = this.state;
-    const childRegionType = PARENT_TO_CHILD[rootRegionType];
-    const childIDs = await Ents.getChildIDs(rootRegionID);
+        const childIDs = await Ents.getChildIDs(rootRegionID, childRegionType);
 
     const tableIndex = await Census.getTableIndex(tableName);
     const metaData = await Census.getMetaData();

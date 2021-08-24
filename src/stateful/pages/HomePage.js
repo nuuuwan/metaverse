@@ -33,6 +33,7 @@ export default class HomePage extends Component {
       zoom: zoom,
       entIndex: {},
       allEntIndex: undefined,
+      childRegionType: 'district',
     };
   }
 
@@ -79,8 +80,12 @@ export default class HomePage extends Component {
     });
   }
 
+  onSelectRegionType(regionType) {
+    this.setState({childRegionType: regionType});
+  };
+
   render() {
-    const { selectedLayerClasses, center, selectedCenter, zoom, allEntIndex } =
+    const { selectedLayerClasses, center, selectedCenter, zoom, allEntIndex , childRegionType} =
       this.state;
 
     if (!allEntIndex) {
@@ -99,10 +104,12 @@ export default class HomePage extends Component {
         </div>
         <LayerMenuView
           onSelectLayer={this.onSelectLayer.bind(this)}
+          onSelectRegionType={this.onSelectRegionType.bind(this)}
           selectedLayerClasses={selectedLayerClasses}
+          childRegionType={childRegionType}
         />
         <GeoMap
-          key={`geomap-${selectedCenter}`}
+          key={`geomap-${selectedCenter}-${childRegionType}`}
           center={center}
           zoom={zoom}
           onMoveEnd={this.onMoveEnd.bind(this)}
@@ -115,6 +122,7 @@ export default class HomePage extends Component {
               <CustomLayerClass
                 key={`custom-layer-class-${iCustomLayerClass}`}
                 center={center}
+                childRegionType={childRegionType}
               />
             );
           })}

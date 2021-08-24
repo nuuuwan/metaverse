@@ -6,9 +6,7 @@ import {
   useMapEvents,
 } from "react-leaflet";
 
-import {
-  useLeafletMap,
-} from "react-leaflet";
+import { useLeafletMap } from "react-leaflet";
 
 import "./GeoMap.css";
 
@@ -27,7 +25,10 @@ export default class GeoMap extends Component {
   render() {
     return (
       <MapContainer
-        bounds={[[5.9, 79.5], [9.9, 81.9]]}
+        bounds={[
+          [5.9, 79.5],
+          [9.9, 81.9],
+        ]}
         zoomControl={false}
         ref={this.mapRef}
       >

@@ -6,10 +6,10 @@ import { GeoJSON, Popup, useMapEvents } from "react-leaflet";
 import "./RegionGeo.css";
 
 const STYLE_GEOJSON = {
-  color: "white",
+  color: "lightgray",
   fillColor: "red",
   fillOpacity: 0.5,
-  weight: 2,
+  weight: 1,
 };
 
 export default class RegionGeo extends Component {

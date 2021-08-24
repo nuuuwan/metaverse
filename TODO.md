@@ -1,6 +1,8 @@
 # TODO
 
-* Independent Child Groups
+* Layer Options
+  * Show particular field
+  * Show particular subregion (Done)
 * Add Show Parent for Regions
 * Display Census Data
 * Layers based on census Fields

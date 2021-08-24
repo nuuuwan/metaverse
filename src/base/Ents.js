@@ -26,6 +26,9 @@ export const PARENT_TO_CHILD = {
 };
 
 export default class Ents {
+  static getRegionName(regionType) {
+    return ENT_TO_NAME[regionType];
+  }
   static async getEntsByType(entType) {
     const url = `data/ents/${entType}.tsv`;
     return await WWW.tsv(url);
@@ -67,11 +70,10 @@ export default class Ents {
     return await WWW.json(url);
   }
 
-  static async getChildIDs(parentID) {
-    const parentToChildMap = await Ents.getParentToChildMap();
-    if (parentToChildMap[parentID]) {
-      return parentToChildMap[parentID];
-    }
-    return [];
+  static async getChildIDs(parentID, childRegionType) {
+    const ents = await Ents.getEntsByType(childRegionType);
+    return ents
+      .map((ent) => ent.id)
+      .filter((entID) => entID.includes(parentID));
   }
 }
