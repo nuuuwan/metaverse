@@ -27,7 +27,7 @@ export const PARENT_TO_CHILD = {
 };
 
 export default class Ents {
-  static getEntityType(entID) {
+  static getEntType(entID) {
     if (entID.substring(0, 2) === "LK") {
       const entIDLength = entID.length;
       switch (entIDLength) {
@@ -78,7 +78,7 @@ export default class Ents {
   }
 
   static async getEnt(entID) {
-    const entType = Ents.getEntityType(entID);
+    const entType = Ents.getEntType(entID);
     const entIndex = await Ents.getEntIndexByType(entType);
     let ent = entIndex[entID];
     if (ent["centroid"]) {

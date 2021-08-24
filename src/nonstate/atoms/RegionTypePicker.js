@@ -1,5 +1,3 @@
-import { Component } from "react";
-
 import Ents, { ENT } from "../../base/Ents.js";
 
 export default function RegionTypePicker(props) {

@@ -1,7 +1,10 @@
 import { Component, createRef } from "react";
+import { GeoJSON, Popup } from "react-leaflet";
+
 import GeoData from "../../base/GeoData.js";
 import Ents, { ENT_TO_NAME, PARENT_TO_CHILD } from "../../base/Ents.js";
-import { GeoJSON, Popup } from "react-leaflet";
+
+import EntView from "../atoms/EntView.js";
 
 import "./RegionGeo.css";
 
@@ -77,12 +80,7 @@ export default class RegionGeo extends Component {
       >
         <Popup>
           <h2>
-            <span className="div-region-name-geojson">{ent.name}</span>
-          </h2>
-          <h2>
-            <span className="div-region-type-geojson">
-              {ENT_TO_NAME[regionType]}
-            </span>
+            <EntView entID={regionID} />
           </h2>
           {buttonShow}
           <hr />

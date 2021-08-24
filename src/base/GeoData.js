@@ -52,7 +52,7 @@ function isPointInMultiMultiPolygon(point, multiMultiPolygon) {
 
 export default class GeoData {
   static async getGeoForRegion(regionID) {
-    const regionType = Ents.getEntityType(regionID);
+    const regionType = Ents.getEntType(regionID);
     const url = `data/geo/${regionType}/${regionID}.json`;
     return await WWW.json(url);
   }

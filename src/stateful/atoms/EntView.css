@@ -1,0 +1,14 @@
+.div-ent-id {
+	color: black;
+}
+
+.span-ent-name {
+	color: black;
+	font-weight: 800;
+}
+
+.span-ent-type {
+	margin-left: 6px;
+	color: gray;
+	font-weight: 200;
+}
