@@ -1,8 +1,7 @@
 import { Component } from "react";
 
 import {
-  CUSTOM_LAYERS,
-  POPULAR_CUSTOM_LAYERS,
+  CUSTOM_LAYERS
 } from "./custom_layers/CustomLayers.js";
 
 const MIN_SEARCH_TEXT_LENGTH = 1;
@@ -43,6 +42,8 @@ export default class LayerSelector extends Component {
           LayerClass.isMatch(searchText)
         );
         this.setState({ compMatchingLayerClasses });
+      } else {
+        this.setState({ compMatchingLayerClasses: [] });
       }
     }.bind(this);
 
@@ -52,11 +53,9 @@ export default class LayerSelector extends Component {
           className="input-text-layers"
           type="text"
           placeholder="Search Layers"
-          onChange={onInputTextLayersChange}
+          onKeyDown={onInputTextLayersChange}
         />
         {compMatchingLayerClasses.map(renderLayer)}
-        <div className="div-common-layer-header">Commonly Used Layers</div>
-        {POPULAR_CUSTOM_LAYERS.map(renderLayer)}
       </div>
     );
   }

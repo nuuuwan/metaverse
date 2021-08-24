@@ -27,18 +27,22 @@ export default class LayerMenuView extends Component {
     );
 
     return (
-      <div className="div-layer-view">
-        <h1>{title}</h1>
-        <EntView entID={parentRegionID} />
-        <RegionTypePicker
-          onSelectRegionType={onSelectRegionType}
-          selectedRegionType={childRegionType}
-        />
-        <LayerSelector
-          matchingLayerClasses={matchingLayerClasses}
-          selectedLayerClasses={selectedLayerClasses}
-          onSelectLayer={onSelectLayer}
-        />
+      <div>
+        <div className="div-layer-view">
+          <LayerSelector
+            matchingLayerClasses={matchingLayerClasses}
+            selectedLayerClasses={selectedLayerClasses}
+            onSelectLayer={onSelectLayer}
+          />
+        </div>
+        <div className="div-layer-view-2">
+          <h1>{title}</h1>
+          <EntView entID={parentRegionID} />
+          <RegionTypePicker
+            onSelectRegionType={onSelectRegionType}
+            selectedRegionType={childRegionType}
+          />
+        </div>
       </div>
     );
   }

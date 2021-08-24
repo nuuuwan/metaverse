@@ -12,6 +12,20 @@
 	font-size: 80%;
 }
 
+.div-layer-view-2 {
+	position: absolute;
+	top: 20px;
+	left: 15px;
+	z-index: 10000;
+	min-width: calc(min(40%, 300px));
+	max-width: 95%;
+	margin-left: 15px;
+	padding: 12px;
+	border-radius: 6px;
+	background: white;
+	font-size: 80%;
+}
+
 .div-layer-menu {
 	margin: 3px;
 	padding: 3px;
