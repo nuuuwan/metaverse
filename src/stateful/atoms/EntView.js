@@ -1,5 +1,4 @@
 import { Component } from "react";
-import StringX from "../../base/StringX.js";
 import Ents from "../../base/Ents.js";
 
 import "./EntView.css";
@@ -26,7 +25,9 @@ export default class EntView extends Component {
     return (
       <div className="div-ent-name">
         <span className="span-ent-name">{ent.name}</span>
-        <span className="span-ent-type">{StringX.toTitleCase(entType)}</span>
+        <span className="span-ent-type">
+          {Ents.getEntTypeLongName(entType)}
+        </span>
       </div>
     );
   }

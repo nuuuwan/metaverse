@@ -1,3 +1,4 @@
+import StringX from "./StringX.js";
 import WWW from "./WWW.js";
 
 export const ENT = {
@@ -11,7 +12,8 @@ export const ENT = {
 
 export const REGION_TYPES = Object.values(ENT);
 
-export const ENT_TO_NAME = {
+export const ENT_TYPE_TO_LONG_NAME = {
+  [ENT.Country]: "Country",
   [ENT.PROVINCE]: "Province",
   [ENT.DISTRICT]: "District",
   [ENT.DSD]: "Divisional Secretariat Division",
@@ -48,7 +50,7 @@ export default class Ents {
     return ENT.UNKNOWN;
   }
   static getRegionName(regionType) {
-    return ENT_TO_NAME[regionType];
+    return ENT_TYPE_TO_LONG_NAME[regionType];
   }
   static async getEntsByType(entType) {
     const url = `data/ents/${entType}.tsv`;
@@ -97,5 +99,11 @@ export default class Ents {
     return ents
       .map((ent) => ent.id)
       .filter((entID) => entID.includes(parentID));
+  }
+
+  static getEntTypeLongName(entType) {
+    return ENT_TYPE_TO_LONG_NAME[entType]
+      ? ENT_TYPE_TO_LONG_NAME[entType]
+      : StringX.toTitleCase(entType);
   }
 }

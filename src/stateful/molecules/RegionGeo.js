@@ -2,7 +2,10 @@ import { Component } from "react";
 import { GeoJSON, Popup } from "react-leaflet";
 
 import GeoData from "../../base/GeoData.js";
-import Ents, { ENT_TO_NAME, PARENT_TO_CHILD } from "../../base/Ents.js";
+import Ents, {
+  ENT_TYPE_TO_LONG_NAME,
+  PARENT_TO_CHILD,
+} from "../../base/Ents.js";
 
 import EntView from "../atoms/EntView.js";
 
@@ -52,7 +55,7 @@ export default class RegionGeo extends Component {
     let buttonShow = null;
     const subRegionType = PARENT_TO_CHILD[regionType];
     if (subRegionType) {
-      const subRegionTypeName = ENT_TO_NAME[subRegionType];
+      const subRegionTypeName = ENT_TYPE_TO_LONG_NAME[subRegionType];
       const onClickInner = function () {
         onClick(regionType, regionID);
       };
