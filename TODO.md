@@ -1,7 +1,5 @@
 # TODO
 
-* Add Layer to URL
-
 ## TODO - HARD!
 
 * Zoom to Bounds
