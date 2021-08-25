@@ -70,12 +70,12 @@ function isPointInMultiMultiPolygon(point, multiMultiPolygon) {
 export default class GeoData {
   static async getGeoForRegion(regionID) {
     const regionType = Ents.getEntType(regionID);
-    const url = `data/geo/${regionType}/${regionID}.json`;
+    const url = `/metaverse/data/geo/${regionType}/${regionID}.json`;
     return await WWW.json(url);
   }
 
   static async getRegionTree() {
-    const url = `data/geo/region_tree.json`;
+    const url = `/metaverse/data/geo/region_tree.json`;
     return await WWW.json(url);
   }
 
