@@ -29,4 +29,12 @@
   * Updated README
   * Pre-Merge
   * Updated TODOs
+<<<<<<< HEAD
+  * Updated README
+=======
+* [2021-08-25 09:48AM] Hide RegionTypePicker for COVID19
+  * Updated README
+  * Pre-Merge
+>>>>>>> hide-regiontypepicker-for-covid19
+* [2021-08-25 09:56AM] Normalize Abstract Layer Static Methods
   * Updated README
