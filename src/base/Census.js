@@ -78,15 +78,18 @@ export default class Census {
     return maxValueKey;
   }
 
+  static getValueKeyColor(valueKey) {
+    if (FIELD_NAME_TO_COLOR[valueKey]) {
+      return FIELD_NAME_TO_COLOR[valueKey];
+    }
+    if (!adhocValueKeyToColor[valueKey]) {
+      adhocValueKeyToColor[valueKey] = Color.getRandomHSLA();
+    }
+    return adhocValueKeyToColor[valueKey];
+  }
+
   static getTableRowColor(tableRow) {
     const maxValueKey = Census.getMaxValueKey(tableRow);
-    if (FIELD_NAME_TO_COLOR[maxValueKey]) {
-      return FIELD_NAME_TO_COLOR[maxValueKey];
-    }
-    console.debug(maxValueKey);
-    if (!adhocValueKeyToColor[maxValueKey]) {
-      adhocValueKeyToColor[maxValueKey] = Color.getRandomHSLA();
-    }
-    return adhocValueKeyToColor[maxValueKey];
+    return Census.getValueKeyColor(maxValueKey);
   }
 }

@@ -38,12 +38,12 @@ export default class RegionGeo extends Component {
   }
 
   render() {
-    const { geoData, ent } = this.state;
+    const { geoData } = this.state;
     if (!geoData) {
       return "...";
     }
 
-    const { regionType, regionID, onClick, renderCustom } = this.props;
+    const { regionType, regionID, onClick, renderCustom, iRegion } = this.props;
 
     const geoJsonData = {
       type: "MultiPolygon",
@@ -84,7 +84,7 @@ export default class RegionGeo extends Component {
           </h2>
           {buttonShow}
           <hr />
-          {renderCustom(ent)}
+          {renderCustom(iRegion)}
         </Popup>
       </GeoJSON>
     );
