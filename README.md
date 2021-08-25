@@ -54,3 +54,5 @@
 * [2021-08-25 07:51AM] Impl ShowHide
   * Updated README
   * Pre-Merge
+* [2021-08-25 08:06AM] Impl layers as list
+  * Updated README
