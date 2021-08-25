@@ -7,12 +7,58 @@ export default class StringX {
   }
 
   static formatInt(x) {
-    return Number(x).toLocaleString();
+    const logBase1000 = Math.log(x) / Math.log(1000);
+
+    let numPart, multPart, color;
+    if (x > 1_000_000) {
+      numPart = Number(x / 1_000_000).toLocaleString(undefined, {
+        maximumSignificantDigits: 3,
+      });
+      multPart = 'M'
+      color = 'black';
+    }
+    else if (x > 1_000) {
+      numPart = Number(x / 1_000).toLocaleString(undefined, {
+        maximumSignificantDigits: 3,
+      });
+      multPart = 'K'
+      color = 'gray';
+    } else {
+      numPart = x;
+      multPart = ''
+      color = 'lightgray';
+    }
+
+    const style = {
+      fontSize: parseInt(logBase1000 * 100) + '%',
+      color,
+    }
+
+
+    return (
+      <span style={style}>{numPart}{multPart}</span>
+    )
   }
+
+
   static formatPercent(numerator, denominator) {
-    return Number(numerator / denominator).toLocaleString(undefined, {
+    const p = numerator / denominator;
+    const pFontSize = Math.pow(p, 0.06);
+
+    const color = p >= 0.01 ? 'black' : 'lightgray';
+
+    const style = {
+      fontSize: parseInt(pFontSize * 100) + '%',
+      color: color,
+    }
+
+    const numPart = Number(p).toLocaleString(undefined, {
       style: "percent",
       minimumFractionDigits: 1,
     });
+
+    return (
+      <span style={style}>{numPart}</span>
+    )
   }
 }
