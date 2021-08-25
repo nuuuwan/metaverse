@@ -1,4 +1,5 @@
 import WWW from "../../../base/WWW.js";
+import TimeX from "../../../base/TimeX.js";
 import { Circle, Popup } from "react-leaflet";
 import AbstractLayer from "../AbstractLayer.js";
 
@@ -10,7 +11,8 @@ export default class LKVaxCentersLayer extends AbstractLayer {
   }
 
   static getLabel() {
-    return "COVID19 🦠 Vaccination Centers";
+    const date = TimeX.getDate();
+    return `COVID19 🦠 Vaccination Centers (${date})`;
   }
 
   static getSource() {
@@ -18,10 +20,11 @@ export default class LKVaxCentersLayer extends AbstractLayer {
   }
 
   async getDataList() {
+    const dateID = TimeX.getDateID();
     const url = WWW.pathJoin([
       "https://raw.githubusercontent.com",
       "nuuuwan/covid19/data",
-      "covid19.lk_vax_centers.latest.tsv",
+      `covid19.lk_vax_centers.${dateID}.tsv`,
     ]);
     return await WWW.tsv(url);
   }
