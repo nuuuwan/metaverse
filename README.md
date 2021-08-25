@@ -29,3 +29,4 @@
   * Updated README
   * Pre-Merge
   * Updated TODOs
+  * Updated README

@@ -30,6 +30,14 @@ export default class LayerMenuView extends Component {
       LayerClass.getSource()
     );
 
+    const showRegionTypePicker = selectedLayerClasses.reduce(function (
+      showRegionTypePicker,
+      LayerClass
+    ) {
+      return showRegionTypePicker || LayerClass.hasRegions();
+    },
+    false);
+
     return (
       <div>
         <div className="div-layer-view">
@@ -41,12 +49,14 @@ export default class LayerMenuView extends Component {
         </div>
         <div className="div-layer-view-2">
           <div className="div-layer-title">{title}</div>
-          <div className="div-layer-source">{'Source: ' + source}</div>
+          <div className="div-layer-source">{"Source: " + source}</div>
           <EntView entID={parentRegionID} />
-          <RegionTypePicker
-            onSelectRegionType={onSelectRegionType}
-            selectedRegionType={childRegionType}
-          />
+          {showRegionTypePicker ? (
+            <RegionTypePicker
+              onSelectRegionType={onSelectRegionType}
+              selectedRegionType={childRegionType}
+            />
+          ) : null}
         </div>
       </div>
     );

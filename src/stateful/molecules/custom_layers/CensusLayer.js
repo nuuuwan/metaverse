@@ -18,11 +18,15 @@ export default class CensusLayer extends AbstractLayer {
   }
 
   static getSource() {
-    return 'http://www.statistics.gov.lk/';
+    return "http://www.statistics.gov.lk/";
   }
 
   static isMatch(text) {
     return false;
+  }
+
+  static hasRegions() {
+    return true;
   }
 
   async getDataList() {

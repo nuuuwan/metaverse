@@ -16,7 +16,7 @@ export default class LKVaxCentersLayer extends AbstractLayer {
   }
 
   static getSource() {
-    return 'https://www.presidentsoffice.gov.lk/';
+    return "https://www.presidentsoffice.gov.lk/";
   }
 
   async getDataList() {
