@@ -36,7 +36,7 @@ export default class LayerMenuView extends Component {
           />
         </div>
         <div className="div-layer-view-2">
-          <h1>{title}</h1>
+          <div className="div-layer-title">{title}</div>
           <EntView entID={parentRegionID} />
           <RegionTypePicker
             onSelectRegionType={onSelectRegionType}

@@ -78,10 +78,6 @@ export class CensusLayerFactory {
       static getLabel() {
         return StringX.toTitleCase(
           tableName
-            .replaceAll("_of_population", "")
-            .replaceAll("_of_household", "")
-            .replaceAll("_by_household", "")
-            .replaceAll("_in_housing_unit", "")
             .replaceAll("_", " ")
         );
       }

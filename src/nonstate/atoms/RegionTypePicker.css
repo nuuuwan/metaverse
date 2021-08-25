@@ -8,14 +8,14 @@
 }
 
 .span-region-type-picker-item {
-	margin: 3px;
-	padding: 3px;
-	border-radius: 3px;
-	background: #eee;
 	color: #ddd;
+	margin-left: 6px;
+}
+
+.span-region-type-picker-item:hover {
+	color: black;
 }
 
 .span-region-type-picker-item-selected {
-	background: orange;
-	color: white;
+	color: black;
 }
