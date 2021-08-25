@@ -21,13 +21,9 @@ function EventComponent(props) {
 
 export default class GeoMap extends Component {
   render() {
-    const {center, zoom, onMoveEnd}= this.props;
+    const { center, zoom, onMoveEnd } = this.props;
     return (
-      <MapContainer
-        center={center}
-        zoom={zoom}
-        zoomControl={false}
-      >
+      <MapContainer center={center} zoom={zoom} zoomControl={false}>
         <TileLayer url={URL_FORMAT} />
         <EventComponent onMoveEnd={onMoveEnd} />
         <ZoomControl zoom={zoom} position="bottomright" />

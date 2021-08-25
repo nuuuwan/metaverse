@@ -26,11 +26,9 @@ export default class LayerSelector extends Component {
       );
     }
 
-    const sortedLayers = CUSTOM_LAYERS.sort(
-      function(a, b) {
-        return a.getLabel().localeCompare(b.getLabel());
-      }
-    )
+    const sortedLayers = CUSTOM_LAYERS.sort(function (a, b) {
+      return a.getLabel().localeCompare(b.getLabel());
+    });
 
     return (
       <ShowHide label="Layers">

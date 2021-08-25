@@ -53,7 +53,7 @@ export default class CensusLayer extends AbstractLayer {
   renderDataList() {
     const { dataList } = this.state;
 
-    const renderCustom = function(ent) {
+    const renderCustom = function (ent) {
       return (
         <table>
           <tbody>
@@ -80,7 +80,7 @@ export default class CensusLayer extends AbstractLayer {
           </tbody>
         </table>
       );
-    }
+    };
 
     return dataList.map(
       function ({ regionType, regionID, color }) {
@@ -107,10 +107,7 @@ export class CensusLayerFactory {
       }
 
       static getLabel() {
-        return StringX.toTitleCase(
-          tableName
-            .replaceAll("_", " ")
-        );
+        return StringX.toTitleCase(tableName.replaceAll("_", " "));
       }
 
       static isMatch(text) {

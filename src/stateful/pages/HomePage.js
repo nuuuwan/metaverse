@@ -1,6 +1,10 @@
 import { Component } from "react";
 
-import { getBrowserLatLng, roundLatLng, parseLocationStr} from "../../base/GeoData.js";
+import {
+  getBrowserLatLng,
+  roundLatLng,
+  parseLocationStr,
+} from "../../base/GeoData.js";
 import Ents from "../../base/Ents.js";
 
 import { CUSTOM_LAYERS } from "../molecules/custom_layers/CustomLayers.js";
@@ -11,7 +15,6 @@ import imgGeoLocate from "../../assets/images/geolocate.png";
 import "./HomePage.css";
 
 const DEFAULT_ZOOM = 15;
-
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -46,8 +49,8 @@ export default class HomePage extends Component {
 
     const newZoom = e.target.getZoom();
     const newCenter = roundLatLng([mapCenter.lat, mapCenter.lng]);
-    const [lat, lng] = newCenter;
 
+    // const [lat, lng] = newCenter;
     // const newUrl = `/metaverse/${lat}N,${lng}E,${newZoom}z`;
     // window.history.pushState({}, null, newUrl);
 

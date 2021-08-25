@@ -4,9 +4,9 @@ import { CensusLayerFactory } from "./CensusLayer.js";
 
 const censusLayerClasses = CensusLayerFactory.getAll();
 
-export const CUSTOM_LAYERS = [].concat(
-  censusLayerClasses,
-  [LKVaxCentersLayer, AdminRegionLayer]
-);
+export const CUSTOM_LAYERS = [].concat(censusLayerClasses, [
+  LKVaxCentersLayer,
+  AdminRegionLayer,
+]);
 
 export const POPULAR_CUSTOM_LAYERS = [LKVaxCentersLayer, censusLayerClasses[5]];

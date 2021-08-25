@@ -1,7 +1,8 @@
 .div-layer-selector {
-	max-height: 50%;
 	overflow: scroll;
+	max-height: 50%;
 }
+
 .div-layer {
 	padding: 3px;
 	cursor: pointer;

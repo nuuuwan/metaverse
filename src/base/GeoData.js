@@ -15,7 +15,6 @@ export function getBrowserLatLng(callback) {
   }
 }
 
-
 export function parseLocationStr(locationStr) {
   const [latStr, lngStr, zoomStr] = locationStr.split(",");
   const lat = parseFloat(latStr.replace("N", ""));
