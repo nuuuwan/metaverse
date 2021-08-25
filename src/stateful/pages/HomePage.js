@@ -48,8 +48,8 @@ export default class HomePage extends Component {
     const newCenter = roundLatLng([mapCenter.lat, mapCenter.lng]);
     const [lat, lng] = newCenter;
 
-    const newUrl = `/metaverse/${lat}N,${lng}E,${newZoom}z`;
-    window.history.pushState({}, null, newUrl);
+    // const newUrl = `/metaverse/${lat}N,${lng}E,${newZoom}z`;
+    // window.history.pushState({}, null, newUrl);
 
     this.setState({
       zoom: newZoom,

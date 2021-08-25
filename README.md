@@ -12,3 +12,4 @@
   * Updated README
   * Pre-Merge
   * Moved parseLocationStr
+  * Hid URL Change
