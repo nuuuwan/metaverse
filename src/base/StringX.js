@@ -16,34 +16,34 @@ export default class StringX {
       numPart = Number(x / 1_000_000).toLocaleString(undefined, {
         maximumSignificantDigits: MAX_SIG_DIGITS,
       });
-      multPart = 'M'
-      color = 'black';
-    }
-    else if (x > 1_000) {
+      multPart = "M";
+      color = "black";
+    } else if (x > 1_000) {
       numPart = Number(x / 1_000).toLocaleString(undefined, {
         maximumSignificantDigits: MAX_SIG_DIGITS,
       });
-      multPart = 'K'
-      color = 'gray';
+      multPart = "K";
+      color = "gray";
     } else {
       numPart = Number(x).toLocaleString(undefined, {
         maximumSignificantDigits: MAX_SIG_DIGITS,
       });
-      multPart = ''
-      color = 'lightgray';
+      multPart = "";
+      color = "lightgray";
     }
 
     const style = {
-      fontSize: parseInt(logBase1000 * 100) + '%',
+      fontSize: parseInt(logBase1000 * 100) + "%",
       color,
-    }
-
+    };
 
     return (
-      <span style={style}>{numPart}{multPart}</span>
-    )
+      <span style={style}>
+        {numPart}
+        {multPart}
+      </span>
+    );
   }
-
 
   static formatPercent(numerator, denominator) {
     const p = numerator / denominator;
@@ -56,25 +56,19 @@ export default class StringX {
 
     let color;
     if (p > 0.1) {
-      color = 'black'
-    }
-    else if (p > 0.01) {
-      color = 'gray'
-    }
-    else  {
-      color = 'lightgray'
-      numPart = '<1%';
+      color = "black";
+    } else if (p > 0.01) {
+      color = "gray";
+    } else {
+      color = "lightgray";
+      numPart = "<1%";
     }
 
     const style = {
-      fontSize: parseInt(pFontSize * 100) + '%',
+      fontSize: parseInt(pFontSize * 100) + "%",
       color: color,
-    }
+    };
 
-
-
-    return (
-      <span style={style}>{numPart}</span>
-    )
+    return <span style={style}>{numPart}</span>;
   }
 }

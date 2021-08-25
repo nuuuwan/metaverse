@@ -1,17 +1,17 @@
 .div-hide {
-	color: gray;
-	font-size: small;
+	color: lightgray;
+	font-weight: bold;
 	text-align: right;
 }
 
 .div-hide:hover {
-	color: orange;
-}
-
-.div-show {
 	color: gray;
 }
 
+.div-show {
+	color: lightgray;
+}
+
 .div-show:hover {
-	color: orange;
+	color: gray;
 }

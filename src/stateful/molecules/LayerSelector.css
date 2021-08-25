@@ -5,15 +5,16 @@
 
 .div-layer {
 	padding: 3px;
+	color: lightgray;
 	cursor: pointer;
 }
 
 .div-layer-selected {
-	color: orange;
+	color: black;
 }
 
 .div-layer:hover {
-	color: orange;
+	color: black;
 }
 
 .input-text-layers {
