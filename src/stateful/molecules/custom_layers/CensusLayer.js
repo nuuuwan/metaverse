@@ -134,9 +134,8 @@ export class CensusLayerFactory {
       }
 
       static getLayerClassID() {
-          return this.getTableName();
+        return this.getTableName();
       }
-
     };
     return CensusClass;
   }

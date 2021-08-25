@@ -6,7 +6,7 @@ const DEFAULT_CIRLE_RADIUS = 1000;
 
 export default class LKVaxCentersLayer extends AbstractLayer {
   static getLayerClassID() {
-      return 'covid_vax_centers';
+    return "covid19_vax_centers";
   }
 
   static getLabel() {

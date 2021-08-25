@@ -5,6 +5,8 @@ import {
   Redirect,
 } from "react-router-dom";
 
+import { DEFAULT_LAYER_CLASS_ID } from "./stateful/molecules/custom_layers/CustomLayers.js";
+
 import HomePage from "./stateful/pages/HomePage.js";
 
 import "./App.css";
@@ -13,9 +15,9 @@ function App() {
   return (
     <Router basename="/metaverse">
       <Switch>
-        <Route path="/:locationStr" component={HomePage} />
+        <Route path="/:layerClassID" component={HomePage} />
         <Route>
-          <Redirect to={`/6.9157N,79.8636E,15z`} />
+          <Redirect to={`/${DEFAULT_LAYER_CLASS_ID}`} />
         </Route>
       </Switch>
     </Router>

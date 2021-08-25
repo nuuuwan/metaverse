@@ -3,11 +3,10 @@ import { Component } from "react";
 import {
   getBrowserLatLng,
   roundLatLng,
-  parseLocationStr,
+  DEFAULT_LATLNG,
 } from "../../base/GeoData.js";
-import Ents from "../../base/Ents.js";
 
-import { CUSTOM_LAYERS } from "../molecules/custom_layers/CustomLayers.js";
+import { CUSTOM_LAYERS_INDEX } from "../molecules/custom_layers/CustomLayers.js";
 import LayerMenuView from "../molecules/LayerMenuView.js";
 import GeoMap from "../molecules/GeoMap.js";
 import imgGeoLocate from "../../assets/images/geolocate.png";
@@ -19,34 +18,21 @@ const DEFAULT_ZOOM = 15;
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
-    const locationStr = this.props.match.params.locationStr;
-    const { lat, lng, zoom } = parseLocationStr(locationStr);
+    const layerClassID = this.props.match.params.layerClassID;
 
     this.state = {
-      selectedLayerClasses: [],
-      center: [lat, lng],
-      selectedCenter: [lat, lng],
-      zoom: zoom,
-      entIndex: {},
-      allEntIndex: undefined,
+      selectedLayerClasses: [CUSTOM_LAYERS_INDEX[layerClassID]],
+      center: DEFAULT_LATLNG,
+      selectedCenter: DEFAULT_LATLNG,
+      zoom: DEFAULT_ZOOM,
       childRegionType: "district",
       parentRegionType: "country",
       parentRegionID: "LK",
     };
   }
 
-  async componentDidMount() {
-    const allEntIndex = await Ents.getAllEntIndex();
-
-    this.setState({
-      allEntIndex,
-      selectedLayerClasses: [CUSTOM_LAYERS[0]],
-    });
-  }
-
   async onMoveEnd(e) {
     const mapCenter = e.target.getCenter();
-
     const newZoom = e.target.getZoom();
     const newCenter = roundLatLng([mapCenter.lat, mapCenter.lng]);
 
@@ -88,15 +74,10 @@ export default class HomePage extends Component {
       center,
       selectedCenter,
       zoom,
-      allEntIndex,
       childRegionType,
       parentRegionID,
       parentRegionType,
     } = this.state;
-
-    if (!allEntIndex) {
-      return "...";
-    }
 
     return (
       <>

@@ -29,7 +29,7 @@ export default class AbstractLayer extends Component {
   }
 
   static getLayerClassID() {
-      return 'abstract';
+    return "abstract";
   }
 
   static getLabel() {

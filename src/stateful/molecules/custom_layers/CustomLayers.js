@@ -1,12 +1,17 @@
 import LKVaxCentersLayer from "./LKVaxCentersLayer.js";
-import AdminRegionLayer from "./AdminRegionLayer.js";
 import { CensusLayerFactory } from "./CensusLayer.js";
 
 const censusLayerClasses = CensusLayerFactory.getAll();
 
-export const CUSTOM_LAYERS = [].concat(censusLayerClasses, [
-  LKVaxCentersLayer,
-  AdminRegionLayer,
-]);
+export const CUSTOM_LAYERS = [].concat([LKVaxCentersLayer], censusLayerClasses);
 
-export const POPULAR_CUSTOM_LAYERS = [LKVaxCentersLayer, censusLayerClasses[5]];
+export const CUSTOM_LAYERS_INDEX = CUSTOM_LAYERS.reduce(function (
+  CUSTOM_LAYERS_INDEX,
+  LayerClass
+) {
+  CUSTOM_LAYERS_INDEX[LayerClass.getLayerClassID()] = LayerClass;
+  return CUSTOM_LAYERS_INDEX;
+},
+{});
+
+export const DEFAULT_LAYER_CLASS_ID = CUSTOM_LAYERS[0].getLayerClassID();

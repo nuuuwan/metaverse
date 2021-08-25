@@ -3,7 +3,7 @@ import Ents from "./Ents.js";
 
 import { REGION_TYPES } from "./Ents.js";
 
-const DEFAULT_LATLNG = [6.9157, 79.8636];
+export const DEFAULT_LATLNG = [6.9157, 79.8636];
 
 export function getBrowserLatLng(callback) {
   if (navigator.geolocation) {
