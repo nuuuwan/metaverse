@@ -13,3 +13,5 @@
   * Pre-Merge
   * Moved parseLocationStr
   * Hid URL Change
+* [2021-08-25 08:57AM] Custom Popup for RegionGeo
+  * Updated README
