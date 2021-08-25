@@ -48,3 +48,5 @@
   * Updated README
   * Add LatLng to URL
   * Pre-Merge
+* [2021-08-25 11:15AM] Add Locator Image
+  * Updated README
