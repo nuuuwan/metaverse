@@ -28,12 +28,16 @@ export default class AbstractLayer extends Component {
     this.isComponentMounted = false;
   }
 
+  static getLayerClassID() {
+      return 'abstract';
+  }
+
   static getLabel() {
     return "AbstractLayer";
   }
 
   static isMatch(text) {
-    return false;
+    return this.getLabel().toLowerCase().includes(text.toLowerCase());
   }
 
   static getSource() {

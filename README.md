@@ -38,3 +38,4 @@
 >>>>>>> hide-regiontypepicker-for-covid19
 * [2021-08-25 09:56AM] Normalize Abstract Layer Static Methods
   * Updated README
+  * Pre-Merge

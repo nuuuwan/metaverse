@@ -133,9 +133,10 @@ export class CensusLayerFactory {
         return StringX.toTitleCase(tableName.replaceAll("_", " "));
       }
 
-      static isMatch(text) {
-        return this.getLabel().toLowerCase().includes(text.toLowerCase());
+      static getLayerClassID() {
+          return this.getTableName();
       }
+
     };
     return CensusClass;
   }

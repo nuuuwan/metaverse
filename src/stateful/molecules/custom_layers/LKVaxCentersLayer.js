@@ -5,14 +5,12 @@ import AbstractLayer from "../AbstractLayer.js";
 const DEFAULT_CIRLE_RADIUS = 1000;
 
 export default class LKVaxCentersLayer extends AbstractLayer {
-  static getLabel() {
-    return "COVID19 🦠 Vaccination Centers";
+  static getLayerClassID() {
+      return 'covid_vax_centers';
   }
 
-  static isMatch(text) {
-    return LKVaxCentersLayer.getLabel()
-      .toLowerCase()
-      .includes(text.toLowerCase());
+  static getLabel() {
+    return "COVID19 🦠 Vaccination Centers";
   }
 
   static getSource() {
