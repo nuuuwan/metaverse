@@ -52,6 +52,36 @@ export default class CensusLayer extends AbstractLayer {
 
   renderDataList() {
     const { dataList } = this.state;
+
+    const renderCustom = function(ent) {
+      return (
+        <table>
+          <tbody>
+            <tr>
+              <th>Population</th>
+              <td className="td-value">
+                {parseInt(ent.population).toLocaleString()}
+              </td>
+            </tr>
+            <tr>
+              <th>Area</th>
+              <td className="td-value">
+                {parseFloat(ent.area).toLocaleString()}
+                {" km²"}
+              </td>
+            </tr>
+            <tr>
+              <th>Altitude (Centroid)</th>
+              <td className="td-value">
+                {parseFloat(ent.centroid_altitude).toLocaleString()}
+                {" m"}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      );
+    }
+
     return dataList.map(
       function ({ regionType, regionID, color }) {
         return (
@@ -61,6 +91,7 @@ export default class CensusLayer extends AbstractLayer {
             regionID={regionID}
             onClick={this.onClick.bind(this)}
             color={color}
+            renderCustom={renderCustom}
           />
         );
       }.bind(this)

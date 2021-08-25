@@ -43,7 +43,7 @@ export default class RegionGeo extends Component {
       return "...";
     }
 
-    const { regionType, regionID, onClick } = this.props;
+    const { regionType, regionID, onClick, renderCustom } = this.props;
 
     const geoJsonData = {
       type: "MultiPolygon",
@@ -84,30 +84,7 @@ export default class RegionGeo extends Component {
           </h2>
           {buttonShow}
           <hr />
-          <table>
-            <tbody>
-              <tr>
-                <th>Population</th>
-                <td className="td-value">
-                  {parseInt(ent.population).toLocaleString()}
-                </td>
-              </tr>
-              <tr>
-                <th>Area</th>
-                <td className="td-value">
-                  {parseFloat(ent.area).toLocaleString()}
-                  {" km²"}
-                </td>
-              </tr>
-              <tr>
-                <th>Altitude (Centroid)</th>
-                <td className="td-value">
-                  {parseFloat(ent.centroid_altitude).toLocaleString()}
-                  {" m"}
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          {renderCustom(ent)}
         </Popup>
       </GeoJSON>
     );
