@@ -5,16 +5,8 @@ import ShowHide from "../atoms/ShowHide.js";
 
 import "./LayerSelector.css";
 
-const MIN_SEARCH_TEXT_LENGTH = 1;
-
 export default class LayerSelector extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { compMatchingLayerClasses: [] };
-  }
-
   render() {
-    const { compMatchingLayerClasses } = this.state;
     const { selectedLayerClasses, onSelectLayer } = this.props;
 
     function renderLayer(LayerClass) {
@@ -34,28 +26,16 @@ export default class LayerSelector extends Component {
       );
     }
 
-    const onInputTextLayersChange = function (e) {
-      const searchText = e.target.value.toLowerCase();
-      if (searchText.length > MIN_SEARCH_TEXT_LENGTH) {
-        const compMatchingLayerClasses = CUSTOM_LAYERS.filter((LayerClass) =>
-          LayerClass.isMatch(searchText)
-        );
-        this.setState({ compMatchingLayerClasses });
-      } else {
-        this.setState({ compMatchingLayerClasses: [] });
+    const sortedLayers = CUSTOM_LAYERS.sort(
+      function(a, b) {
+        return a.getLabel().localeCompare(b.getLabel());
       }
-    }.bind(this);
+    )
 
     return (
       <ShowHide label="Layers">
         <div className="div-layer-selector">
-          <input
-            className="input-text-layers"
-            type="text"
-            placeholder="Search Layers"
-            onKeyDown={onInputTextLayersChange}
-          />
-          {compMatchingLayerClasses.map(renderLayer)}
+          {sortedLayers.map(renderLayer)}
         </div>
       </ShowHide>
     );
