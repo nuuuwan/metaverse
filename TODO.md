@@ -2,7 +2,6 @@
 
 ## TODO - EASY
 
-* Humanized Number Format
 * Layer color
 * Source Link
 * Add RegionID to URL

@@ -58,3 +58,5 @@
   * MAX_SIG_DIGITS
   * MAX_SIG_DIGITS-2
   * More format humanlize
+* [2021-08-25 12:23PM] Change Layer color
+  * Updated README

@@ -47,8 +47,7 @@ export default class StringX {
 
   static formatPercent(numerator, denominator) {
     const p = numerator / denominator;
-    const pFontSize = Math.pow(p, 0.06);
-
+    const pFontSize = Math.pow(p, 0.01);
 
     let numPart = Number(p).toLocaleString(undefined, {
       style: "percent",
@@ -59,7 +58,7 @@ export default class StringX {
     if (p > 0.1) {
       color = 'black'
     }
-    else if (p > 0.1) {
+    else if (p > 0.01) {
       color = 'gray'
     }
     else  {
