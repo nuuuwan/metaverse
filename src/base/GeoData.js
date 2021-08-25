@@ -15,6 +15,15 @@ export function getBrowserLatLng(callback) {
   }
 }
 
+
+export function parseLocationStr(locationStr) {
+  const [latStr, lngStr, zoomStr] = locationStr.split(",");
+  const lat = parseFloat(latStr.replace("N", ""));
+  const lng = parseFloat(lngStr.replace("E", ""));
+  const zoom = parseInt(zoomStr.replace("z", ""));
+  return { lat, lng, zoom };
+}
+
 function isPointInPolygon(point, polygon) {
   const [y, x] = point;
   let nIntersects = 0;

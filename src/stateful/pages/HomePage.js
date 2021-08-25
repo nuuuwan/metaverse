@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-import { getBrowserLatLng, roundLatLng } from "../../base/GeoData.js";
+import { getBrowserLatLng, roundLatLng, parseLocationStr} from "../../base/GeoData.js";
 import Ents from "../../base/Ents.js";
 
 import { CUSTOM_LAYERS } from "../molecules/custom_layers/CustomLayers.js";
@@ -12,13 +12,6 @@ import "./HomePage.css";
 
 const DEFAULT_ZOOM = 15;
 
-function parseLocationStr(locationStr) {
-  const [latStr, lngStr, zoomStr] = locationStr.split(",");
-  const lat = parseFloat(latStr.replace("N", ""));
-  const lng = parseFloat(lngStr.replace("E", ""));
-  const zoom = parseInt(zoomStr.replace("z", ""));
-  return { lat, lng, zoom };
-}
 
 export default class HomePage extends Component {
   constructor(props) {
