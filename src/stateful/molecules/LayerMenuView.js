@@ -49,7 +49,12 @@ export default class LayerMenuView extends Component {
         </div>
         <div className="div-layer-view-2">
           <div className="div-layer-title">{title}</div>
-          <div className="div-layer-source">{"Source: " + source}</div>
+          <div className="div-layer-source">
+            {"Source: "}
+            <a className="a-layer-source-link" href={source} target="-_blank">
+              {source}
+            </a>
+          </div>
           <EntView entID={parentRegionID} />
           {showRegionTypePicker ? (
             <RegionTypePicker

@@ -50,3 +50,12 @@
 	color: lightgray;
 	font-size: 80%;
 }
+
+.a-layer-source-link {
+	color: lightgray;
+	text-decoration: none;
+}
+
+.a-layer-source-link:hover {
+	color: black;
+}

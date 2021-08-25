@@ -2,8 +2,6 @@
 
 ## TODO - EASY
 
-* Layer color
-* Source Link
 * Add RegionID to URL
 
 ## TODO - HARD!
