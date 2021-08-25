@@ -34,12 +34,12 @@ let adhocValueKeyToColor = {};
 
 export default class Census {
   static async getMetaData() {
-    const url = `data/census/meta.json`;
+    const url = `/metaverse/data/census/meta.json`;
     return await WWW.json(url);
   }
 
   static async getTable(tableName) {
-    const url = `data/census/data.${tableName}.tsv`;
+    const url = `/metaverse/data/census/data.${tableName}.tsv`;
     return await WWW.tsv(url);
   }
 

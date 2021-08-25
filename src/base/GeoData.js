@@ -3,7 +3,24 @@ import Ents from "./Ents.js";
 
 import { REGION_TYPES } from "./Ents.js";
 
+export const DEFAULT_ZOOM = 15;
 export const DEFAULT_LATLNG = [6.9157, 79.8636];
+
+export function getDefaultLatLngZoomStr() {
+  return getLatLngZoomStr(DEFAULT_LATLNG, DEFAULT_ZOOM);
+}
+
+export function getLatLngZoomStr([lat, lng], zoom) {
+  return `${lat}N,${lng}E,${zoom}z`;
+}
+
+export function parseLatLngZoomStr(locationStr) {
+  const [latStr, lngStr, zoomStr] = locationStr.split(",");
+  const lat = parseFloat(latStr.replace("N", ""));
+  const lng = parseFloat(lngStr.replace("E", ""));
+  const zoom = parseInt(zoomStr.replace("z", ""));
+  return { lat, lng, zoom };
+}
 
 export function getBrowserLatLng(callback) {
   if (navigator.geolocation) {
@@ -13,14 +30,6 @@ export function getBrowserLatLng(callback) {
   } else {
     callback(DEFAULT_LATLNG);
   }
-}
-
-export function parseLocationStr(locationStr) {
-  const [latStr, lngStr, zoomStr] = locationStr.split(",");
-  const lat = parseFloat(latStr.replace("N", ""));
-  const lng = parseFloat(lngStr.replace("E", ""));
-  const zoom = parseInt(zoomStr.replace("z", ""));
-  return { lat, lng, zoom };
 }
 
 function isPointInPolygon(point, polygon) {
