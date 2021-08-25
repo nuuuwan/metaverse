@@ -1,3 +1,5 @@
+const MAX_SIG_DIGITS = 2;
+
 export default class StringX {
   static toTitleCase(str) {
     str = str.replaceAll("_", " ");
@@ -12,14 +14,14 @@ export default class StringX {
     let numPart, multPart, color;
     if (x > 1_000_000) {
       numPart = Number(x / 1_000_000).toLocaleString(undefined, {
-        maximumSignificantDigits: 3,
+        maximumSignificantDigits: MAX_SIG_DIGITS,
       });
       multPart = 'M'
       color = 'black';
     }
     else if (x > 1_000) {
       numPart = Number(x / 1_000).toLocaleString(undefined, {
-        maximumSignificantDigits: 3,
+        maximumSignificantDigits: MAX_SIG_DIGITS,
       });
       multPart = 'K'
       color = 'gray';
@@ -54,7 +56,7 @@ export default class StringX {
 
     const numPart = Number(p).toLocaleString(undefined, {
       style: "percent",
-      minimumFractionDigits: 1,
+      maximumSignificantDigits: MAX_SIG_DIGITS,
     });
 
     return (

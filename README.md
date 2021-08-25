@@ -55,3 +55,4 @@
   * Updated README
   * Pre-Merge
   * Updated README
+  * MAX_SIG_DIGITS
