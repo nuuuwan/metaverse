@@ -1,0 +1,17 @@
+.div-hide {
+	color: gray;
+	font-size: small;
+	text-align: right;
+}
+
+.div-hide:hover {
+	color: orange;
+}
+
+.div-show {
+	color: gray;
+}
+
+.div-show:hover {
+	color: orange;
+}

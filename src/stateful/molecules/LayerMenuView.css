@@ -3,7 +3,7 @@
 	top: 20px;
 	right: 15px;
 	z-index: 10000;
-	min-width: calc(min(30%, 200px));
+	min-width: 10px;
 	max-width: 95%;
 	margin-left: 15px;
 	padding: 12px;

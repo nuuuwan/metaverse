@@ -1,6 +1,7 @@
 import { Component } from "react";
 
 import { CUSTOM_LAYERS } from "./custom_layers/CustomLayers.js";
+import ShowHide from "../atoms/ShowHide.js";
 
 import "./LayerSelector.css";
 
@@ -46,15 +47,17 @@ export default class LayerSelector extends Component {
     }.bind(this);
 
     return (
-      <div className="div-layer-selector">
-        <input
-          className="input-text-layers"
-          type="text"
-          placeholder="Search Layers"
-          onKeyDown={onInputTextLayersChange}
-        />
-        {compMatchingLayerClasses.map(renderLayer)}
-      </div>
+      <ShowHide label="Layers">
+        <div className="div-layer-selector">
+          <input
+            className="input-text-layers"
+            type="text"
+            placeholder="Search Layers"
+            onKeyDown={onInputTextLayersChange}
+          />
+          {compMatchingLayerClasses.map(renderLayer)}
+        </div>
+      </ShowHide>
     );
   }
 }
