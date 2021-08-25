@@ -1,4 +1,4 @@
-import { Component, createRef } from "react";
+import { Component } from "react";
 import { GeoJSON, Popup } from "react-leaflet";
 
 import GeoData from "../../base/GeoData.js";
@@ -9,7 +9,7 @@ import EntView from "../atoms/EntView.js";
 import "./RegionGeo.css";
 
 const STYLE_GEOJSON = {
-  color: "lightgray",
+  color: "white",
   fillColor: "red",
   fillOpacity: 0.5,
   weight: 1,
@@ -18,7 +18,6 @@ const STYLE_GEOJSON = {
 export default class RegionGeo extends Component {
   constructor(props) {
     super(props);
-    this.ref = createRef();
     this.state = { geoData: undefined, ent: undefined };
   }
 
@@ -76,7 +75,6 @@ export default class RegionGeo extends Component {
         key={`geojson-${regionID}`}
         data={geoJsonData}
         style={style}
-        ref={this.ref}
       >
         <Popup>
           <h2>

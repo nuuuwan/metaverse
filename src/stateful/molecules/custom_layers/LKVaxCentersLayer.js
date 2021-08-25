@@ -46,8 +46,10 @@ export default class LKVaxCentersLayer extends AbstractLayer {
         renderedDoseInfo.push("💉 2nd Dose");
       }
 
-      const onMouseOver = function (e) {
-        e.target.openPopup();
+      const eventHandlers = {
+        mouseover: function (e) {
+          e.target.openPopup();
+        },
       };
 
       return (
@@ -56,7 +58,7 @@ export default class LKVaxCentersLayer extends AbstractLayer {
           center={position}
           radius={DEFAULT_CIRLE_RADIUS}
           pathOptions={{ color: color }}
-          eventHandlers={{ mouseover: onMouseOver }}
+          eventHandlers={eventHandlers}
         >
           <Popup>
             <h3>{data.center}</h3>
