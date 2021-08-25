@@ -59,6 +59,10 @@ export default class HomePage extends Component {
   }
 
   onSelectLayer(SelectedLayerClass) {
+    const layerClassID = SelectedLayerClass.getLayerClassID();
+    const newUrl = `/metaverse/${layerClassID}`;
+    window.history.pushState({}, null, newUrl);
+
     this.setState({
       selectedLayerClasses: [SelectedLayerClass],
     });

@@ -40,3 +40,4 @@
   * Updated README
   * Pre-Merge
   * Updated README
+  * Added URL Update on Layer change
