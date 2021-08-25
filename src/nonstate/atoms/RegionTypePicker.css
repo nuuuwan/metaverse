@@ -1,0 +1,21 @@
+.div-region-type-picker {
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+
+.div-region-type-picker-desc {
+	margin-bottom: 12px;
+}
+
+.span-region-type-picker-item {
+	margin: 3px;
+	padding: 3px;
+	border-radius: 3px;
+	background: #eee;
+	color: #ddd;
+}
+
+.span-region-type-picker-item-selected {
+	background: orange;
+	color: white;
+}
