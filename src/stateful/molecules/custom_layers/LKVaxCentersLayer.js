@@ -15,6 +15,10 @@ export default class LKVaxCentersLayer extends AbstractLayer {
       .includes(text.toLowerCase());
   }
 
+  static getSource() {
+    return 'https://www.presidentsoffice.gov.lk/';
+  }
+
   async getDataList() {
     const url = WWW.pathJoin([
       "https://raw.githubusercontent.com",

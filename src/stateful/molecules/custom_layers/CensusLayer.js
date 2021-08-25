@@ -17,6 +17,10 @@ export default class CensusLayer extends AbstractLayer {
     return "";
   }
 
+  static getSource() {
+    return 'http://www.statistics.gov.lk/';
+  }
+
   static isMatch(text) {
     return false;
   }

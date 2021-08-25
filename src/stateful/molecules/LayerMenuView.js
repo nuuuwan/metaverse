@@ -26,6 +26,10 @@ export default class LayerMenuView extends Component {
       LayerClass.getLabel()
     );
 
+    const source = selectedLayerClasses.map((LayerClass) =>
+      LayerClass.getSource()
+    );
+
     return (
       <div>
         <div className="div-layer-view">
@@ -37,6 +41,7 @@ export default class LayerMenuView extends Component {
         </div>
         <div className="div-layer-view-2">
           <div className="div-layer-title">{title}</div>
+          <div className="div-layer-source">{'Source: ' + source}</div>
           <EntView entID={parentRegionID} />
           <RegionTypePicker
             onSelectRegionType={onSelectRegionType}

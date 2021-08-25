@@ -36,6 +36,10 @@ export default class AbstractLayer extends Component {
     return false;
   }
 
+  static getSource() {
+    return 'Source unknown';
+  }
+
   renderDataList() {
     return null;
   }
