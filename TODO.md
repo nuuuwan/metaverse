@@ -1,7 +1,5 @@
 # TODO
 
-* Custom Popup for RegionGeo
-* Add Popup for Census Layer
 * Add Auto Popup for Census Layer ?
 
 * Add Source Information
