@@ -1,7 +1,11 @@
 # TODO
 
-* Add Date for COVID19 Data
-
 * Add Layer to URL
 
-* Zoom to Bounds !!!
+## TODO - HARD!
+
+* Zoom to Bounds
+
+## WISHLIST
+
+* Add Date for COVID19 Data
