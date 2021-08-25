@@ -57,3 +57,4 @@
   * Updated README
   * MAX_SIG_DIGITS
   * MAX_SIG_DIGITS-2
+  * More format humanlize

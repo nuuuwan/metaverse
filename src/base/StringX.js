@@ -49,17 +49,30 @@ export default class StringX {
     const p = numerator / denominator;
     const pFontSize = Math.pow(p, 0.06);
 
-    const color = p >= 0.01 ? 'black' : 'lightgray';
+
+    let numPart = Number(p).toLocaleString(undefined, {
+      style: "percent",
+      maximumSignificantDigits: MAX_SIG_DIGITS,
+    });
+
+    let color;
+    if (p > 0.1) {
+      color = 'black'
+    }
+    else if (p > 0.1) {
+      color = 'gray'
+    }
+    else  {
+      color = 'lightgray'
+      numPart = '<1%';
+    }
 
     const style = {
       fontSize: parseInt(pFontSize * 100) + '%',
       color: color,
     }
 
-    const numPart = Number(p).toLocaleString(undefined, {
-      style: "percent",
-      maximumSignificantDigits: MAX_SIG_DIGITS,
-    });
+
 
     return (
       <span style={style}>{numPart}</span>
