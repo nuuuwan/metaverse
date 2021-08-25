@@ -26,7 +26,9 @@ export default class StringX {
       multPart = 'K'
       color = 'gray';
     } else {
-      numPart = x;
+      numPart = Number(x).toLocaleString(undefined, {
+        maximumSignificantDigits: MAX_SIG_DIGITS,
+      });
       multPart = ''
       color = 'lightgray';
     }

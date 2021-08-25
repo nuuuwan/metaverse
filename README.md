@@ -56,3 +56,4 @@
   * Pre-Merge
   * Updated README
   * MAX_SIG_DIGITS
+  * MAX_SIG_DIGITS-2
