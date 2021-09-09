@@ -1,9 +1,9 @@
 import WWW from "../../../base/WWW.js";
 import TimeX from "../../../base/TimeX.js";
-import { Circle, Popup } from "react-leaflet";
+import { CircleMarker, Popup } from "react-leaflet";
 import AbstractLayer from "../AbstractLayer.js";
 
-const DEFAULT_CIRLE_RADIUS = 1000;
+const DEFAULT_CIRLE_RADIUS = 10;
 
 export default class LKVaxCentersLayer extends AbstractLayer {
   static getLayerClassID() {
@@ -58,11 +58,11 @@ export default class LKVaxCentersLayer extends AbstractLayer {
       };
 
       return (
-        <Circle
+        <CircleMarker
           key={`layer-data-${iData}`}
           center={position}
           radius={DEFAULT_CIRLE_RADIUS}
-          pathOptions={{ color: color }}
+          pathOptions={{ color: color, stroke: null, fillOpacity: 0.5 }}
           eventHandlers={eventHandlers}
         >
           <Popup>
@@ -77,7 +77,7 @@ export default class LKVaxCentersLayer extends AbstractLayer {
             <div>{data.tags}</div>
             <div style={{ fontSize: "70%" }}>{data.fuzzy_key}</div>
           </Popup>
-        </Circle>
+        </CircleMarker>
       );
     });
   }
