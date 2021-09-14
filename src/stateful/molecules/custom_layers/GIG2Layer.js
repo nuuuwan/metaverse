@@ -130,7 +130,7 @@ export class GIG2LayerFactory {
       }
 
       static getLabel() {
-        return StringX.toTitleCase(tableName.replaceAll("_", " "));
+        return StringX.toTitleCase(tableName.split('.').splice(-1)[0].replaceAll("_", " "));
       }
 
       static getLayerClassID() {

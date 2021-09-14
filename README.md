@@ -68,3 +68,4 @@
   * Added data
   * Added GIG2Layer stub
   * Basic GIG2Layer working
+  * Fixed table name
