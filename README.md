@@ -66,3 +66,4 @@
   * Pre-Merge
   * 
   * Added data
+  * Added GIG2Layer stub
