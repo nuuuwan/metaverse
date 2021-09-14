@@ -60,11 +60,11 @@ export default class GIG2 {
   }
 
   static async getTableIndex(tableName) {
-    const [spaceID, timeID, attrID] = tableName.split('.').slice(0, 3);
+    const [spaceID, timeID, attrID] = tableName.split(".").slice(0, 3);
 
     let idFieldKey;
-    if (spaceID === 'region') {
-      idFieldKey = 'entity_id';
+    if (spaceID === "region") {
+      idFieldKey = "entity_id";
     } else {
       idFieldKey = `${spaceID}_id`;
     }
@@ -86,9 +86,19 @@ export default class GIG2 {
   }
 
   static filterValueCellKeys(tableRow) {
-    return Object.keys(tableRow).filter(
-      (cellKey) => !(cellKey.includes("total_") || cellKey.includes("_id"))
+    const valueCellKeys = Object.keys(tableRow).filter(
+      (cellKey) =>
+        !(
+          cellKey.includes("total_") ||
+          cellKey.includes("_id") ||
+          cellKey.includes("result_ut") ||
+          cellKey.includes("valid") ||
+          cellKey.includes("rejected") ||
+          cellKey.includes("polled") ||
+          cellKey.includes("electors")
+        )
     );
+    return valueCellKeys;
   }
 
   static getMaxValueKey(tableRow) {

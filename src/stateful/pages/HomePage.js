@@ -29,7 +29,7 @@ export default class HomePage extends Component {
       center: [lat, lng],
       selectedCenter: [lat, lng],
       zoom: zoom,
-      childRegionType: "district",
+      childRegionType: "pd",
       parentRegionType: "country",
       parentRegionID: "LK",
     };

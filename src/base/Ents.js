@@ -7,6 +7,8 @@ export const ENT = {
   DISTRICT: "district",
   DSD: "dsd",
   GND: "gnd",
+  PD: "pd",
+  ED: "ed",
   UNKNOWN: "unknown-entity",
 };
 
@@ -18,6 +20,8 @@ export const ENT_TYPE_TO_LONG_NAME = {
   [ENT.DISTRICT]: "District",
   [ENT.DSD]: "Divisional Secretariat Division",
   [ENT.GND]: "Grama Niladhari Division",
+  [ENT.PD]: "Polling Division",
+  [ENT.ED]: "Electoral District",
 };
 
 export const PARENT_TO_CHILD = {
@@ -26,6 +30,8 @@ export const PARENT_TO_CHILD = {
   [ENT.DISTRICT]: ENT.DSD,
   [ENT.DSD]: ENT.GND,
   [ENT.GND]: undefined,
+  [ENT.PD]: undefined,
+  [ENT.ED]: [ENT.PD],
 };
 
 export default class Ents {
@@ -43,6 +49,17 @@ export default class Ents {
           return ENT.DSD;
         case 10:
           return ENT.GND;
+        default:
+          return ENT.UNKNOWN;
+      }
+    }
+    if (entID.substring(0, 2) === "EC") {
+      const entIDLength = entID.length;
+      switch (entIDLength) {
+        case 5:
+          return ENT.ED;
+        case 6:
+          return ENT.PD;
         default:
           return ENT.UNKNOWN;
       }
@@ -98,7 +115,7 @@ export default class Ents {
     const ents = await Ents.getEntsByType(childRegionType);
     return ents
       .map((ent) => ent.id)
-      .filter((entID) => entID.includes(parentID));
+      .filter((entID) => entID.includes(parentID) || (parentID === 'LK'));
   }
 
   static getEntTypeLongName(entType) {

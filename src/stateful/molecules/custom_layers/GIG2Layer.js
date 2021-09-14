@@ -34,7 +34,6 @@ export default class GIG2Layer extends AbstractLayer {
     const tableName = this.constructor.getTableName();
     const childIDs = await Ents.getChildIDs(parentRegionID, childRegionType);
     const tableIndex = await GIG2.getTableIndex(tableName);
-    console.debug(tableIndex);
 
     const dataList = childIDs.map(function (childID) {
       const tableRow = tableIndex[childID];
