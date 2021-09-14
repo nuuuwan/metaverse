@@ -42,7 +42,7 @@ export default class WWW {
         data[key] = values[i].replace("\r", "");
         return data;
       }, {});
-    });
+    }).filter(data => data);
     return dataList;
   }
 }

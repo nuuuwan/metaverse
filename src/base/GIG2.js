@@ -19,7 +19,7 @@ export const TABLE_NAMES = [
   // "pd.2005_election_presidential.result",
   // "pd.2010_election_presidential.result",
   // "pd.2015_election_presidential.result",
-  // "pd.2019_election_presidential.result",
+  "pd.2019_election_presidential.result",
   // "pd.latest.basic",
   // "province.latest.basic",
   // "regions.2012_census.age_group_of_population",
@@ -36,7 +36,7 @@ export const TABLE_NAMES = [
   // "regions.2012_census.occupation_status_of_housing_units",
   // "regions.2012_census.persons_living_in_housing_unit",
   // "regions.2012_census.relationship_to_household_head_of_population",
-  // "regions.2012_census.religious_affiliation_of_population",
+  "regions.2012_census.religious_affiliation_of_population",
   // "regions.2012_census.roof_type_in_housing_unit",
   // "regions.2012_census.rooms_in_housing_unit",
   // "regions.2012_census.solid_waste_disposal_by_household",
@@ -60,11 +60,18 @@ export default class GIG2 {
   }
 
   static async getTableIndex(tableName) {
+    const [spaceID, timeID, attrID] = tableName.split('.').slice(0, 3);
+
+    let idFieldKey;
+    if (spaceID === 'region') {
+      idFieldKey = 'entity_id';
+    } else {
+      idFieldKey = `${spaceID}_id`;
+    }
     const table = await GIG2.getTable(tableName);
-    console.debug(table);
     const valueKeys = GIG2.filterValueCellKeys(table[0]);
     return table.reduce(function (tableIndex, tableRow) {
-      tableIndex[tableRow.entity_id] = Object.entries(tableRow).reduce(
+      tableIndex[tableRow[idFieldKey]] = Object.entries(tableRow).reduce(
         function (cleanTableRow, [key, value]) {
           if (valueKeys.includes(key)) {
             value = parseFloat(value);

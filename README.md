@@ -70,3 +70,4 @@
   * Basic GIG2Layer working
   * Fixed table name
   * Added table list
+  * Added pd/ed data
