@@ -72,3 +72,4 @@
   * Added table list
   * Added pd/ed data
   * Added elections
+  * Added tables
