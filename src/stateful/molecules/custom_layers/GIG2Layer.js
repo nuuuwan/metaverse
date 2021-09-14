@@ -1,7 +1,7 @@
 import Ents from "../../../base/Ents.js";
 import MathX from "../../../base/MathX.js";
 import StringX from "../../../base/StringX.js";
-import Census, { TABLE_NAMES } from "../../../base/Census.js";
+import GIG2, { TABLE_NAMES } from "../../../base/GIG2.js";
 
 import AbstractLayer from "../AbstractLayer.js";
 import RegionGeo from "../RegionGeo.js";
@@ -33,11 +33,11 @@ export default class GIG2Layer extends AbstractLayer {
     const { childRegionType, parentRegionID } = this.props;
     const tableName = this.constructor.getTableName();
     const childIDs = await Ents.getChildIDs(parentRegionID, childRegionType);
-    const tableIndex = await Census.getTableIndex(tableName);
+    const tableIndex = await GIG2.getTableIndex(tableName);
 
     const dataList = childIDs.map(function (childID) {
       const tableRow = tableIndex[childID];
-      const color = Census.getTableRowColor(tableRow);
+      const color = GIG2.getTableRowColor(tableRow);
       return {
         regionID: childID,
         regionType: childRegionType,
@@ -67,7 +67,7 @@ export default class GIG2Layer extends AbstractLayer {
     const renderCustom = function (iRegion) {
       const data = dataList[iRegion];
       const tableRow = data.censusData;
-      const valueCellKeys = Census.filterValueCellKeys(tableRow);
+      const valueCellKeys = GIG2.filterValueCellKeys(tableRow);
       const values = valueCellKeys.map(
         (valueCellKey) => tableRow[valueCellKey]
       );
@@ -84,7 +84,7 @@ export default class GIG2Layer extends AbstractLayer {
               iValueCellKey
             ) {
               const tdColorStyle = {
-                background: Census.getValueKeyColor(valueCellKey),
+                background: GIG2.getValueKeyColor(valueCellKey),
               };
               return (
                 <tr key={`${iValueCellKey}-${valueCellKey}`}>
@@ -124,7 +124,7 @@ export default class GIG2Layer extends AbstractLayer {
 
 export class GIG2LayerFactory {
   static build(tableName) {
-    const CensusClass = class extends GIG2Layer {
+    const GIG2Class = class extends GIG2Layer {
       static getTableName() {
         return tableName;
       }
@@ -137,7 +137,7 @@ export class GIG2LayerFactory {
         return this.getTableName();
       }
     };
-    return CensusClass;
+    return GIG2Class;
   }
 
   static getAll() {
