@@ -3,8 +3,8 @@ import Ents from "./Ents.js";
 
 import { REGION_TYPES } from "./Ents.js";
 
-export const DEFAULT_ZOOM = 15;
-export const DEFAULT_LATLNG = [6.9157, 79.8636];
+export const DEFAULT_ZOOM = 8;
+export const DEFAULT_LATLNG = [7.836173, 80.403442];
 
 export function getDefaultLatLngZoomStr() {
   return getLatLngZoomStr(DEFAULT_LATLNG, DEFAULT_ZOOM);
