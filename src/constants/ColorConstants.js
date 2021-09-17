@@ -5,6 +5,18 @@ export const COLOR_SL_FLAG = {
   BUDDHIST: "hsl(43, 100%, 50%)",
 };
 export const FIELD_NAME_TO_COLOR = {
+  // political parties
+  SLFP: "blue",
+  PA: "blue",
+  UPFA: "blue",
+  SLPP: COLOR_SL_FLAG.SINHALA,
+  UNP: "green",
+  NDF: "green",
+  JVP: "red",
+  LSSP: "red",
+  ACTC: COLOR_SL_FLAG.TAMIL,
+  SLMP: "purple",
+
   other: "ghostwhite",
   others: "gray",
   // ethnicity_of_population
