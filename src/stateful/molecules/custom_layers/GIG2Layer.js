@@ -74,12 +74,12 @@ export default class GIG2Layer extends AbstractLayer {
         let opacity;
         if (displayMode === "max") {
           color = GIG2.getTableRowColor(tableRow);
-          opacity = 0.8;
+          opacity = 0.9;
         } else {
           const selectedValueKey = displayMode;
           color = GIG2.getValueKeyColor(selectedValueKey);
           const valueP = GIG2.getValueKeyP(tableRow, selectedValueKey);
-          opacity = valueP;
+          opacity = valueP * 0.99 + 0.01;
         }
 
         return {
