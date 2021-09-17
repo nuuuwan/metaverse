@@ -1,4 +1,4 @@
-import Ents, { ENT } from "../../base/Ents.js";
+import Ents from "../../base/Ents.js";
 
 import "./RegionTypePicker.css";
 
