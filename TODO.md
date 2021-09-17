@@ -1,6 +1,6 @@
 # TODOs
 
-* Add single field views (% of Sinhala Population)
+* Remove "others"
 * Source in Data Table
 * Better Design for choosing region type
 * "Time-wise" Display
@@ -8,3 +8,4 @@
 
 * Remove TABLE_NAMES from GIG2
 * New names for layers
+* Add legend

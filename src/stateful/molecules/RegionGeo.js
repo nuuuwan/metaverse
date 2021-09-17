@@ -80,16 +80,16 @@ export default class RegionGeo extends Component {
     }
 
     let styleDummy = dumbCopy(DEFAULT_STYLE_GEOJSON);
-    styleDummy.fillColor = 'white';
+    styleDummy.fillColor = "white";
 
     return (
       <>
-      <GeoJSON
-        className="geojson"
-        key={`geojson-${regionID}-dummy`}
-        data={geoJsonData}
-        style={styleDummy}
-      />
+        <GeoJSON
+          className="geojson"
+          key={`geojson-${regionID}-dummy`}
+          data={geoJsonData}
+          style={styleDummy}
+        />
         <GeoJSON
           className="geojson"
           key={`geojson-${regionID}`}
@@ -105,8 +105,6 @@ export default class RegionGeo extends Component {
             {renderCustom(iRegion)}
           </Popup>
         </GeoJSON>
-
-
       </>
     );
   }
