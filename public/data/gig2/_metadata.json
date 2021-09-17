@@ -27,7 +27,7 @@
     "attr_id": "result",
     "n_data_list": 213,
     "file_size": 34807,
-    "value_key_list_str": "DUNF;IND10;IND11;NDF;NMPP;NPP;SLPP"
+    "value_key_list_str": "NDF;SLPP"
   },
   "regions_ec.1999_election_presidential.result": {
     "file": "regions_ec.1999_election_presidential.result.tsv",
@@ -37,7 +37,7 @@
     "attr_id": "result",
     "n_data_list": 213,
     "file_size": 19604,
-    "value_key_list_str": "Ind 1;Ind 2;JVP;LDA;Liberal;PA;SLMP;SMBP;UNP"
+    "value_key_list_str": "JVP;LDA;PA;UNP"
   },
   "pd.latest.basic": {
     "file": "pd.latest.basic.tsv",
@@ -77,7 +77,7 @@
     "attr_id": "result",
     "n_data_list": 213,
     "file_size": 14444,
-    "value_key_list_str": "ACTC;JVP;LSSP;NSSP;SLFP;UNP"
+    "value_key_list_str": "ACTC;JVP;LSSP;SLFP;UNP"
   },
   "regions.2012_census.occupation_status_of_housing_units": {
     "file": "regions.2012_census.occupation_status_of_housing_units.tsv",
@@ -117,7 +117,7 @@
     "attr_id": "relationship_to_household_head_of_population",
     "n_data_list": 15208,
     "file_size": 1205127,
-    "value_key_list_str": "boarder;clergy;domestic_employee;grandchild_or_great_grand_child;head;non_relative;other_relative;parent_of_head_or_spouse;son_or_daughter;son_or_daughter_in_law;wife_or_husband"
+    "value_key_list_str": "boarder;clergy;domestic_employee;grandchild_or_great_grand_child;head;non_relative;other_relative;son_or_daughter;wife_or_husband"
   },
   "regions.2012_census.structure_of_housing_units": {
     "file": "regions.2012_census.structure_of_housing_units.tsv",
@@ -167,7 +167,7 @@
     "attr_id": "result",
     "n_data_list": 216,
     "file_size": 18901,
-    "value_key_list_str": "DUA;JSP;NLF;RPP;SEP;SLNF;SLPF;ULF;ULPP;UNP;UPFA;USP"
+    "value_key_list_str": "UNP;UPFA"
   },
   "regions.2012_census.lighting_of_household": {
     "file": "regions.2012_census.lighting_of_household.tsv",
@@ -177,7 +177,7 @@
     "attr_id": "lighting_of_household",
     "n_data_list": 15204,
     "file_size": 688799,
-    "value_key_list_str": "bio_gas;electricity_national_electricity_network;electricity_rural_hydro_electricity_projects;kerosene;other;solar_power"
+    "value_key_list_str": "electricity_national_electricity_network;electricity_rural_hydro_electricity_projects;kerosene;other;solar_power"
   },
   "regions.2012_census.wall_type_in_housing_units": {
     "file": "regions.2012_census.wall_type_in_housing_units.tsv",
@@ -207,7 +207,7 @@
     "attr_id": "communication_items_owned_by_household",
     "n_data_list": 15204,
     "file_size": 1469428,
-    "value_key_list_str": "fax;fixed_tp;laptop;mobile;pc;radio;tv"
+    "value_key_list_str": "fixed_tp;laptop;mobile;pc;radio;tv"
   },
   "regions_ec.2010_election_presidential.result": {
     "file": "regions_ec.2010_election_presidential.result.tsv",
@@ -217,7 +217,7 @@
     "attr_id": "result",
     "n_data_list": 218,
     "file_size": 25322,
-    "value_key_list_str": "DUNF;Ind 5;JSP;LF;NDF;UDF;UPFA"
+    "value_key_list_str": "NDF;UPFA"
   },
   "ed.latest.basic": {
     "file": "ed.latest.basic.tsv",
@@ -247,7 +247,7 @@
     "attr_id": "floor_type_in_housing_unit",
     "n_data_list": 15204,
     "file_size": 773284,
-    "value_key_list_str": "cement;concrete;mud;other;sand;tile_or_granite_or_terrazo;wood"
+    "value_key_list_str": "cement;concrete;mud;other;sand;tile_or_granite_or_terrazo"
   },
   "regions.2012_census.ethnicity_of_population": {
     "file": "regions.2012_census.ethnicity_of_population.tsv",
@@ -257,7 +257,7 @@
     "attr_id": "ethnicity_of_population",
     "n_data_list": 15220,
     "file_size": 897209,
-    "value_key_list_str": "bharatha;burgher;chetty;indian_tamil;malay;moor;other;sinhalese;sri_lankan_tamil"
+    "value_key_list_str": "burgher;chetty;indian_tamil;malay;moor;other;sinhalese;sri_lankan_tamil"
   },
   "regions_ec.1994_election_presidential.result": {
     "file": "regions_ec.1994_election_presidential.result.tsv",
@@ -267,7 +267,7 @@
     "attr_id": "result",
     "n_data_list": 213,
     "file_size": 14320,
-    "value_key_list_str": "Ind 2;PA;SLPF;SMBP;UNP"
+    "value_key_list_str": "PA;UNP"
   },
   "lg.latest.basic": {
     "file": "lg.latest.basic.tsv",
@@ -337,7 +337,7 @@
     "attr_id": "age_group_of_population",
     "n_data_list": 15208,
     "file_size": 1121571,
-    "value_key_list_str": "10_19;20_29;30_39;40_49;50_59;60_69;70_79;80_89;90_and_above;less_than_10"
+    "value_key_list_str": "10_19;20_29;30_39;40_49;50_59;60_69;70_79;less_than_10"
   },
   "country.latest.basic": {
     "file": "country.latest.basic.tsv",
@@ -357,7 +357,7 @@
     "attr_id": "marital_status_of_population",
     "n_data_list": 15208,
     "file_size": 880050,
-    "value_key_list_str": "divorced;legally_separated;married_customary;married_registered;never_married;separated_not_legally"
+    "value_key_list_str": "married_customary;married_registered;never_married"
   },
   "regions.2012_census.year_of_construction_of_housing_unit": {
     "file": "regions.2012_census.year_of_construction_of_housing_unit.tsv",
@@ -377,7 +377,7 @@
     "attr_id": "households_living_in_housing_unit",
     "n_data_list": 15204,
     "file_size": 613239,
-    "value_key_list_str": "1_household;2_households;3_households;5_or_more"
+    "value_key_list_str": "1_household;2_households;3_households"
   },
   "regions.2012_census.type_of_housing_unit": {
     "file": "regions.2012_census.type_of_housing_unit.tsv",
@@ -387,7 +387,7 @@
     "attr_id": "type_of_housing_unit",
     "n_data_list": 15204,
     "file_size": 569224,
-    "value_key_list_str": "improvised;permanent;semi_permanent;unclassified"
+    "value_key_list_str": "improvised;permanent;semi_permanent"
   },
   "regions.2012_census.housing_ownership_status_of_household": {
     "file": "regions.2012_census.housing_ownership_status_of_household.tsv",
