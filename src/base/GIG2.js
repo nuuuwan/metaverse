@@ -62,6 +62,15 @@ export default class GIG2 {
     return maxValueKey;
   }
 
+  static getMaxValueP(dataList, valueKey) {
+    return dataList.reduce(function (maxValueP, tableRow) {
+      const sumValue = GIG2.getSumValues(tableRow);
+      const value = tableRow[valueKey];
+      const valueP = value / sumValue;
+      return Math.max(maxValueP, valueP);
+    }, 0);
+  }
+
   static getSumValues(tableRow) {
     const valueKeys = GIG2.filterValueCellKeys(tableRow);
     return MathX.sum(valueKeys.map((valueKey) => tableRow[valueKey]));

@@ -97,6 +97,16 @@ export default class GIG2Layer extends AbstractLayer {
     const childIDs = await Ents.getChildIDs(parentRegionID, childRegionType);
     const tableIndex = await GIG2.getTableIndex(tableName);
 
+    const tableDataList = childIDs
+      .map((childID) => tableIndex[childID])
+      .filter((d) => d !== undefined);
+
+    let maxValueP = 1.0;
+    if (displayMode !== "max") {
+      const selectedValueKey = displayMode;
+      maxValueP = GIG2.getMaxValueP(tableDataList, selectedValueKey);
+    }
+
     const dataList = childIDs
       .map(function (childID) {
         const tableRow = tableIndex[childID];
@@ -112,7 +122,7 @@ export default class GIG2Layer extends AbstractLayer {
           const selectedValueKey = displayMode;
           color = GIG2.getValueKeyColor(selectedValueKey);
           const valueP = GIG2.getValueKeyP(tableRow, selectedValueKey);
-          opacity = valueP * 0.99 + 0.01;
+          opacity = (valueP / maxValueP) * 0.99 + 0.01;
         }
 
         return {
