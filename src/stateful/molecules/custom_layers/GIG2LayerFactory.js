@@ -1,7 +1,5 @@
-import StringX from "../../../base/StringX.js";
-import { TABLE_NAMES } from "../../../constants/GIG2Constants.js";
-
 import { ENT } from "../../../base/Ents.js";
+import {TABLE_NAMES} from "../../../constants/GIG2Constants.js";
 import GIG2Layer from "./GIG2Layer.js";
 
 export default class GIG2LayerFactory {
@@ -9,35 +7,6 @@ export default class GIG2LayerFactory {
     const GIG2Class = class extends GIG2Layer {
       static getTableName() {
         return tableName;
-      }
-
-      static getLabel() {
-        const [spaceID, timeID, attrID] = tableName.split(".").splice(0, 3);
-        return StringX.toTitleCase(`${attrID} - ${timeID}`);
-      }
-
-      static getLayerClassID() {
-        return this.getTableName();
-      }
-
-      static getRegionTypes() {
-        const [spaceID] = tableName.split(".").slice(0, 1);
-        if (spaceID === "regions") {
-          return [
-            ENT.PROVINCE,
-            ENT.DISTRICT,
-            ENT.DSD,
-            ENT.GND,
-            ENT.ED,
-            ENT.PD,
-            ENT.MOH,
-            ENT.LG,
-          ];
-        }
-        if (spaceID === "regions_ec") {
-          return [ENT.PROVINCE, ENT.ED, ENT.PD];
-        }
-        return [];
       }
     };
     return GIG2Class;

@@ -1,6 +1,7 @@
-import Ents from "../../../base/Ents.js";
+import Ents, {ENT} from "../../../base/Ents.js";
 import GIG2 from "../../../base/GIG2.js";
-
+import StringX from "../../../base/StringX.js";
+import {TABLE_NAMES, METADATA_MAP} from "../../../constants/GIG2Constants.js";
 import TableView from "../../../nonstate/molecules/TableView.js";
 
 import AbstractLayer from "../AbstractLayer.js";
@@ -13,17 +14,43 @@ export default class GIG2Layer extends AbstractLayer {
     return "";
   }
 
-  static getLabel() {
-    return "";
-  }
-
   static getSource() {
     return "";
   }
 
-  static isMatch(text) {
-    return false;
+  static getMetadata() {
+    return METADATA_MAP[this.getTableName()]
   }
+
+  static getLabel() {
+    const [spaceID, timeID, attrID] = this.getTableName().split(".").splice(0, 3);
+    return StringX.toTitleCase(`${attrID} - ${timeID}`);
+  }
+
+  static getLayerClassID() {
+    return this.getTableName();
+  }
+
+  static getRegionTypes() {
+    const [spaceID] = this.getTableName().split(".").slice(0, 1);
+    if (spaceID === "regions") {
+      return [
+        ENT.PROVINCE,
+        ENT.DISTRICT,
+        ENT.DSD,
+        ENT.GND,
+        ENT.ED,
+        ENT.PD,
+        ENT.MOH,
+        ENT.LG,
+      ];
+    }
+    if (spaceID === "regions_ec") {
+      return [ENT.PROVINCE, ENT.ED, ENT.PD];
+    }
+    return [];
+  }
+
 
   async getDataList() {
     const { childRegionType, parentRegionID } = this.props;
