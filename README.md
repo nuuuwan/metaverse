@@ -28,3 +28,4 @@
   *  (2021-09-17-1604) Added SourceView
   *  (2021-09-17-1610) Added source to table
   *  (2021-09-17-1621) Various
+  *  (2021-09-17-1724) * Atom for Table Name / Display Mode

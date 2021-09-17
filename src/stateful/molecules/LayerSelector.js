@@ -9,8 +9,8 @@ export default class LayerSelector extends Component {
   render() {
     const { selectedLayerClasses, onSelectLayer } = this.props;
 
-    function renderLayer(LayerClass) {
-      const label = LayerClass.getLabel();
+    function renderLayer(LayerClass, iLayer) {
+      const renderedLabel = LayerClass.renderLabel();
       const onClick = function (e) {
         onSelectLayer(LayerClass);
       };
@@ -20,8 +20,8 @@ export default class LayerSelector extends Component {
         className += " div-layer-selected";
       }
       return (
-        <div className={className} key={`li-${label}`} onClick={onClick}>
-          {label}
+        <div className={className} key={`li-${iLayer}`} onClick={onClick}>
+          {renderedLabel}
         </div>
       );
     }

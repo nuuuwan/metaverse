@@ -12,18 +12,18 @@ export default function RegionTypePicker(props) {
     };
 
     const className =
-      "span-region-type-picker-item" +
+      "div-region-type-picker-item" +
       (regionType === selectedRegionType
-        ? " span-region-type-picker-item-selected"
+        ? " div-region-type-picker-item-selected"
         : "");
     return (
-      <span
+      <div
         key={`region-type-picker-item-${regionType}`}
         className={className}
         onClick={onClick}
       >
         {`${regionName}`}
-      </span>
+      </div>
     );
   });
   return (

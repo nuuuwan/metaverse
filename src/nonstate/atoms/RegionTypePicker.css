@@ -7,15 +7,16 @@
 	margin-bottom: 12px;
 }
 
-.span-region-type-picker-item {
-	margin-left: 6px;
+.div-region-type-picker-item {
+	margin: 6px;
 	color: #ddd;
+	font-size: 12px;
 }
 
-.span-region-type-picker-item:hover {
+.div-region-type-picker-item:hover {
 	color: black;
 }
 
-.span-region-type-picker-item-selected {
+.div-region-type-picker-item-selected {
 	color: black;
 }

@@ -1,4 +1,10 @@
-.tfooter-table-view {
-	margin: 24px;
-	padding: 24px;
+.td-number {
+	text-align: right;
+}
+
+.div-color {
+	max-width: 24px;
+	max-height: 24px;
+	padding: 9px;
+	border-radius: 24px;
 }

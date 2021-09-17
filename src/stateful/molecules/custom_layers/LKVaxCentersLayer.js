@@ -15,6 +15,10 @@ export default class LKVaxCentersLayer extends AbstractLayer {
     return `COVID19 🦠 Vaccination Centers (${date})`;
   }
 
+  static renderLabel() {
+    return this.getLabel();
+  }
+
   static getSource() {
     return "https://www.presidentsoffice.gov.lk/";
   }

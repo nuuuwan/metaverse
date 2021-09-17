@@ -3,7 +3,7 @@ import { Component } from "react";
 import RegionTypePicker from "../../nonstate/atoms/RegionTypePicker.js";
 
 import LayerSelector from "./LayerSelector.js";
-import EntView from "../atoms/EntView.js";
+// import EntView from "../atoms/EntView.js";
 import SourceView from "../../nonstate/atoms/SourceView.js";
 
 import "./LayerMenuView.css";
@@ -20,11 +20,11 @@ export default class LayerMenuView extends Component {
       onSelectRegionType,
       selectedLayerClasses,
       childRegionType,
-      parentRegionID,
+      // parentRegionID,
     } = this.props;
 
-    const title = selectedLayerClasses.map((LayerClass) =>
-      LayerClass.getLabel()
+    const renderedTitle = selectedLayerClasses.map((LayerClass) =>
+      LayerClass.renderLabel()
     );
 
     const source = selectedLayerClasses.map((LayerClass) =>
@@ -34,6 +34,8 @@ export default class LayerMenuView extends Component {
     const LayerClass = selectedLayerClasses[0]; // TODO Fix!
     const regionTypes = LayerClass.getRegionTypes();
     const showRegionTypePicker = regionTypes.length > 0;
+
+    // <EntView entID={parentRegionID} /> Removed Parent Region
 
     return (
       <div>
@@ -45,9 +47,8 @@ export default class LayerMenuView extends Component {
           />
         </div>
         <div className="div-layer-view-2">
-          <div className="div-layer-title">{title}</div>
           <SourceView source={source} />
-          <EntView entID={parentRegionID} />
+          <div className="div-layer-title">{renderedTitle}</div>
           {showRegionTypePicker ? (
             <RegionTypePicker
               onSelectRegionType={onSelectRegionType}
