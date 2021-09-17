@@ -60,7 +60,7 @@ export default class GIG2 {
   }
 
   static async getTableIndex(tableName) {
-    const [spaceID, timeID, attrID] = tableName.split(".").slice(0, 3);
+    const [spaceID] = tableName.split(".").slice(0, 1);
 
     let idFieldKey;
     if (spaceID === "region") {

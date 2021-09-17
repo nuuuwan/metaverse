@@ -2,7 +2,7 @@ import LKVaxCentersLayer from "./LKVaxCentersLayer.js";
 import { CensusLayerFactory } from "./CensusLayer.js";
 import GIG2LayerFactory from "./GIG2LayerFactory.js";
 
-const censusLayerClasses = CensusLayerFactory.getAll();
+// const censusLayerClasses = CensusLayerFactory.getAll();
 const gig2LayerClasses = GIG2LayerFactory.getAll();
 
 export const CUSTOM_LAYERS = [].concat(
