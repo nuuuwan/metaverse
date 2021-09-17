@@ -18,6 +18,17 @@ export default class GIG2LayerFactory {
       static getLayerClassID() {
         return this.getTableName();
       }
+
+      static getRegionTypes() {
+        const [spaceID] = tableName.split(".").slice(0, 1);
+        if (spaceID === "region") {
+          return [ENT.PROVINCE, ENT.DISTRICT, ENT.DSD, ENT.GND];
+        }
+        if (spaceID === "pd") {
+          return [ENT.PD];
+        }
+        return [];
+      }
     };
     return GIG2Class;
   }
