@@ -9,6 +9,8 @@ export const ENT = {
   GND: "gnd",
   PD: "pd",
   ED: "ed",
+  MOH: 'moh',
+  LG: 'lg',
   UNKNOWN: "unknown-entity",
 };
 
@@ -22,6 +24,8 @@ export const ENT_TYPE_TO_LONG_NAME = {
   [ENT.GND]: "Grama Niladhari Division",
   [ENT.PD]: "Polling Division",
   [ENT.ED]: "Electoral District",
+  [ENT.MOH]: "Medical Officer of Health Area",
+  [ENT.LG]: "Local Authority Area",
 };
 
 export const PARENT_TO_CHILD = {
@@ -63,6 +67,14 @@ export default class Ents {
         default:
           return ENT.UNKNOWN;
       }
+    }
+
+    if (entID.substring(0, 2) === "LG") {
+      return ENT.LG;
+    }
+
+    if (entID.substring(0, 3) === "MOH") {
+      return ENT.MOH;
     }
     return ENT.UNKNOWN;
   }
