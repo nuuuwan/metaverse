@@ -14,7 +14,7 @@ import "./RegionGeo.css";
 const DEFAULT_STYLE_GEOJSON = {
   color: "white",
   fillColor: "red",
-  fillOpacity: 0.8,
+  fillOpacity: 0.9,
   weight: 1,
 };
 
