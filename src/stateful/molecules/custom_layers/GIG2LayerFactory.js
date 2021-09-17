@@ -1,5 +1,6 @@
 import StringX from "../../../base/StringX.js";
 import { TABLE_NAMES } from "../../../base/GIG2.js";
+import { ENT } from "../../../base/Ents.js";
 import GIG2Layer from "./GIG2Layer.js";
 
 export default class GIG2LayerFactory {
