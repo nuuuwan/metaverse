@@ -115,7 +115,7 @@ export default class Ents {
     const ents = await Ents.getEntsByType(childRegionType);
     return ents
       .map((ent) => ent.id)
-      .filter((entID) => entID.includes(parentID) || (parentID === 'LK'));
+      .filter((entID) => entID.includes(parentID) || parentID === "LK");
   }
 
   static getEntTypeLongName(entType) {
