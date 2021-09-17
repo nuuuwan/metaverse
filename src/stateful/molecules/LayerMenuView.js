@@ -4,6 +4,7 @@ import RegionTypePicker from "../../nonstate/atoms/RegionTypePicker.js";
 
 import LayerSelector from "./LayerSelector.js";
 import EntView from "../atoms/EntView.js";
+import SourceView from "../../nonstate/atoms/SourceView.js";
 
 import "./LayerMenuView.css";
 
@@ -45,12 +46,7 @@ export default class LayerMenuView extends Component {
         </div>
         <div className="div-layer-view-2">
           <div className="div-layer-title">{title}</div>
-          <div className="div-layer-source">
-            {"Source: "}
-            <a className="a-layer-source-link" href={source} target="-_blank">
-              {source}
-            </a>
-          </div>
+          <SourceView source={source} />
           <EntView entID={parentRegionID} />
           {showRegionTypePicker ? (
             <RegionTypePicker
