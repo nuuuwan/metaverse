@@ -34,7 +34,7 @@ export default class LayerMenuView extends Component {
       showRegionTypePicker,
       LayerClass
     ) {
-      return showRegionTypePicker || LayerClass.hasRegions();
+      return showRegionTypePicker || LayerClass.getRegionTypes().length > 0;
     },
     false);
 
@@ -60,6 +60,7 @@ export default class LayerMenuView extends Component {
             <RegionTypePicker
               onSelectRegionType={onSelectRegionType}
               selectedRegionType={childRegionType}
+              regionTypes={LayerClass.getRegionTypes()}
             />
           ) : null}
         </div>

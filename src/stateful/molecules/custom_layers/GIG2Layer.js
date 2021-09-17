@@ -25,10 +25,6 @@ export default class GIG2Layer extends AbstractLayer {
     return false;
   }
 
-  static hasRegions() {
-    return true;
-  }
-
   async getDataList() {
     const { childRegionType, parentRegionID } = this.props;
     const tableName = this.constructor.getTableName();

@@ -3,8 +3,7 @@ import Ents, { ENT } from "../../base/Ents.js";
 import "./RegionTypePicker.css";
 
 export default function RegionTypePicker(props) {
-  const { selectedRegionType, onSelectRegionType } = props;
-  const regionTypes = [ENT.PROVINCE, ENT.DISTRICT, ENT.DSD, ENT.PD, ENT.ED];
+  const { selectedRegionType, onSelectRegionType, regionTypes } = props;
 
   const renderedItems = regionTypes.map(function (regionType) {
     const regionName = Ents.getRegionName(regionType);

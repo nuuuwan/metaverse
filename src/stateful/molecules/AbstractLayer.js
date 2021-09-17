@@ -44,8 +44,8 @@ export default class AbstractLayer extends Component {
     return "Source unknown";
   }
 
-  static hasRegions() {
-    return false;
+  static getRegionTypes() {
+    return [];
   }
 
   renderDataList() {

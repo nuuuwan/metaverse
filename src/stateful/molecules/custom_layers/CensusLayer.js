@@ -25,8 +25,8 @@ export default class CensusLayer extends AbstractLayer {
     return false;
   }
 
-  static hasRegions() {
-    return true;
+  static getRegionTypes() {
+    return [ENT.PROVINCE, ENT.DISTRICT, ENT.DSD, ENT.GND];
   }
 
   async getDataList() {
