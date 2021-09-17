@@ -18,3 +18,4 @@
   *  (2021-09-17-1445) Fixed Postal Votes bug
   *  (2021-09-17-1445) Removed console.*
   *  (2021-09-17-1501) Lint
+  *  (2021-09-17-1508) Fixed light issue

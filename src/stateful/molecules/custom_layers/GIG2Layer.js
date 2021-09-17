@@ -79,7 +79,7 @@ export default class GIG2Layer extends AbstractLayer {
           const selectedValueKey = displayMode;
           color = GIG2.getValueKeyColor(selectedValueKey);
           const valueP = GIG2.getValueKeyP(tableRow, selectedValueKey);
-          opacity = 0.5 + valueP / 2;
+          opacity = valueP;
         }
 
         return {

@@ -18,6 +18,10 @@ const DEFAULT_STYLE_GEOJSON = {
   weight: 1,
 };
 
+function dumbCopy(x) {
+  return JSON.parse(JSON.stringify(x));
+}
+
 export default class RegionGeo extends Component {
   constructor(props) {
     super(props);
@@ -67,7 +71,7 @@ export default class RegionGeo extends Component {
       );
     }
 
-    let style = DEFAULT_STYLE_GEOJSON;
+    let style = dumbCopy(DEFAULT_STYLE_GEOJSON);
     if (this.props.color) {
       style.fillColor = this.props.color;
     }
@@ -75,22 +79,35 @@ export default class RegionGeo extends Component {
       style.fillOpacity = this.props.opacity;
     }
 
+    let styleDummy = dumbCopy(DEFAULT_STYLE_GEOJSON);
+    styleDummy.fillColor = 'white';
+
     return (
+      <>
       <GeoJSON
         className="geojson"
-        key={`geojson-${regionID}`}
+        key={`geojson-${regionID}-dummy`}
         data={geoJsonData}
-        style={style}
-      >
-        <Popup>
-          <h2>
-            <EntView entID={regionID} />
-          </h2>
-          {buttonShow}
-          <hr />
-          {renderCustom(iRegion)}
-        </Popup>
-      </GeoJSON>
+        style={styleDummy}
+      />
+        <GeoJSON
+          className="geojson"
+          key={`geojson-${regionID}`}
+          data={geoJsonData}
+          style={style}
+        >
+          <Popup>
+            <h2>
+              <EntView entID={regionID} />
+            </h2>
+            {buttonShow}
+            <hr />
+            {renderCustom(iRegion)}
+          </Popup>
+        </GeoJSON>
+
+
+      </>
     );
   }
 }
