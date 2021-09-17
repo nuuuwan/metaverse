@@ -22,7 +22,7 @@ export default class GIG2LayerFactory {
 
       static getRegionTypes() {
         const [spaceID] = tableName.split(".").slice(0, 1);
-        if (spaceID === "region") {
+        if (spaceID === "regions") {
           return [ENT.PROVINCE, ENT.DISTRICT, ENT.DSD, ENT.GND];
         }
         if (spaceID === "pd") {

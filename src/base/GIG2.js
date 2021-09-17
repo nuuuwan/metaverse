@@ -63,7 +63,7 @@ export default class GIG2 {
     const [spaceID] = tableName.split(".").slice(0, 1);
 
     let idFieldKey;
-    if (spaceID === "region") {
+    if (spaceID === "regions") {
       idFieldKey = "entity_id";
     } else {
       idFieldKey = `${spaceID}_id`;
