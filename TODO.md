@@ -1,6 +1,5 @@
 # TODOs
 
-* Added Province/ED etc to Election Data
 * Add single field views (% of Sinhala Population)
 * Delete Legacy Layers
 * Source in Data Table
