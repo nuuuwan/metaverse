@@ -34,9 +34,18 @@ export default class GIG2Layer extends AbstractLayer {
   }
 
   static getLabel() {
-    const [timeID, attrID] = this.getTableName().split(".").splice(1, 3);
-    return StringX.toTitleCase(
-      `${this.getDisplayMode()} - ${attrID} - ${timeID}`
+    const tableName = this.getTableName();
+    const displayMode = this.getDisplayMode();
+    const displayModeLabel =
+      displayMode === "max" ? "Most Popular" : displayMode;
+    const [timeID, attrID] = tableName.split(".").splice(1, 3);
+    const timeIDWords = timeID.split("_");
+    return (
+      StringX.toTitleCase(timeIDWords.reverse().join(" ")) +
+      " - " +
+      StringX.toTitleCase(attrID) +
+      " - " +
+      StringX.toTitleCase(displayModeLabel)
     );
   }
 
