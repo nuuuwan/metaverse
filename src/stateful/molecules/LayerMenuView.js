@@ -30,13 +30,9 @@ export default class LayerMenuView extends Component {
       LayerClass.getSource()
     );
 
-    const showRegionTypePicker = selectedLayerClasses.reduce(function (
-      showRegionTypePicker,
-      LayerClass
-    ) {
-      return showRegionTypePicker || LayerClass.getRegionTypes().length > 0;
-    },
-    false);
+    const LayerClass = selectedLayerClasses[0]; // TODO Fix!
+    const regionTypes = LayerClass.getRegionTypes();
+    const showRegionTypePicker = regionTypes.length > 0;
 
     return (
       <div>
@@ -60,7 +56,7 @@ export default class LayerMenuView extends Component {
             <RegionTypePicker
               onSelectRegionType={onSelectRegionType}
               selectedRegionType={childRegionType}
-              regionTypes={LayerClass.getRegionTypes()}
+              regionTypes={regionTypes}
             />
           ) : null}
         </div>

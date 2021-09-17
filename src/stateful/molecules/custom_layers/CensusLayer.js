@@ -1,4 +1,4 @@
-import Ents from "../../../base/Ents.js";
+import Ents, { ENT } from "../../../base/Ents.js";
 import MathX from "../../../base/MathX.js";
 import StringX from "../../../base/StringX.js";
 import Census, { TABLE_NAMES } from "../../../base/Census.js";
