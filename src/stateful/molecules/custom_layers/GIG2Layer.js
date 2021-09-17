@@ -1,7 +1,7 @@
 import Ents from "../../../base/Ents.js";
 import MathX from "../../../base/MathX.js";
 import StringX from "../../../base/StringX.js";
-import GIG2, { TABLE_NAMES } from "../../../base/GIG2.js";
+import GIG2 from "../../../base/GIG2.js";
 
 import AbstractLayer from "../AbstractLayer.js";
 import RegionGeo from "../RegionGeo.js";

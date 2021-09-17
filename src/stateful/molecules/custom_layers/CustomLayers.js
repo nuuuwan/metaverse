@@ -1,5 +1,5 @@
 import LKVaxCentersLayer from "./LKVaxCentersLayer.js";
-import { CensusLayerFactory } from "./CensusLayer.js";
+// import { CensusLayerFactory } from "./CensusLayer.js";
 import GIG2LayerFactory from "./GIG2LayerFactory.js";
 
 // const censusLayerClasses = CensusLayerFactory.getAll();
