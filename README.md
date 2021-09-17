@@ -11,3 +11,4 @@
   *  (2021-09-17-1411) Added new metadata
   *  (2021-09-17-1412) Updated tables
   *  (2021-09-17-1414) Added GIG2Constants.js
+  *  (2021-09-17-1420) Updated Layer Label

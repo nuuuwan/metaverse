@@ -12,9 +12,8 @@ export default class GIG2LayerFactory {
       }
 
       static getLabel() {
-        return StringX.toTitleCase(
-          tableName.replaceAll(".", " ").replaceAll("_", " ")
-        );
+        const [spaceID, timeID, attrID] = tableName.split('.').splice(0, 3);
+        return StringX.toTitleCase(`${attrID} - ${timeID}`);
       }
 
       static getLayerClassID() {
