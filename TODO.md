@@ -1,6 +1,5 @@
 # TODOs
 
-* Remove "others"
 * Source in Data Table
 * Better Design for choosing region type
 * "Time-wise" Display

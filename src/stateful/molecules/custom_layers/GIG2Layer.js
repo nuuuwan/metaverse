@@ -19,7 +19,14 @@ export default class GIG2Layer extends AbstractLayer {
   }
 
   static getSource() {
-    return "";
+    const tableName = this.getTableName();
+    if (tableName.includes('census')) {
+      return 'https://www.statistics.gov.lk';
+    }
+    if (tableName.includes('election')) {
+      return 'https://www.elections.gov.lk';
+    }
+    return '';
   }
 
   static getMetadata() {
