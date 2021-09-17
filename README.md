@@ -15,3 +15,4 @@
   *  (2021-09-17-1425) Added METADATA_MAP
   *  (2021-09-17-1429) Added metadata
   *  (2021-09-17-1435) Added Display Mode
+  *  (2021-09-17-1445) Fixed Postal Votes bug
