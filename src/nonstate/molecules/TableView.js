@@ -20,7 +20,6 @@ export default function TableView(props) {
     .map((valueCellKey) => tableRow[valueCellKey])
     .filter((v) => v < sumValues * MIN_DISPLAY_VALUE);
   if (othersValues.length > 0) {
-    console.debug(othersValues);
     const othersValueSum = MathX.sum(othersValues);
     cellEntries.push(["others", othersValueSum]);
   }
