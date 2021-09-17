@@ -1,43 +1,43 @@
-file	space_id	time_id	attr_id	n_data_list	file_size
-country.latest.basic.tsv	country	latest	basic	1	86
-district.latest.basic.tsv	district	latest	basic	25	6982
-dsd.latest.basic.tsv	dsd	latest	basic	331	181963
-ed.latest.basic.tsv	ed	latest	basic	22	5551
-gnd.latest.basic.tsv	gnd	latest	basic	14021	2580047
-lg.latest.basic.tsv	lg	latest	basic	338	199126
-moh.latest.basic.tsv	moh	latest	basic	333	201645
-pd.latest.basic.tsv	pd	latest	basic	182	58027
-province.latest.basic.tsv	province	latest	basic	9	1439
-regions.2012_census.age_group_of_population.tsv	regions	2012_census	age_group_of_population	15208	1121571
-regions.2012_census.communication_items_owned_by_household.tsv	regions	2012_census	communication_items_owned_by_household	15204	1469428
-regions.2012_census.cooking_fuel_of_household.tsv	regions	2012_census	cooking_fuel_of_household	15204	689132
-regions.2012_census.ethnicity_of_population.tsv	regions	2012_census	ethnicity_of_population	15220	897209
-regions.2012_census.floor_type_in_housing_unit.tsv	regions	2012_census	floor_type_in_housing_unit	15204	773284
-regions.2012_census.gender_of_population.tsv	regions	2012_census	gender_of_population	15208	473971
-regions.2012_census.households_living_in_housing_unit.tsv	regions	2012_census	households_living_in_housing_unit	15204	613239
-regions.2012_census.housing_ownership_status_of_household.tsv	regions	2012_census	housing_ownership_status_of_household	15204	699228
-regions.2012_census.lighting_of_household.tsv	regions	2012_census	lighting_of_household	15204	688799
-regions.2012_census.living_quarters.tsv	regions	2012_census	living_quarters	15208	492617
-regions.2012_census.marital_status_of_population.tsv	regions	2012_census	marital_status_of_population	15208	880050
-regions.2012_census.occupation_status_of_housing_units.tsv	regions	2012_census	occupation_status_of_housing_units	15205	445615
-regions.2012_census.persons_living_in_housing_unit.tsv	regions	2012_census	persons_living_in_housing_unit	15204	1009983
-regions.2012_census.relationship_to_household_head_of_population.tsv	regions	2012_census	relationship_to_household_head_of_population	15208	1205127
-regions.2012_census.religious_affiliation_of_population.tsv	regions	2012_census	religious_affiliation_of_population	15220	722594
-regions.2012_census.roof_type_in_housing_unit.tsv	regions	2012_census	roof_type_in_housing_unit	15204	777864
-regions.2012_census.rooms_in_housing_unit.tsv	regions	2012_census	rooms_in_housing_unit	15204	1011590
-regions.2012_census.solid_waste_disposal_by_household.tsv	regions	2012_census	solid_waste_disposal_by_household	15204	712055
-regions.2012_census.source_of_drinking_water_of_household.tsv	regions	2012_census	source_of_drinking_water_of_household	15204	1161688
-regions.2012_census.structure_of_housing_units.tsv	regions	2012_census	structure_of_housing_units	15204	876749
-regions.2012_census.toilet_facilities_of_household.tsv	regions	2012_census	toilet_facilities_of_household	15204	690477
-regions.2012_census.total_population.tsv	regions	2012_census	total_population	15220	281947
-regions.2012_census.type_of_housing_unit.tsv	regions	2012_census	type_of_housing_unit	15204	569224
-regions.2012_census.wall_type_in_housing_units.tsv	regions	2012_census	wall_type_in_housing_units	15204	833523
-regions.2012_census.year_of_construction_of_housing_unit.tsv	regions	2012_census	year_of_construction_of_housing_unit	15204	1170511
-regions_ec.1982_election_presidential.result.tsv	regions_ec	1982_election_presidential	result	213	14444
-regions_ec.1988_election_presidential.result.tsv	regions_ec	1988_election_presidential	result	209	11698
-regions_ec.1994_election_presidential.result.tsv	regions_ec	1994_election_presidential	result	213	14320
-regions_ec.1999_election_presidential.result.tsv	regions_ec	1999_election_presidential	result	213	19604
-regions_ec.2005_election_presidential.result.tsv	regions_ec	2005_election_presidential	result	216	18901
-regions_ec.2010_election_presidential.result.tsv	regions_ec	2010_election_presidential	result	218	25322
-regions_ec.2015_election_presidential.result.tsv	regions_ec	2015_election_presidential	result	213	22881
-regions_ec.2019_election_presidential.result.tsv	regions_ec	2019_election_presidential	result	213	34807
+file	space_id	time_id	attr_id	n_data_list	file_size	value_key_list_str
+country.latest.basic.tsv	country	latest	basic	1	86	id;name;area;population;hasc;fips
+district.latest.basic.tsv	district	latest	basic	25	6982	id;name;area;population;hasc;fips;subs;supers;eqs;ints;centroid;centroid_altitude
+dsd.latest.basic.tsv	dsd	latest	basic	331	181963	id;name;area;population;hasc;subs;supers;eqs;ints;centroid;centroid_altitude
+ed.latest.basic.tsv	ed	latest	basic	22	5551	id;name;population;area;subs;supers;eqs;ints;centroid;centroid_altitude
+gnd.latest.basic.tsv	gnd	latest	basic	14021	2580047	id;name;population;area;gnd_num;subs;supers;eqs;ints;centroid;centroid_altitude
+lg.latest.basic.tsv	lg	latest	basic	338	199126	id;name;lg_type;population;area;subs;supers;eqs;ints;centroid;centroid_altitude
+moh.latest.basic.tsv	moh	latest	basic	333	201645	id;name;population;area;subs;supers;eqs;ints;centroid;centroid_altitude
+pd.latest.basic.tsv	pd	latest	basic	182	58027	id;name;population;area;subs;supers;eqs;ints;centroid;centroid_altitude
+province.latest.basic.tsv	province	latest	basic	9	1439	id;name;area;population;province_capital;fips;subs;supers;eqs;ints;centroid;centroid_altitude
+regions.2012_census.age_group_of_population.tsv	regions	2012_census	age_group_of_population	15208	1121571	less_than_10;10_19;20_29;30_39;40_49;50_59;60_69;70_79;80_89;90_and_above
+regions.2012_census.communication_items_owned_by_household.tsv	regions	2012_census	communication_items_owned_by_household	15204	1469428	radio;tv;fixed_tp;mobile;pc;laptop;fax
+regions.2012_census.cooking_fuel_of_household.tsv	regions	2012_census	cooking_fuel_of_household	15204	689132	fire_wood;kerosene;gas;electricity;saw_dust_or_paddy_husk;other
+regions.2012_census.ethnicity_of_population.tsv	regions	2012_census	ethnicity_of_population	15220	897209	sinhalese;sri_lankan_tamil;indian_tamil;moor;burgher;malay;chetty;bharatha;other
+regions.2012_census.floor_type_in_housing_unit.tsv	regions	2012_census	floor_type_in_housing_unit	15204	773284	cement;tile_or_granite_or_terrazo;mud;wood;sand;concrete;other
+regions.2012_census.gender_of_population.tsv	regions	2012_census	gender_of_population	15208	473971	male;female
+regions.2012_census.households_living_in_housing_unit.tsv	regions	2012_census	households_living_in_housing_unit	15204	613239	1_household;2_households;3_households;4_households;5_or_more
+regions.2012_census.housing_ownership_status_of_household.tsv	regions	2012_census	housing_ownership_status_of_household	15204	699228	owned_by_a_household_member;rent_or_lease_government_owned;rent_or_lease_privately_owned;occupied_free_of_rent;encroached;other
+regions.2012_census.lighting_of_household.tsv	regions	2012_census	lighting_of_household	15204	688799	electricity_national_electricity_network;electricity_rural_hydro_electricity_projects;kerosene;solar_power;bio_gas;other
+regions.2012_census.living_quarters.tsv	regions	2012_census	living_quarters	15208	492617	housing_unit;collective_living_quarter;non_housing_unit
+regions.2012_census.marital_status_of_population.tsv	regions	2012_census	marital_status_of_population	15208	880050	never_married;married_registered;married_customary;widowed;divorced;legally_separated;separated_not_legally;not_stated
+regions.2012_census.occupation_status_of_housing_units.tsv	regions	2012_census	occupation_status_of_housing_units	15205	445615	occupied;vacant
+regions.2012_census.persons_living_in_housing_unit.tsv	regions	2012_census	persons_living_in_housing_unit	15204	1009983	1_person;2_persons;3_persons;4_persons;5_persons;6_persons;7_persons;8_persons;9_persons;10_or_more
+regions.2012_census.relationship_to_household_head_of_population.tsv	regions	2012_census	relationship_to_household_head_of_population	15208	1205127	head;wife_or_husband;son_or_daughter;son_or_daughter_in_law;grandchild_or_great_grand_child;parent_of_head_or_spouse;other_relative;domestic_employee;boarder;non_relative;clergy;not_stated
+regions.2012_census.religious_affiliation_of_population.tsv	regions	2012_census	religious_affiliation_of_population	15220	722594	buddhist;hindu;islam;roman_catholic;other_christian;other
+regions.2012_census.roof_type_in_housing_unit.tsv	regions	2012_census	roof_type_in_housing_unit	15204	777864	tile;asbestos;concrete;zink_aluminium_sheet;metal_sheet;cadjan_or_palmyrah_or_straw;other
+regions.2012_census.rooms_in_housing_unit.tsv	regions	2012_census	rooms_in_housing_unit	15204	1011590	1_room;2_rooms;3_rooms;4_rooms;5_rooms;6_rooms;7_rooms;8_rooms;9_rooms;10_and_above
+regions.2012_census.solid_waste_disposal_by_household.tsv	regions	2012_census	solid_waste_disposal_by_household	15204	712055	collected_by_local_authorities;occupants_burn;occupants_bury;occupants_composting_solid_waste;occupants_dispose_solid_waste_into_road_or_river_or_canal_or_sea_or_creek_or_forest_etc;other
+regions.2012_census.source_of_drinking_water_of_household.tsv	regions	2012_census	source_of_drinking_water_of_household	15204	1161688	protected_well_within_premises;protected_well_outside_premises;unprotected_well;tap_within_unit_main_line;tap_within_premises_but_outside_unit_main_line;tap_outside_premises_main_line;rural_water_projects;tube_well;bowser;river_or_tank_or_stream;rain_water;bottled_water;other
+regions.2012_census.structure_of_housing_units.tsv	regions	2012_census	structure_of_housing_units	15204	876749	single_house_single_floor;single_house_double_floor;single_house_more_than_2_floors;attached_house_or_annex;flat;condominium;twin_house;row_house_or_line_room;hut_or_shanty
+regions.2012_census.toilet_facilities_of_household.tsv	regions	2012_census	toilet_facilities_of_household	15204	690477	water_seal_and_connected_to_a_piped_sewer_system;water_seal_and_connected_to_a_septic_tank;pour_flush_toilet_not_water_seal;direct_pit;other;not_using_a_toilet
+regions.2012_census.total_population.tsv	regions	2012_census	total_population	15220	281947	
+regions.2012_census.type_of_housing_unit.tsv	regions	2012_census	type_of_housing_unit	15204	569224	permanent;semi_permanent;improvised;unclassified
+regions.2012_census.wall_type_in_housing_units.tsv	regions	2012_census	wall_type_in_housing_units	15204	833523	brick;cement_block_or_stone;cabook;soil_bricks;mud;cadjan_or_palmyrah;plank_or_metal_sheet;other
+regions.2012_census.year_of_construction_of_housing_unit.tsv	regions	2012_census	year_of_construction_of_housing_unit	15204	1170511	2011;2010;2009;2008;2007;2006;2005;2000_2004;1995_1999;1990_1994;1980_1989;before_80
+regions_ec.1982_election_presidential.result.tsv	regions_ec	1982_election_presidential	result	213	14444	UNP;SLFP;JVP;LSSP;ACTC;NSSP
+regions_ec.1988_election_presidential.result.tsv	regions_ec	1988_election_presidential	result	209	11698	UNP;SLFP;SLMP
+regions_ec.1994_election_presidential.result.tsv	regions_ec	1994_election_presidential	result	213	14320	PA;UNP;SMBP;Ind 1;Ind 2;SLPF
+regions_ec.1999_election_presidential.result.tsv	regions_ec	1999_election_presidential	result	213	19604	PA;UNP;JVP;SMBP;LDA;SLMP;Liberal;Ind 1;Ind 2;PLSF;Ind 3;DUNF;PFF
+regions_ec.2005_election_presidential.result.tsv	regions_ec	2005_election_presidential	result	216	18901	UNP;UPFA;USP;ULPP;JSP;NLF;ULF;RPP;SLNF;SEP;DUA;SLPF;UNAF
+regions_ec.2010_election_presidential.result.tsv	regions_ec	2010_election_presidential	result	218	25322	UPFA;NDF;SLLP;DUNF;UDF;JSP;Ind 1;LF;ONF;NSH;Ind 3;Ind 5;USP;Ind 2;SEP;JP;NA;Ind 4;UNAF;RPP;PNF;ACAKO
+regions_ec.2015_election_presidential.result.tsv	regions_ec	2015_election_presidential	result	213	22881	I-AMI;UPF;DNM;SLNF;USP;AACAAKO;SEP;FSP;SLLP;NDF;ULPP;I-AP;JSP;NSH;PNF;UPFA;ONF;NSSP;ULGC
+regions_ec.2019_election_presidential.result.tsv	regions_ec	2019_election_presidential	result	213	34807	IND01;IND02;IND03;IND04;DUNF;OWORS;IND05;IND06;USP;RJA;DNM;NMPP;FSP;JSWP;IND07;OPPP;IND08;IND09;NDF;JSP;NSSP;NSU;IND10;IND11;SLPP;NUA;SLLP;IND12;IND13;SPSL;IND14;SEP;IND15;ONF;NPP
