@@ -1,6 +1,7 @@
 import { FIELD_NAME_TO_COLOR } from "../constants/ColorConstants.js";
 import WWW from "./WWW.js";
 import Color from "./Color.js";
+import MathX from "./MathX.js";
 
 let adhocValueKeyToColor = {};
 
@@ -59,6 +60,16 @@ export default class GIG2 {
       return maxValueKey;
     }, valueKeys[0]);
     return maxValueKey;
+  }
+
+  static getSumValues(tableRow) {
+    const valueKeys = GIG2.filterValueCellKeys(tableRow);
+    return MathX.sum(valueKeys.map((valueKey) => tableRow[valueKey]));
+  }
+
+  static getValueKeyP(tableRow, valueKey) {
+    const sumValues = GIG2.getSumValues(tableRow);
+    return tableRow[valueKey] / sumValues;
   }
 
   static getValueKeyColor(valueKey) {

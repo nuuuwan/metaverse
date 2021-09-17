@@ -11,7 +11,7 @@ import EntView from "../atoms/EntView.js";
 
 import "./RegionGeo.css";
 
-const STYLE_GEOJSON = {
+const DEFAULT_STYLE_GEOJSON = {
   color: "white",
   fillColor: "red",
   fillOpacity: 0.8,
@@ -67,9 +67,12 @@ export default class RegionGeo extends Component {
       );
     }
 
-    let style = STYLE_GEOJSON;
+    let style = DEFAULT_STYLE_GEOJSON;
     if (this.props.color) {
       style.fillColor = this.props.color;
+    }
+    if (this.props.opacity) {
+      style.fillOpacity = this.props.opacity;
     }
 
     return (

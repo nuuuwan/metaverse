@@ -28,7 +28,9 @@ export default class GIG2Layer extends AbstractLayer {
 
   static getLabel() {
     const [timeID, attrID] = this.getTableName().split(".").splice(1, 3);
-    return StringX.toTitleCase(`${this.getDisplayMode()} - ${attrID} - ${timeID}`);
+    return StringX.toTitleCase(
+      `${this.getDisplayMode()} - ${attrID} - ${timeID}`
+    );
   }
 
   static getLayerClassID() {
@@ -58,6 +60,7 @@ export default class GIG2Layer extends AbstractLayer {
   async getDataList() {
     const { childRegionType, parentRegionID } = this.props;
     const tableName = this.constructor.getTableName();
+    const displayMode = this.constructor.getDisplayMode();
     const childIDs = await Ents.getChildIDs(parentRegionID, childRegionType);
     const tableIndex = await GIG2.getTableIndex(tableName);
 
@@ -67,15 +70,27 @@ export default class GIG2Layer extends AbstractLayer {
         if (!tableRow) {
           return undefined;
         }
-        const color = GIG2.getTableRowColor(tableRow);
+        let color;
+        let opacity;
+        if (displayMode === "max") {
+          color = GIG2.getTableRowColor(tableRow);
+          opacity = 0.8;
+        } else {
+          const selectedValueKey = displayMode;
+          color = GIG2.getValueKeyColor(selectedValueKey);
+          const valueP = GIG2.getValueKeyP(tableRow, selectedValueKey);
+          opacity = 0.5 + valueP / 2;
+        }
+
         return {
           regionID: childID,
           regionType: childRegionType,
           censusData: tableRow,
-          color: color,
+          color,
+          opacity,
         };
       })
-      .filter((data) => (data !== undefined) && data.regionID.slice(-1) !== 'P');
+      .filter((data) => data !== undefined && data.regionID.slice(-1) !== "P");
     return dataList;
   }
 
@@ -101,7 +116,7 @@ export default class GIG2Layer extends AbstractLayer {
     };
 
     return dataList.map(
-      function ({ regionType, regionID, color, censusData }, iRegion) {
+      function ({ regionType, regionID, color, opacity, censusData }, iRegion) {
         return (
           <RegionGeo
             key={`region-geo-${regionID}`}
@@ -109,6 +124,7 @@ export default class GIG2Layer extends AbstractLayer {
             regionID={regionID}
             onClick={this.onClick.bind(this)}
             color={color}
+            opacity={opacity}
             renderCustom={renderCustom}
             iRegion={iRegion}
           />
