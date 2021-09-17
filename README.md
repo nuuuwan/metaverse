@@ -92,3 +92,4 @@
   *  (2021-09-17-1103) Changed DEFAULT_ZOOM and DEFAULT_LATLNG
   *  (2021-09-17-1112) Added TableView
   *  (2021-09-17-1112) 
+  *  (2021-09-17-1117) Added others

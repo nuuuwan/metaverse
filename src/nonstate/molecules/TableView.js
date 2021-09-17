@@ -2,6 +2,8 @@ import MathX from "../../base/MathX.js";
 import StringX from "../../base/StringX.js";
 import GIG2 from "../../base/GIG2.js";
 
+const MIN_DISPLAY_VALUE = 0.01;
+
 export default function TableView(props) {
   const { data } = props;
   const tableRow = data.censusData;
@@ -9,14 +11,24 @@ export default function TableView(props) {
   const values = valueCellKeys.map((valueCellKey) => tableRow[valueCellKey]);
   const sumValues = MathX.sum(values);
 
-  const sortedValueCellEntries = valueCellKeys
+  let cellEntries = valueCellKeys
     .map((valueCellKey) => [valueCellKey, tableRow[valueCellKey]])
+    .filter((d) => d[1] >= sumValues * MIN_DISPLAY_VALUE)
     .sort((a, b) => b[1] - a[1]);
+
+  const othersValues = valueCellKeys
+    .map((valueCellKey) => tableRow[valueCellKey])
+    .filter((v) => v < sumValues * MIN_DISPLAY_VALUE);
+  if (othersValues.length > 0) {
+    console.debug(othersValues);
+    const othersValueSum = MathX.sum(othersValues);
+    cellEntries.push(["others", othersValueSum]);
+  }
 
   return (
     <table>
       <tbody>
-        {sortedValueCellEntries.map(function (
+        {cellEntries.map(function (
           [valueCellKey, valueCellValue],
           iValueCellKey
         ) {
