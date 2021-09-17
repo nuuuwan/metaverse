@@ -97,3 +97,4 @@
   *  (2021-09-17-1127) Add colors for parties
   *  (2021-09-17-1133) Added moh/lg data
   *  (2021-09-17-1134) Add PD/ED/MOH/LG etc to Election Data
+  *  (2021-09-17-1214) Added province information to elections

@@ -2,13 +2,15 @@
 	color: black;
 }
 
-.span-ent-name {
-	color: black;
-	font-weight: 800;
+
+.div-ent-type {
+	margin-bottom: 4px;
+	color: gray;
+	font-weight: 300;
+	font-size: 70%;
 }
 
-.span-ent-type {
-	margin-left: 6px;
-	color: gray;
-	font-weight: 200;
+.div-ent-name {
+	color: black;
+	font-weight: 800;
 }

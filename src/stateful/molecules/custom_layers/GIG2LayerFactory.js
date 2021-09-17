@@ -34,8 +34,8 @@ export default class GIG2LayerFactory {
             ENT.LG,
           ];
         }
-        if (spaceID === "pd") {
-          return [ENT.PD];
+        if (spaceID === "regions_ec") {
+          return [ENT.PROVINCE, ENT.ED, ENT.PD];
         }
         return [];
       }

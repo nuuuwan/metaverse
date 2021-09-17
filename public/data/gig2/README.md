@@ -1,5 +1,5 @@
 # GIG Data
-*23.6 MB*
+*23.7 MB*
 * [country.latest.basic.tsv](https://github.com/nuuuwan/gig2/blob/data/country.latest.basic.tsv)
 * [district.latest.basic.tsv](https://github.com/nuuuwan/gig2/blob/data/district.latest.basic.tsv)
 * [dsd.latest.basic.tsv](https://github.com/nuuuwan/gig2/blob/data/dsd.latest.basic.tsv)
@@ -7,14 +7,6 @@
 * [gnd.latest.basic.tsv](https://github.com/nuuuwan/gig2/blob/data/gnd.latest.basic.tsv)
 * [lg.latest.basic.tsv](https://github.com/nuuuwan/gig2/blob/data/lg.latest.basic.tsv)
 * [moh.latest.basic.tsv](https://github.com/nuuuwan/gig2/blob/data/moh.latest.basic.tsv)
-* [pd.1982_election_presidential.result.tsv](https://github.com/nuuuwan/gig2/blob/data/pd.1982_election_presidential.result.tsv)
-* [pd.1988_election_presidential.result.tsv](https://github.com/nuuuwan/gig2/blob/data/pd.1988_election_presidential.result.tsv)
-* [pd.1994_election_presidential.result.tsv](https://github.com/nuuuwan/gig2/blob/data/pd.1994_election_presidential.result.tsv)
-* [pd.1999_election_presidential.result.tsv](https://github.com/nuuuwan/gig2/blob/data/pd.1999_election_presidential.result.tsv)
-* [pd.2005_election_presidential.result.tsv](https://github.com/nuuuwan/gig2/blob/data/pd.2005_election_presidential.result.tsv)
-* [pd.2010_election_presidential.result.tsv](https://github.com/nuuuwan/gig2/blob/data/pd.2010_election_presidential.result.tsv)
-* [pd.2015_election_presidential.result.tsv](https://github.com/nuuuwan/gig2/blob/data/pd.2015_election_presidential.result.tsv)
-* [pd.2019_election_presidential.result.tsv](https://github.com/nuuuwan/gig2/blob/data/pd.2019_election_presidential.result.tsv)
 * [pd.latest.basic.tsv](https://github.com/nuuuwan/gig2/blob/data/pd.latest.basic.tsv)
 * [province.latest.basic.tsv](https://github.com/nuuuwan/gig2/blob/data/province.latest.basic.tsv)
 * [regions.2012_census.age_group_of_population.tsv](https://github.com/nuuuwan/gig2/blob/data/regions.2012_census.age_group_of_population.tsv)
@@ -42,3 +34,11 @@
 * [regions.2012_census.type_of_housing_unit.tsv](https://github.com/nuuuwan/gig2/blob/data/regions.2012_census.type_of_housing_unit.tsv)
 * [regions.2012_census.wall_type_in_housing_units.tsv](https://github.com/nuuuwan/gig2/blob/data/regions.2012_census.wall_type_in_housing_units.tsv)
 * [regions.2012_census.year_of_construction_of_housing_unit.tsv](https://github.com/nuuuwan/gig2/blob/data/regions.2012_census.year_of_construction_of_housing_unit.tsv)
+* [regions_ec.1982_election_presidential.result.tsv](https://github.com/nuuuwan/gig2/blob/data/regions_ec.1982_election_presidential.result.tsv)
+* [regions_ec.1988_election_presidential.result.tsv](https://github.com/nuuuwan/gig2/blob/data/regions_ec.1988_election_presidential.result.tsv)
+* [regions_ec.1994_election_presidential.result.tsv](https://github.com/nuuuwan/gig2/blob/data/regions_ec.1994_election_presidential.result.tsv)
+* [regions_ec.1999_election_presidential.result.tsv](https://github.com/nuuuwan/gig2/blob/data/regions_ec.1999_election_presidential.result.tsv)
+* [regions_ec.2005_election_presidential.result.tsv](https://github.com/nuuuwan/gig2/blob/data/regions_ec.2005_election_presidential.result.tsv)
+* [regions_ec.2010_election_presidential.result.tsv](https://github.com/nuuuwan/gig2/blob/data/regions_ec.2010_election_presidential.result.tsv)
+* [regions_ec.2015_election_presidential.result.tsv](https://github.com/nuuuwan/gig2/blob/data/regions_ec.2015_election_presidential.result.tsv)
+* [regions_ec.2019_election_presidential.result.tsv](https://github.com/nuuuwan/gig2/blob/data/regions_ec.2019_election_presidential.result.tsv)

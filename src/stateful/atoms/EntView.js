@@ -24,10 +24,10 @@ export default class EntView extends Component {
     }
     return (
       <div className="div-ent-name">
-        <span className="span-ent-name">{ent.name}</span>
-        <span className="span-ent-type">
+        <div className="div-ent-type">
           {Ents.getEntTypeLongName(entType)}
-        </span>
+        </div>
+        <div className="div-ent-name">{ent.name}</div>
       </div>
     );
   }
