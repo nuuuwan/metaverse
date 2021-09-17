@@ -93,3 +93,4 @@
   *  (2021-09-17-1112) Added TableView
   *  (2021-09-17-1112) 
   *  (2021-09-17-1117) Added others
+  *  (2021-09-17-1124) Make colors more opaque

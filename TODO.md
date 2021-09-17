@@ -1,7 +1,4 @@
-# TODOs
-
-* Hide <1%
-* Make colors more opaque
+# TODOs* 
 * Add colors for parties
 * Add PD/ED/MOH/LG etc to Election Data
 * Added Province/District etc to Election Data
