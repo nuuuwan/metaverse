@@ -1,0 +1,422 @@
+{
+  "regions.2012_census.source_of_drinking_water_of_household": {
+    "file": "regions.2012_census.source_of_drinking_water_of_household.tsv",
+    "table_name": "regions.2012_census.source_of_drinking_water_of_household",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "source_of_drinking_water_of_household",
+    "n_data_list": 15204,
+    "file_size": 1161688,
+    "value_key_list_str": "protected_well_within_premises;protected_well_outside_premises;unprotected_well;tap_within_unit_main_line;tap_within_premises_but_outside_unit_main_line;tap_outside_premises_main_line;rural_water_projects;tube_well;bowser;river_or_tank_or_stream;rain_water;bottled_water;other"
+  },
+  "regions.2012_census.persons_living_in_housing_unit": {
+    "file": "regions.2012_census.persons_living_in_housing_unit.tsv",
+    "table_name": "regions.2012_census.persons_living_in_housing_unit",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "persons_living_in_housing_unit",
+    "n_data_list": 15204,
+    "file_size": 1009983,
+    "value_key_list_str": "1_person;2_persons;3_persons;4_persons;5_persons;6_persons;7_persons;8_persons;9_persons;10_or_more"
+  },
+  "regions_ec.2019_election_presidential.result": {
+    "file": "regions_ec.2019_election_presidential.result.tsv",
+    "table_name": "regions_ec.2019_election_presidential.result",
+    "space_id": "regions_ec",
+    "time_id": "2019_election_presidential",
+    "attr_id": "result",
+    "n_data_list": 213,
+    "file_size": 34807,
+    "value_key_list_str": "IND01;IND02;IND03;IND04;DUNF;OWORS;IND05;IND06;USP;RJA;DNM;NMPP;FSP;JSWP;IND07;OPPP;IND08;IND09;NDF;JSP;NSSP;NSU;IND10;IND11;SLPP;NUA;SLLP;IND12;IND13;SPSL;IND14;SEP;IND15;ONF;NPP"
+  },
+  "regions_ec.1999_election_presidential.result": {
+    "file": "regions_ec.1999_election_presidential.result.tsv",
+    "table_name": "regions_ec.1999_election_presidential.result",
+    "space_id": "regions_ec",
+    "time_id": "1999_election_presidential",
+    "attr_id": "result",
+    "n_data_list": 213,
+    "file_size": 19604,
+    "value_key_list_str": "PA;UNP;JVP;SMBP;LDA;SLMP;Liberal;Ind 1;Ind 2;PLSF;Ind 3;DUNF;PFF"
+  },
+  "pd.latest.basic": {
+    "file": "pd.latest.basic.tsv",
+    "table_name": "pd.latest.basic",
+    "space_id": "pd",
+    "time_id": "latest",
+    "attr_id": "basic",
+    "n_data_list": 182,
+    "file_size": 58027,
+    "value_key_list_str": "id;name;population;area;subs;supers;eqs;ints;centroid;centroid_altitude"
+  },
+  "gnd.latest.basic": {
+    "file": "gnd.latest.basic.tsv",
+    "table_name": "gnd.latest.basic",
+    "space_id": "gnd",
+    "time_id": "latest",
+    "attr_id": "basic",
+    "n_data_list": 14021,
+    "file_size": 2580047,
+    "value_key_list_str": "id;name;population;area;gnd_num;subs;supers;eqs;ints;centroid;centroid_altitude"
+  },
+  "regions_ec.2015_election_presidential.result": {
+    "file": "regions_ec.2015_election_presidential.result.tsv",
+    "table_name": "regions_ec.2015_election_presidential.result",
+    "space_id": "regions_ec",
+    "time_id": "2015_election_presidential",
+    "attr_id": "result",
+    "n_data_list": 213,
+    "file_size": 22881,
+    "value_key_list_str": "I-AMI;UPF;DNM;SLNF;USP;AACAAKO;SEP;FSP;SLLP;NDF;ULPP;I-AP;JSP;NSH;PNF;UPFA;ONF;NSSP;ULGC"
+  },
+  "regions_ec.1982_election_presidential.result": {
+    "file": "regions_ec.1982_election_presidential.result.tsv",
+    "table_name": "regions_ec.1982_election_presidential.result",
+    "space_id": "regions_ec",
+    "time_id": "1982_election_presidential",
+    "attr_id": "result",
+    "n_data_list": 213,
+    "file_size": 14444,
+    "value_key_list_str": "UNP;SLFP;JVP;LSSP;ACTC;NSSP"
+  },
+  "regions.2012_census.occupation_status_of_housing_units": {
+    "file": "regions.2012_census.occupation_status_of_housing_units.tsv",
+    "table_name": "regions.2012_census.occupation_status_of_housing_units",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "occupation_status_of_housing_units",
+    "n_data_list": 15205,
+    "file_size": 445615,
+    "value_key_list_str": "occupied;vacant"
+  },
+  "regions.2012_census.cooking_fuel_of_household": {
+    "file": "regions.2012_census.cooking_fuel_of_household.tsv",
+    "table_name": "regions.2012_census.cooking_fuel_of_household",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "cooking_fuel_of_household",
+    "n_data_list": 15204,
+    "file_size": 689132,
+    "value_key_list_str": "fire_wood;kerosene;gas;electricity;saw_dust_or_paddy_husk;other"
+  },
+  "regions.2012_census.gender_of_population": {
+    "file": "regions.2012_census.gender_of_population.tsv",
+    "table_name": "regions.2012_census.gender_of_population",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "gender_of_population",
+    "n_data_list": 15208,
+    "file_size": 473971,
+    "value_key_list_str": "male;female"
+  },
+  "regions.2012_census.relationship_to_household_head_of_population": {
+    "file": "regions.2012_census.relationship_to_household_head_of_population.tsv",
+    "table_name": "regions.2012_census.relationship_to_household_head_of_population",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "relationship_to_household_head_of_population",
+    "n_data_list": 15208,
+    "file_size": 1205127,
+    "value_key_list_str": "head;wife_or_husband;son_or_daughter;son_or_daughter_in_law;grandchild_or_great_grand_child;parent_of_head_or_spouse;other_relative;domestic_employee;boarder;non_relative;clergy;not_stated"
+  },
+  "regions.2012_census.structure_of_housing_units": {
+    "file": "regions.2012_census.structure_of_housing_units.tsv",
+    "table_name": "regions.2012_census.structure_of_housing_units",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "structure_of_housing_units",
+    "n_data_list": 15204,
+    "file_size": 876749,
+    "value_key_list_str": "single_house_single_floor;single_house_double_floor;single_house_more_than_2_floors;attached_house_or_annex;flat;condominium;twin_house;row_house_or_line_room;hut_or_shanty"
+  },
+  "regions.2012_census.religious_affiliation_of_population": {
+    "file": "regions.2012_census.religious_affiliation_of_population.tsv",
+    "table_name": "regions.2012_census.religious_affiliation_of_population",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "religious_affiliation_of_population",
+    "n_data_list": 15220,
+    "file_size": 722594,
+    "value_key_list_str": "buddhist;hindu;islam;roman_catholic;other_christian;other"
+  },
+  "dsd.latest.basic": {
+    "file": "dsd.latest.basic.tsv",
+    "table_name": "dsd.latest.basic",
+    "space_id": "dsd",
+    "time_id": "latest",
+    "attr_id": "basic",
+    "n_data_list": 331,
+    "file_size": 181963,
+    "value_key_list_str": "id;name;area;population;hasc;subs;supers;eqs;ints;centroid;centroid_altitude"
+  },
+  "moh.latest.basic": {
+    "file": "moh.latest.basic.tsv",
+    "table_name": "moh.latest.basic",
+    "space_id": "moh",
+    "time_id": "latest",
+    "attr_id": "basic",
+    "n_data_list": 333,
+    "file_size": 201645,
+    "value_key_list_str": "id;name;population;area;subs;supers;eqs;ints;centroid;centroid_altitude"
+  },
+  "regions_ec.2005_election_presidential.result": {
+    "file": "regions_ec.2005_election_presidential.result.tsv",
+    "table_name": "regions_ec.2005_election_presidential.result",
+    "space_id": "regions_ec",
+    "time_id": "2005_election_presidential",
+    "attr_id": "result",
+    "n_data_list": 216,
+    "file_size": 18901,
+    "value_key_list_str": "UNP;UPFA;USP;ULPP;JSP;NLF;ULF;RPP;SLNF;SEP;DUA;SLPF;UNAF"
+  },
+  "regions.2012_census.lighting_of_household": {
+    "file": "regions.2012_census.lighting_of_household.tsv",
+    "table_name": "regions.2012_census.lighting_of_household",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "lighting_of_household",
+    "n_data_list": 15204,
+    "file_size": 688799,
+    "value_key_list_str": "electricity_national_electricity_network;electricity_rural_hydro_electricity_projects;kerosene;solar_power;bio_gas;other"
+  },
+  "regions.2012_census.wall_type_in_housing_units": {
+    "file": "regions.2012_census.wall_type_in_housing_units.tsv",
+    "table_name": "regions.2012_census.wall_type_in_housing_units",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "wall_type_in_housing_units",
+    "n_data_list": 15204,
+    "file_size": 833523,
+    "value_key_list_str": "brick;cement_block_or_stone;cabook;soil_bricks;mud;cadjan_or_palmyrah;plank_or_metal_sheet;other"
+  },
+  "district.latest.basic": {
+    "file": "district.latest.basic.tsv",
+    "table_name": "district.latest.basic",
+    "space_id": "district",
+    "time_id": "latest",
+    "attr_id": "basic",
+    "n_data_list": 25,
+    "file_size": 6982,
+    "value_key_list_str": "id;name;area;population;hasc;fips;subs;supers;eqs;ints;centroid;centroid_altitude"
+  },
+  "regions.2012_census.communication_items_owned_by_household": {
+    "file": "regions.2012_census.communication_items_owned_by_household.tsv",
+    "table_name": "regions.2012_census.communication_items_owned_by_household",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "communication_items_owned_by_household",
+    "n_data_list": 15204,
+    "file_size": 1469428,
+    "value_key_list_str": "radio;tv;fixed_tp;mobile;pc;laptop;fax"
+  },
+  "regions_ec.2010_election_presidential.result": {
+    "file": "regions_ec.2010_election_presidential.result.tsv",
+    "table_name": "regions_ec.2010_election_presidential.result",
+    "space_id": "regions_ec",
+    "time_id": "2010_election_presidential",
+    "attr_id": "result",
+    "n_data_list": 218,
+    "file_size": 25322,
+    "value_key_list_str": "UPFA;NDF;SLLP;DUNF;UDF;JSP;Ind 1;LF;ONF;NSH;Ind 3;Ind 5;USP;Ind 2;SEP;JP;NA;Ind 4;UNAF;RPP;PNF;ACAKO"
+  },
+  "ed.latest.basic": {
+    "file": "ed.latest.basic.tsv",
+    "table_name": "ed.latest.basic",
+    "space_id": "ed",
+    "time_id": "latest",
+    "attr_id": "basic",
+    "n_data_list": 22,
+    "file_size": 5551,
+    "value_key_list_str": "id;name;population;area;subs;supers;eqs;ints;centroid;centroid_altitude"
+  },
+  "regions.2012_census.living_quarters": {
+    "file": "regions.2012_census.living_quarters.tsv",
+    "table_name": "regions.2012_census.living_quarters",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "living_quarters",
+    "n_data_list": 15208,
+    "file_size": 492617,
+    "value_key_list_str": "housing_unit;collective_living_quarter;non_housing_unit"
+  },
+  "regions.2012_census.floor_type_in_housing_unit": {
+    "file": "regions.2012_census.floor_type_in_housing_unit.tsv",
+    "table_name": "regions.2012_census.floor_type_in_housing_unit",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "floor_type_in_housing_unit",
+    "n_data_list": 15204,
+    "file_size": 773284,
+    "value_key_list_str": "cement;tile_or_granite_or_terrazo;mud;wood;sand;concrete;other"
+  },
+  "regions.2012_census.ethnicity_of_population": {
+    "file": "regions.2012_census.ethnicity_of_population.tsv",
+    "table_name": "regions.2012_census.ethnicity_of_population",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "ethnicity_of_population",
+    "n_data_list": 15220,
+    "file_size": 897209,
+    "value_key_list_str": "sinhalese;sri_lankan_tamil;indian_tamil;moor;burgher;malay;chetty;bharatha;other"
+  },
+  "regions_ec.1994_election_presidential.result": {
+    "file": "regions_ec.1994_election_presidential.result.tsv",
+    "table_name": "regions_ec.1994_election_presidential.result",
+    "space_id": "regions_ec",
+    "time_id": "1994_election_presidential",
+    "attr_id": "result",
+    "n_data_list": 213,
+    "file_size": 14320,
+    "value_key_list_str": "PA;UNP;SMBP;Ind 1;Ind 2;SLPF"
+  },
+  "lg.latest.basic": {
+    "file": "lg.latest.basic.tsv",
+    "table_name": "lg.latest.basic",
+    "space_id": "lg",
+    "time_id": "latest",
+    "attr_id": "basic",
+    "n_data_list": 338,
+    "file_size": 199126,
+    "value_key_list_str": "id;name;lg_type;population;area;subs;supers;eqs;ints;centroid;centroid_altitude"
+  },
+  "province.latest.basic": {
+    "file": "province.latest.basic.tsv",
+    "table_name": "province.latest.basic",
+    "space_id": "province",
+    "time_id": "latest",
+    "attr_id": "basic",
+    "n_data_list": 9,
+    "file_size": 1439,
+    "value_key_list_str": "id;name;area;population;province_capital;fips;subs;supers;eqs;ints;centroid;centroid_altitude"
+  },
+  "regions.2012_census.toilet_facilities_of_household": {
+    "file": "regions.2012_census.toilet_facilities_of_household.tsv",
+    "table_name": "regions.2012_census.toilet_facilities_of_household",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "toilet_facilities_of_household",
+    "n_data_list": 15204,
+    "file_size": 690477,
+    "value_key_list_str": "water_seal_and_connected_to_a_piped_sewer_system;water_seal_and_connected_to_a_septic_tank;pour_flush_toilet_not_water_seal;direct_pit;other;not_using_a_toilet"
+  },
+  "regions.2012_census.roof_type_in_housing_unit": {
+    "file": "regions.2012_census.roof_type_in_housing_unit.tsv",
+    "table_name": "regions.2012_census.roof_type_in_housing_unit",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "roof_type_in_housing_unit",
+    "n_data_list": 15204,
+    "file_size": 777864,
+    "value_key_list_str": "tile;asbestos;concrete;zink_aluminium_sheet;metal_sheet;cadjan_or_palmyrah_or_straw;other"
+  },
+  "regions_ec.1988_election_presidential.result": {
+    "file": "regions_ec.1988_election_presidential.result.tsv",
+    "table_name": "regions_ec.1988_election_presidential.result",
+    "space_id": "regions_ec",
+    "time_id": "1988_election_presidential",
+    "attr_id": "result",
+    "n_data_list": 209,
+    "file_size": 11698,
+    "value_key_list_str": "UNP;SLFP;SLMP"
+  },
+  "regions.2012_census.rooms_in_housing_unit": {
+    "file": "regions.2012_census.rooms_in_housing_unit.tsv",
+    "table_name": "regions.2012_census.rooms_in_housing_unit",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "rooms_in_housing_unit",
+    "n_data_list": 15204,
+    "file_size": 1011590,
+    "value_key_list_str": "1_room;2_rooms;3_rooms;4_rooms;5_rooms;6_rooms;7_rooms;8_rooms;9_rooms;10_and_above"
+  },
+  "regions.2012_census.age_group_of_population": {
+    "file": "regions.2012_census.age_group_of_population.tsv",
+    "table_name": "regions.2012_census.age_group_of_population",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "age_group_of_population",
+    "n_data_list": 15208,
+    "file_size": 1121571,
+    "value_key_list_str": "less_than_10;10_19;20_29;30_39;40_49;50_59;60_69;70_79;80_89;90_and_above"
+  },
+  "country.latest.basic": {
+    "file": "country.latest.basic.tsv",
+    "table_name": "country.latest.basic",
+    "space_id": "country",
+    "time_id": "latest",
+    "attr_id": "basic",
+    "n_data_list": 1,
+    "file_size": 86,
+    "value_key_list_str": "id;name;area;population;hasc;fips"
+  },
+  "regions.2012_census.marital_status_of_population": {
+    "file": "regions.2012_census.marital_status_of_population.tsv",
+    "table_name": "regions.2012_census.marital_status_of_population",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "marital_status_of_population",
+    "n_data_list": 15208,
+    "file_size": 880050,
+    "value_key_list_str": "never_married;married_registered;married_customary;widowed;divorced;legally_separated;separated_not_legally;not_stated"
+  },
+  "regions.2012_census.year_of_construction_of_housing_unit": {
+    "file": "regions.2012_census.year_of_construction_of_housing_unit.tsv",
+    "table_name": "regions.2012_census.year_of_construction_of_housing_unit",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "year_of_construction_of_housing_unit",
+    "n_data_list": 15204,
+    "file_size": 1170511,
+    "value_key_list_str": "2011;2010;2009;2008;2007;2006;2005;2000_2004;1995_1999;1990_1994;1980_1989;before_80"
+  },
+  "regions.2012_census.households_living_in_housing_unit": {
+    "file": "regions.2012_census.households_living_in_housing_unit.tsv",
+    "table_name": "regions.2012_census.households_living_in_housing_unit",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "households_living_in_housing_unit",
+    "n_data_list": 15204,
+    "file_size": 613239,
+    "value_key_list_str": "1_household;2_households;3_households;4_households;5_or_more"
+  },
+  "regions.2012_census.type_of_housing_unit": {
+    "file": "regions.2012_census.type_of_housing_unit.tsv",
+    "table_name": "regions.2012_census.type_of_housing_unit",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "type_of_housing_unit",
+    "n_data_list": 15204,
+    "file_size": 569224,
+    "value_key_list_str": "permanent;semi_permanent;improvised;unclassified"
+  },
+  "regions.2012_census.housing_ownership_status_of_household": {
+    "file": "regions.2012_census.housing_ownership_status_of_household.tsv",
+    "table_name": "regions.2012_census.housing_ownership_status_of_household",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "housing_ownership_status_of_household",
+    "n_data_list": 15204,
+    "file_size": 699228,
+    "value_key_list_str": "owned_by_a_household_member;rent_or_lease_government_owned;rent_or_lease_privately_owned;occupied_free_of_rent;encroached;other"
+  },
+  "regions.2012_census.total_population": {
+    "file": "regions.2012_census.total_population.tsv",
+    "table_name": "regions.2012_census.total_population",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "total_population",
+    "n_data_list": 15220,
+    "file_size": 281947,
+    "value_key_list_str": ""
+  },
+  "regions.2012_census.solid_waste_disposal_by_household": {
+    "file": "regions.2012_census.solid_waste_disposal_by_household.tsv",
+    "table_name": "regions.2012_census.solid_waste_disposal_by_household",
+    "space_id": "regions",
+    "time_id": "2012_census",
+    "attr_id": "solid_waste_disposal_by_household",
+    "n_data_list": 15204,
+    "file_size": 712055,
+    "value_key_list_str": "collected_by_local_authorities;occupants_burn;occupants_bury;occupants_composting_solid_waste;occupants_dispose_solid_waste_into_road_or_river_or_canal_or_sea_or_creek_or_forest_etc;other"
+  }
+}

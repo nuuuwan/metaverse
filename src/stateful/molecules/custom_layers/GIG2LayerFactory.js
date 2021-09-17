@@ -12,7 +12,7 @@ export default class GIG2LayerFactory {
       }
 
       static getLabel() {
-        const [spaceID, timeID, attrID] = tableName.split('.').splice(0, 3);
+        const [spaceID, timeID, attrID] = tableName.split(".").splice(0, 3);
         return StringX.toTitleCase(`${attrID} - ${timeID}`);
       }
 
