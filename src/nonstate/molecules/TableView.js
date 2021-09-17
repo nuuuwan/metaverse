@@ -1,11 +1,13 @@
 import MathX from "../../base/MathX.js";
 import StringX from "../../base/StringX.js";
 import GIG2 from "../../base/GIG2.js";
+import SourceView from "../../nonstate/atoms/SourceView.js";
+import './TableView.css';
 
 const MIN_DISPLAY_VALUE = 0.01;
 
 export default function TableView(props) {
-  const { data } = props;
+  const { data, source } = props;
   const tableRow = data.censusData;
   const valueCellKeys = GIG2.filterValueCellKeys(tableRow);
   const values = valueCellKeys.map((valueCellKey) => tableRow[valueCellKey]);
@@ -46,6 +48,9 @@ export default function TableView(props) {
           );
         })}
       </tbody>
+      <tfooter className="tfooter-table-view">
+        <SourceView source={source} />
+      </tfooter>
     </table>
   );
 }

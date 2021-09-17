@@ -116,10 +116,11 @@ export default class GIG2Layer extends AbstractLayer {
 
   renderDataList() {
     const { dataList } = this.state;
+    const source = this.constructor.getSource();
 
     const renderCustom = function (iRegion) {
       const data = dataList[iRegion];
-      return <TableView data={data} />;
+      return <TableView data={data} source={source} />;
     };
 
     return dataList.map(
