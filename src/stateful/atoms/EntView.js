@@ -24,9 +24,7 @@ export default class EntView extends Component {
     }
     return (
       <div className="div-ent-name">
-        <div className="div-ent-type">
-          {Ents.getEntTypeLongName(entType)}
-        </div>
+        <div className="div-ent-type">{Ents.getEntTypeLongName(entType)}</div>
         <div className="div-ent-name">{ent.name}</div>
       </div>
     );

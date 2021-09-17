@@ -3,10 +3,7 @@ import GIG2LayerFactory from "./GIG2LayerFactory.js";
 
 const gig2LayerClasses = GIG2LayerFactory.getAll();
 
-export const CUSTOM_LAYERS = [].concat(
-  [LKVaxCentersLayer],
-  gig2LayerClasses
-);
+export const CUSTOM_LAYERS = [].concat([LKVaxCentersLayer], gig2LayerClasses);
 
 export const CUSTOM_LAYERS_INDEX = CUSTOM_LAYERS.reduce(function (
   CUSTOM_LAYERS_INDEX,

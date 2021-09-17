@@ -9,8 +9,8 @@ export const ENT = {
   GND: "gnd",
   PD: "pd",
   ED: "ed",
-  MOH: 'moh',
-  LG: 'lg',
+  MOH: "moh",
+  LG: "lg",
   UNKNOWN: "unknown-entity",
 };
 
