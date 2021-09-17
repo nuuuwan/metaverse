@@ -88,3 +88,4 @@
   *  (2021-09-17-1042) React Lint [AUTO]
   *  (2021-09-17-1042) React Lint [AUTO]
   *  (2021-09-17-1054) Fixed regions bug
+  *  (2021-09-17-1059) Fixed missing regions for Postal Codes bug

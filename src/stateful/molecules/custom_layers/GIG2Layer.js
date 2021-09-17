@@ -31,16 +31,21 @@ export default class GIG2Layer extends AbstractLayer {
     const childIDs = await Ents.getChildIDs(parentRegionID, childRegionType);
     const tableIndex = await GIG2.getTableIndex(tableName);
 
-    const dataList = childIDs.map(function (childID) {
-      const tableRow = tableIndex[childID];
-      const color = GIG2.getTableRowColor(tableRow);
-      return {
-        regionID: childID,
-        regionType: childRegionType,
-        censusData: tableRow,
-        color: color,
-      };
-    });
+    const dataList = childIDs
+      .map(function (childID) {
+        const tableRow = tableIndex[childID];
+        if (!tableRow) {
+          return undefined;
+        }
+        const color = GIG2.getTableRowColor(tableRow);
+        return {
+          regionID: childID,
+          regionType: childRegionType,
+          censusData: tableRow,
+          color: color,
+        };
+      })
+      .filter((data) => data !== undefined);
     return dataList;
   }
 
