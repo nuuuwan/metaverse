@@ -13,7 +13,7 @@ export default function LegendView(props) {
     const metadata = METADATA_MAP[tableName];
     const valueKeyList = metadata.value_key_list_str.split(';');
     legendInfoList = valueKeyList.map(
-        (valueKey) => ({label: String.toTitleCase(valueKey), color: GIG2.getValueKeyColor(valueKey), opacity: 1})
+        (valueKey) => ({label: StringX.toTitleCase(valueKey), color: GIG2.getValueKeyColor(valueKey), opacity: 1})
     );
   } else {
     const sortedDataList = dataList.sort((a, b) => a.valueP - b.valueP);
