@@ -3,6 +3,7 @@ import GIG2 from "../../../base/GIG2.js";
 import StringX from "../../../base/StringX.js";
 import { METADATA_MAP } from "../../../constants/GIG2Constants.js";
 import TableView from "../../../nonstate/molecules/TableView.js";
+import LegendView from "../../../nonstate/molecules/LegendView.js";
 
 import AbstractLayer from "../AbstractLayer.js";
 import RegionGeo from "../RegionGeo.js";
@@ -175,5 +176,10 @@ export default class GIG2Layer extends AbstractLayer {
         );
       }.bind(this)
     );
+  }
+
+  renderLegend() {
+    const { dataList } = this.state;
+    return <LegendView dataList={dataList} tableName={this.constructor.getTableName() } displayMode={this.constructor.getDisplayMode()}/>;
   }
 }

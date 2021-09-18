@@ -52,11 +52,20 @@ export default class AbstractLayer extends Component {
     return null;
   }
 
+  renderLegend() {
+    return null;
+  }
+
   render() {
     const { dataList } = this.state;
     if (!dataList) {
       return null;
     }
-    return this.renderDataList();
+    return (
+      <>
+        {this.renderDataList()}
+        {this.renderLegend()}
+      </>
+    );
   }
 }
