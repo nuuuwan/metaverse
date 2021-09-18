@@ -5,6 +5,7 @@ import RegionTypePicker from "../../nonstate/atoms/RegionTypePicker.js";
 import LayerSelector from "./LayerSelector.js";
 // import EntView from "../atoms/EntView.js";
 import SourceView from "../../nonstate/atoms/SourceView.js";
+import LegendView from "../../nonstate/molecules/LegendView.js";
 
 import "./LayerMenuView.css";
 
@@ -56,6 +57,7 @@ export default class LayerMenuView extends Component {
               regionTypes={regionTypes}
             />
           ) : null}
+          <LegendView />
         </div>
       </div>
     );

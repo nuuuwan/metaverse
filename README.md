@@ -31,3 +31,4 @@
   *  (2021-09-17-1724) * Atom for Table Name / Display Mode
   *  (2021-09-17-1733) * Max aligned color
   *  (2021-09-17-1738) enabled tables
+  *  (2021-09-18-0908) Added LegendView Stub
