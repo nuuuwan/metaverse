@@ -102,7 +102,7 @@ export default class RegionGeo extends Component {
             </h2>
             {buttonShow}
             <hr />
-            {renderCustom(iRegion)}
+            {renderCustom(regionID, iRegion)}
           </Popup>
         </GeoJSON>
       </>

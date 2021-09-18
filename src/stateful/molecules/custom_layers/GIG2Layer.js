@@ -143,6 +143,7 @@ export default class GIG2Layer extends AbstractLayer {
     return dataList;
   }
 
+
   onClick(regionType, regionID) {
     this.setState(
       {
@@ -158,10 +159,16 @@ export default class GIG2Layer extends AbstractLayer {
 
   renderDataList() {
     const { dataList } = this.state;
+    const dataIndex = dataList.reduce(
+      function(dataIndex, data) {
+        dataIndex[data.regionID] = data;
+        return dataIndex;
+      }, {},
+    )
     const source = this.constructor.getSource();
 
-    const renderCustom = function (iRegion) {
-      const data = dataList[iRegion];
+    const renderCustom = function (regionID, iRegion) {
+      const data = dataIndex[regionID];
       return <TableView data={data} source={source} />;
     };
 
