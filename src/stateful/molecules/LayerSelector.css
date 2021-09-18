@@ -1,7 +1,7 @@
 .div-layer-selector {
 	overflow: scroll;
-	max-height: 50vh;
 	max-width: 200px;
+	max-height: 50vh;
 }
 
 .div-layer {

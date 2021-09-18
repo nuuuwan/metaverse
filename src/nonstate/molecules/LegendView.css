@@ -2,14 +2,14 @@
 	position: absolute;
 	bottom: 24px;
 	left: 24px;
-	margin: 12px;
 	z-index: 10000;
-	background: white;
+	margin: 12px;
 	padding: 12px;
 	border-radius: 6px;
+	background: white;
 	opacity: 0.9;
 }
 
-th {
+.th-label {
 	text-align: left;
 }

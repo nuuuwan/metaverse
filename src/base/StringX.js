@@ -60,8 +60,8 @@ export default class StringX {
     let color;
     if (p > 0.1) {
       color = "black";
-    // } else if (p > 0.01) {
-    //   color = "gray";
+      // } else if (p > 0.01) {
+      //   color = "gray";
     } else {
       color = "lightgray";
       // numPart = "<1%";

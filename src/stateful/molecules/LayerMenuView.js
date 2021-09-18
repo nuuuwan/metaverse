@@ -6,7 +6,6 @@ import LayerSelector from "./LayerSelector.js";
 // import EntView from "../atoms/EntView.js";
 import SourceView from "../../nonstate/atoms/SourceView.js";
 
-
 import "./LayerMenuView.css";
 
 export default class LayerMenuView extends Component {

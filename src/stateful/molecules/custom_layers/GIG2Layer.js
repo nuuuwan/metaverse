@@ -143,7 +143,6 @@ export default class GIG2Layer extends AbstractLayer {
     return dataList;
   }
 
-
   onClick(regionType, regionID) {
     this.setState(
       {
@@ -159,12 +158,10 @@ export default class GIG2Layer extends AbstractLayer {
 
   renderDataList() {
     const { dataList } = this.state;
-    const dataIndex = dataList.reduce(
-      function(dataIndex, data) {
-        dataIndex[data.regionID] = data;
-        return dataIndex;
-      }, {},
-    )
+    const dataIndex = dataList.reduce(function (dataIndex, data) {
+      dataIndex[data.regionID] = data;
+      return dataIndex;
+    }, {});
     const source = this.constructor.getSource();
 
     const renderCustom = function (regionID, iRegion) {
@@ -192,6 +189,12 @@ export default class GIG2Layer extends AbstractLayer {
 
   renderLegend() {
     const { dataList } = this.state;
-    return <LegendView dataList={dataList} tableName={this.constructor.getTableName() } displayMode={this.constructor.getDisplayMode()}/>;
+    return (
+      <LegendView
+        dataList={dataList}
+        tableName={this.constructor.getTableName()}
+        displayMode={this.constructor.getDisplayMode()}
+      />
+    );
   }
 }
