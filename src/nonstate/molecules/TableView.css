@@ -3,8 +3,6 @@
 }
 
 .div-color {
-	max-width: 24px;
-	max-height: 24px;
-	padding: 9px;
-	border-radius: 24px;
+	padding: 12px;
+	border-radius: 12px;
 }

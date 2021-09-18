@@ -62,13 +62,16 @@ export default class GIG2 {
     return maxValueKey;
   }
 
-  static getMaxValueP(dataList, valueKey) {
-    return dataList.reduce(function (maxValueP, tableRow) {
+  static getMinMaxValueP(dataList, valueKey) {
+    return dataList.reduce(function ([minValueP, maxValueP], tableRow) {
       const sumValue = GIG2.getSumValues(tableRow);
       const value = tableRow[valueKey];
       const valueP = value / sumValue;
-      return Math.max(maxValueP, valueP);
-    }, 0);
+      return [
+        Math.min(minValueP, valueP),
+        Math.max(maxValueP, valueP),
+      ];
+    }, [1.0, 0.0]);
   }
 
   static getSumValues(tableRow) {
@@ -94,5 +97,14 @@ export default class GIG2 {
   static getTableRowColor(tableRow) {
     const maxValueKey = GIG2.getMaxValueKey(tableRow);
     return GIG2.getValueKeyColor(maxValueKey);
+  }
+
+  static getValuePToRankP(dataList, valueKey) {
+    const sortedValuePs = dataList.map(tableRow => GIG2.getValueKeyP(tableRow, valueKey)).sort();
+    const nValues = sortedValuePs.length;
+    return sortedValuePs.reduce(function(valuePToRankP, valueP, iValue) {
+      valuePToRankP[valueP] = iValue / nValues;
+      return valuePToRankP;
+    }, {});
   }
 }

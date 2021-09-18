@@ -35,9 +35,6 @@ export default class LayerMenuView extends Component {
     const LayerClass = selectedLayerClasses[0]; // TODO Fix!
     const regionTypes = LayerClass.getRegionTypes();
     const showRegionTypePicker = regionTypes.length > 0;
-    const displayMode = LayerClass.getDisplayMode();
-    const tableName = LayerClass.getTableName();
-
     // <EntView entID={parentRegionID} /> Removed Parent Region
 
     return (

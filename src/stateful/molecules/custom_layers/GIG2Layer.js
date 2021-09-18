@@ -10,6 +10,8 @@ import RegionGeo from "../RegionGeo.js";
 
 import "./GIG2Layer.css";
 
+const MIN_OPACITY = 0.1;
+
 export default class GIG2Layer extends AbstractLayer {
   static getTableName() {
     return "";
@@ -102,10 +104,10 @@ export default class GIG2Layer extends AbstractLayer {
       .map((childID) => tableIndex[childID])
       .filter((d) => d !== undefined);
 
-    let maxValueP = 1.0;
+    let valuePToRankP;
     if (displayMode !== "max") {
       const selectedValueKey = displayMode;
-      maxValueP = GIG2.getMaxValueP(tableDataList, selectedValueKey);
+      valuePToRankP = GIG2.getValuePToRankP(tableDataList, selectedValueKey);
     }
 
     const dataList = childIDs
@@ -116,14 +118,16 @@ export default class GIG2Layer extends AbstractLayer {
         }
         let color;
         let opacity;
+        let valueP;
         if (displayMode === "max") {
           color = GIG2.getTableRowColor(tableRow);
           opacity = 0.9;
         } else {
           const selectedValueKey = displayMode;
           color = GIG2.getValueKeyColor(selectedValueKey);
-          const valueP = GIG2.getValueKeyP(tableRow, selectedValueKey);
-          opacity = (valueP / maxValueP) * 0.99 + 0.01;
+          valueP = GIG2.getValueKeyP(tableRow, selectedValueKey);
+          const rankP = valuePToRankP[valueP];
+          opacity = rankP * (1 - MIN_OPACITY) + MIN_OPACITY;
         }
 
         return {
@@ -132,6 +136,7 @@ export default class GIG2Layer extends AbstractLayer {
           censusData: tableRow,
           color,
           opacity,
+          valueP,
         };
       })
       .filter((data) => data !== undefined && data.regionID.slice(-1) !== "P");

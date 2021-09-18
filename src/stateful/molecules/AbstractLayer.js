@@ -36,6 +36,14 @@ export default class AbstractLayer extends Component {
     return "AbstractLayer";
   }
 
+  static getDisplayMode() {
+    return "max";
+  }
+
+  static getTableName() {
+    return "";
+  }
+
   static isMatch(text) {
     return this.getLabel().toLowerCase().includes(text.toLowerCase());
   }
