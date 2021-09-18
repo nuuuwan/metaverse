@@ -19,3 +19,8 @@
 .div-show:hover {
 	color: orange;
 }
+
+.leaflet-tile-pane {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}

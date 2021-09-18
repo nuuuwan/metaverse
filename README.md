@@ -35,3 +35,4 @@
   *  (2021-09-18-0929) Basic Legend
   *  (2021-09-18-1022) Completed Legend
   *  (2021-09-18-1023) Fixed StringX bug
+  *  (2021-09-18-1029) * Black & White Map
