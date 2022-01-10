@@ -5,13 +5,13 @@
 }
 
 .div-hide:hover {
-	color: gray;
+	color: black;
 }
 
 .div-show {
-	color: lightgray;
+	color: black;
 }
 
 .div-show:hover {
-	color: gray;
+	color: black;
 }

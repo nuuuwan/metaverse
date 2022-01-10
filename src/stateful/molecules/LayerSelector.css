@@ -6,7 +6,7 @@
 
 .div-layer {
 	padding: 3px;
-	color: lightgray;
+	color: black;
 	cursor: pointer;
 }
 
@@ -25,6 +25,6 @@
 	border: none;
 	border-radius: 6px;
 	background: #f8f8f8;
-	color: gray;
+	color: black;
 	outline: none;
 }
