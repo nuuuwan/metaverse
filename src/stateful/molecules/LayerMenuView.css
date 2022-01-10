@@ -30,7 +30,7 @@
 
 .div-layer-title {
 	padding-bottom: 6px;
-	color: gray;
+	color: black;
 	font-style: normal;
 	font-size: 200%;
 }
@@ -42,6 +42,6 @@
 
 .div-common-layer-header {
 	padding-top: 6px;
-	color: lightgray;
+	color: black;
 	font-size: 80%;
 }
